@@ -1,0 +1,126 @@
+*{
+    margin: auto;
+    padding: auto;
+    /*background-color:blue;*/
+}
+body{
+    background-color: #4887B0;
+}
+/*thanh bar hỗ trợ*/
+#bar {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0px 1px 25px black;
+}
+#bar>img{
+    position: absolute;
+    height: 85px;
+    left: 14%;
+    top: 0px;
+    
+    /*display: none;*/
+}
+#navbar {
+    padding-left: 70%;
+    padding-top: 1%;
+}
+#navbar li{
+    display: inline;
+}
+#navbar li a{
+    text-decoration: none;
+    color: #8E8741;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1em;
+    line-height: 26px;
+    
+    padding-left: 2em;
+}
+#navbar li a:hover {
+    color: yellow;
+}
+/*Phần đăng nhập*/
+#login {
+    position: relative;
+    background-image: url("../images/login1.png");
+
+    width: 1170px;
+    height: 657px;
+    left: 0px;
+    top: 62px;
+} /*backlogin*/
+/*form thông tin đăng nhập*/
+#thongtindn {
+    background-image: url('../images/khunglogin.png');
+    background-repeat: no-repeat;
+    height: 501px;
+    width: 397px;
+    position: absolute;
+    top: 63px;
+    left: 743px;
+}
+#thongtindn p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 33px;
+
+    position: absolute;
+    top: 68.58px;
+    left: 68px;
+    
+    color: #4887B0;
+    
+}
+#thongtindn form{
+    position: relative;
+    top: 141.92px;
+}
+.input1 {   /*phần tài khoản và mật khẩu*/
+    border: none;
+    background-color: #E7E7E7;
+    display: block;
+
+    padding: 10px 45px;
+}
+
+.input1[type="password"] {
+    margin-top: 40px;
+}
+
+#ghinho {  /*ô chọn ghi nhớ mật khẩu*/
+    position: relative;
+    margin-left: 75px;
+    margin-top: 20px;
+    display: inline;
+}
+#thongtindn label {   /*label cho checkbox ghi nhớ*/
+    padding-left: 0px;
+    display: inline;
+}
+#thongtindn form a{   /*Quên mật khẩu*/
+    display: block;
+    margin-left: 75px;
+    margin-top: 20px;
+
+    text-decoration: none;
+
+    color: black;
+}
+#thongtindn form input[type="submit"] {   /*submit đăng nhập*/
+    margin-left: 35%;
+    margin-top: 40px;
+    padding: 7px 25px;
+    
+    border: none;
+
+    background-color: #4887B0;
+    color: white;
+}
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CitizenV</title>
+        <meta charset="UTF-8">
+        <link href="client/styles/login.css" rel="stylesheet">
+    </head>
+    <body>
+        <!--Thanh hỗ trợ-->
+        <div id="bar">
+            <img src="client/images/citizen-v-bar.png">
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#">Diễn đàn</a></li>
+                    <li><a href="#">Hỗ trợ</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--Phần đăng nhập trang chủ-->
+        <div id="login">
+            <div id="thongtindn">
+                <p>Thông tin đăng nhập</p>
+                <form action="client/html/common.html">
+                    <!--Cần phần xử lý nếu nhập sai tài khoản hoặc mật khẩu -> xử lí backend-->
+                    <input type="text" name="taikhoan" placeholder="Tên tài khoản" class="input1">
+                    <input type="password" name="matkhau" placeholder="Mật khẩu" class="input1">
+                    <input type="checkbox" id="ghinho">
+                    <label for="ghinho">Ghi nhớ mật khẩu</label> <br>
+                    <a href="#">Quên mật khẩu</a>
+                    <input type="submit" value="Đăng nhập" id="buttonlg">
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="client/scripts/index.js"></script>
+    </body>
+</html>

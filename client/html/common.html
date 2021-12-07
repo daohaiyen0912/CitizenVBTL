@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CitizenV</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../styles/common.css">
+    </head>
+    <body>
+        <!--Thanh bar trên cùng-->
+        <div id='barTop'>
+            <img src="../images/citizen-v-bar.png">
+        </div>
+        <!--Thanh Menu dọc-->
+        <div id="menuVer">
+            <div id="account">
+                    <img>
+                    <h2>Cán bộ A1</h2>
+                    <h3>Tổng cục dân số</h3>
+            </div>
+            <nav id="menuBar">
+                <ul>
+                    <li id="TQ" onclick="tongquan()">
+                        Tổng quan
+                    </li>
+                    <li id="A2" onclick="A2()">
+                        Quản lí tài khoản A2
+                    </li>
+                    <li id="MT" onclick="matinh()">
+                        Quản lí mã tỉnh
+                    </li>
+                    <li id="DS" onclick="danso()">
+                        Quản lí dân số
+                    </li>
+                </ul>
+            </nav>
+            <div id="control">
+                <h2>Holy shit</h2>
+            </div>
+        </div>
+        <div id="content">
+            <div id="contentTongQuan">
+                <div id="chart">
+                    <canvas id="myCanvas"></canvas>
+                </div>
+                <div id="tableDS">
+                    <table id="danh-sach-tinh-thanh-pho">
+                        <tr class="title">
+                            <th>Danh sách tỉnh thành phố</th>
+                        </tr>
+                        <tr class="head"> 
+                            <td>Mã tỉnh/thành phố</td>
+                            <td>Tên tỉnh/thành phố</td>
+                            <td>Chi tiết số lượng dân</td>
+                            <td>Tiến độ nhập liệu</td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>200.000đ
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="contentQuanLiA2">
+                <div id="header">
+                    <form id="capquyen">
+                        <label for="taikhoan">Tên tài khoản:</label>
+                        <input type="text" name="taikhoan">
+                        <label>Thời điểm khai báo</label>
+                        <label for="start">Từ</label>
+                        <input type="date" name="start">
+                        <label for="finish">Đến</label>
+                        <input type="date" name="finish">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../scripts/common.js"></script>
+    </body>
+</html>

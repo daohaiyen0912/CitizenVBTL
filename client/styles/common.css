@@ -1,0 +1,150 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body {
+    background-color: #F1E9DF;
+}
+
+/*Thanh bar quản lý*/
+#barTop{
+    z-index: 1;
+    position:fixed;
+    top:0;
+
+    background-color: #4887B0;
+
+    height: 64px;
+    width: 100%;
+
+    box-shadow: 0px 11px 8px rgba(0, 0, 0, 0.25);
+}
+#barTop img {
+    margin-left: 1207.38px;
+}
+
+/*Menu dọc*/
+#menuVer {
+    position: fixed;
+    top:50px;
+
+    background-color: #4581A8;
+    width: 292px;
+    height: 100%;
+}
+
+#account {  /*Khung account*/
+    height: 184px;
+    text-align: center;
+    background-color: #00284278;
+}
+#account h2 {
+    color: white;
+}
+
+#menuBar {  
+    height: 492px;
+}
+#menuBar ul{
+    text-align: center;
+    margin-top: 10%;
+}
+#menuBar ul li{
+    width: 100%;
+    height: 58px;  
+    padding-top:7%;
+    border-radius: 10px;
+
+    color: #ECDA9B;
+    text-decoration: none;
+    font-size: 18px;
+}
+#menuBar ul li a{
+    color: #ECDA9B;
+    text-decoration: none;
+    font-size: 18px;
+}
+#menuBar ul li a:focus{
+    background-color:rgba(0, 40, 66, 0.48);
+}
+#menuBar ul li:hover{
+    background-color:rgba(0, 40, 66, 0.48);
+    cursor:pointer;
+}
+
+
+/*Thanh control*/
+#control {
+    position: absolute;
+    bottom: 50px;
+
+    background-color: #8E8741;
+    height: 64px;
+    width: 100%;
+}
+
+/*Bảng dữ liệu danh sách tỉnh thành phố*/
+#danh-sach-tinh-thanh-pho {
+    position: absolute;
+    width: 1091px;
+    font-size: 17px;
+    left: 23%;
+}
+#danh-sach-tinh-thanh-pho tr.title{
+    background-color: #4581A8;
+    width: 100%;
+    height: 50px;
+    color: white;
+}
+#danh-sach-tinh-thanh-pho tr.head{
+    background-color: #B58B57;
+    height: 48px;
+    text-align: center;
+    color: white;
+}
+#danh-sach-tinh-thanh-pho tr.information {
+    background-color: white;
+    height: 48px;
+    text-align: center;    
+}
+#danh-sach-tinh-thanh-pho tr.information button.detail {
+    background-color: #8E8741;
+    color: white;
+
+    border-radius: 7px;
+    border: 0px;
+
+    width: 76px;
+    height: 29px;
+    
+}
+#danh-sach-tinh-thanh-pho tr.information button.detail:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+/*Biểu đồ phân tích dữ liệu*/
+#chart {
+    background-color: white;
+    height:324px;
+    width: 1088px;
+
+    margin-left: 350px;
+    margin-bottom: 50px;
+}
+
+#contentTongQuan {
+    padding-top: 100px;
+}
+
+#contentQuanLiA2 {
+    display: none;
+}
+#header {
+    position: relative;
+    left: 50%;
+}
+#header form input{
+    display: block;
+}
