@@ -45,9 +45,12 @@
                     <canvas id="myCanvas"></canvas>
                 </div>
                 <div id="tableDS">
-                    <table id="danh-sach-tinh-thanh-pho">
+                    <table class="danh-sach-tinh-thanh-pho">
                         <tr class="title">
                             <th>Danh sách tỉnh thành phố</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         <tr class="head"> 
                             <td>Mã tỉnh/thành phố</td>
@@ -257,7 +260,7 @@
             <!--Content Quản Lí A2-->
             <div id="contentQuanLiA2">
                 <div id="header">
-                    <h2>Cấp quyền nhập liệu</h2>
+                    <h3>Cấp quyền nhập liệu</h3>
                     <form id="capquyen">
                         <label for="taikhoan">Tên tài khoản:</label>
                         <input type="text" name="taikhoan">
@@ -267,10 +270,102 @@
                         <label for="finish">Đến</label>
                         <input type="date" name="finish">
                     </form>
-
+                    <div id="tiendo">
+                        <h3>Tiến độ khai báo</h3>
+                    </div>
+                </div>
+                <div id="below">
+                    <table class="danh-sach-tinh-thanh-pho">
+                        <tr class="title">
+                            <th>Danh sách tài khoản A2 
+                                <span>
+                                    <button>Cấp tài khoản mới</button>
+                                </span>
+                            </th>
+                        </tr>
+                        <tr class="head"> 
+                            <td>Mã tỉnh/thành phố</td>
+                            <td>Tên tỉnh/thành phố</td>
+                            <td>Họ tên cán bộ</td>
+                            <td>Nhiệm kỳ</td>
+                            <td>Tiến độ nhập liệu</td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>Nguyễn Văn A
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>
+                                2019-2021
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>Nguyễn Văn A
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>
+                                2019-2021
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>Nguyễn Văn A
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>
+                                2019-2021
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>Nguyễn Văn A
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                            <td>
+                                2019-2021
+                            </td>
+                            <td>Hoàn thành
+                                <span>
+                                    <button class="detailTienDo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--chưa xử lí css cho header-->
                 </div>
             </div>
-
+            <!--Content Quản lí mã tỉnh-->
+            <div id="contentQuanLiMaTinh">
+                
+            </div>
         </div>
         <script type="text/javascript" src="../scripts/common.js"></script>
     </body>

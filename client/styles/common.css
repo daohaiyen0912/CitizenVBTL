@@ -84,31 +84,31 @@ body {
     width: 100%;
 }
 
-/*Bảng dữ liệu danh sách tỉnh thành phố*/
-#danh-sach-tinh-thanh-pho {
+/*Bảng dữ liệu*/
+.danh-sach-tinh-thanh-pho {
     position: absolute;
     width: 1091px;
     font-size: 17px;
     left: 23%;
 }
-#danh-sach-tinh-thanh-pho tr.title{
+.danh-sach-tinh-thanh-pho tr.title{
     background-color: #4581A8;
     width: 100%;
     height: 50px;
     color: white;
 }
-#danh-sach-tinh-thanh-pho tr.head{
+.danh-sach-tinh-thanh-pho tr.head{
     background-color: #B58B57;
     height: 48px;
     text-align: center;
     color: white;
 }
-#danh-sach-tinh-thanh-pho tr.information {
+.danh-sach-tinh-thanh-pho tr.information {
     background-color: white;
     height: 48px;
     text-align: center;    
 }
-#danh-sach-tinh-thanh-pho tr.information button.detail {
+.danh-sach-tinh-thanh-pho tr.information button.detail {
     background-color: #8E8741;
     color: white;
 
@@ -119,7 +119,7 @@ body {
     height: 29px;
     
 }
-#danh-sach-tinh-thanh-pho tr.information button.detail:hover {
+.danh-sach-tinh-thanh-pho tr.information button.detail:hover {
     background-color: yellow;
     cursor: pointer;
 }
