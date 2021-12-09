@@ -22,7 +22,7 @@
                     <li id="TQ" onclick="tongquan()">
                         Tổng quan
                     </li>
-                    <li id="A2" onclick="A2()">
+                    <li id="A2" onclick="quanliA2()">
                         Quản lí tài khoản A2
                     </li>
                     <li id="MT" onclick="matinh()">
@@ -37,7 +37,9 @@
                 <h2>Holy shit</h2>
             </div>
         </div>
+        <!--Phần bên nội dung chính-->
         <div id="content">
+            <!--Content Tổng quan-->
             <div id="contentTongQuan">
                 <div id="chart">
                     <canvas id="myCanvas"></canvas>
@@ -252,8 +254,10 @@
                     </table>
                 </div>
             </div>
+            <!--Content Quản Lí A2-->
             <div id="contentQuanLiA2">
                 <div id="header">
+                    <h2>Cấp quyền nhập liệu</h2>
                     <form id="capquyen">
                         <label for="taikhoan">Tên tài khoản:</label>
                         <input type="text" name="taikhoan">
@@ -266,6 +270,7 @@
 
                 </div>
             </div>
+
         </div>
         <script type="text/javascript" src="../scripts/common.js"></script>
     </body>
