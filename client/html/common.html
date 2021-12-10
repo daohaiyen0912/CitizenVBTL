@@ -259,23 +259,29 @@
             </div>
             <!--Content Quản Lí A2-->
             <div id="contentQuanLiA2">
+                <!--Phần trên-->
                 <div id="header">
-                    <h3>Cấp quyền nhập liệu</h3>
-                    <form id="capquyen">
-                        <label for="taikhoan">Tên tài khoản:</label>
-                        <input type="text" name="taikhoan">
-                        <label>Thời điểm khai báo</label>
-                        <label for="start">Từ</label>
-                        <input type="date" name="start">
-                        <label for="finish">Đến</label>
-                        <input type="date" name="finish">
-                    </form>
+                    <div id="capquyen">
+                        <h3>Cấp quyền nhập liệu</h3> <br>
+                        <form action="#">
+                            <label for="taikhoan">Tên tài khoản:</label>
+                            <input type="text" name="taikhoan"> <br>
+                            <label>Thời điểm khai báo:</label>
+                            <label for="start">Từ</label>
+                            <input type="date" name="start">
+                            <label for="finish">Đến</label>
+                            <input type="date" name="finish"> <br>
+                            <button id='btnDatLai' class='btn'>Đặt lại</button>
+                            <button id='btnCapQuyen' class='btn'>Cấp quyền</button>
+                        </form>
+                    </div>
                     <div id="tiendo">
                         <h3>Tiến độ khai báo</h3>
                     </div>
                 </div>
+                <!--Phần dưới-->
                 <div id="below">
-                    <table class="danh-sach-tinh-thanh-pho">
+                    <table class="danh-sach-tinh-thanh-pho danh-sach-A2">
                         <tr class="title">
                             <th>Danh sách tài khoản A2 
                                 <span>
@@ -359,7 +365,6 @@
                             </td>
                         </tr>
                     </table>
-                    <!--chưa xử lí css cho header-->
                 </div>
             </div>
             <!--Content Quản lí mã tỉnh-->
