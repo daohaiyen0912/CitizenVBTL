@@ -151,6 +151,13 @@ body {
     display: none;
 }
 
+#contentQuanLiMaTinh {
+    display: none;
+}
+
+#contentQuanLiDanSo {
+    display: none;
+}
 
 /*Cấp quyền quản lí của A2*/
 #header {
@@ -217,7 +224,7 @@ body {
     background-color: #8E8741;
 
 }
-/*Tiến độ nhập liệu*/
+/*Tiến độ nhập liệu content Quản lí A2*/
 #tiendo {
     background-color: #FFFF;
     width: 340px;
@@ -249,3 +256,33 @@ body {
     background-color: yellow;
 }
 
+/*Quản lí Mã Tỉnh*/
+#tableDSTinh {
+    position: absolute;
+    top: 50%;
+    left: 23%
+}
+#adver {
+    position: absolute;
+    top: 15%;
+    left: 23%;
+
+    display: table;
+
+    vertical-align: middle;
+
+    height: 181px;
+    width: 1089px;
+
+    background-color: rgba(3,82,134);
+    opacity: 47%;
+}
+#adver div {
+    display: table-cell;
+    vertical-align: middle;
+}
+#adver p{
+    color: white;
+    font-size: 36px;
+
+}

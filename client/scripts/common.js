@@ -2,23 +2,49 @@
 function tongquan() {
     console.log('Hello world');
 
+    document.getElementById('contentQuanLiMaTinh').style.display = "none";
     document.getElementById('contentQuanLiA2').style.display = "none";
+    document.getElementById('contentQuanLiDanSo').style.display = "none";
     document.getElementById('tableDS').style.display = "block";
     document.getElementById('chart').style.display = "block";
 
     document.getElementById('A2').style.background = "none";
+    document.getElementById('MT').style.background = "none";
+    document.getElementById('DS').style.background = "none";
     document.getElementById('TQ').style.background = "rgba(0, 40, 66, 0.48)";
 }
 /*Menu chọn Quản lí A2 */
 function quanliA2() {
     console.log('Hi there');
+    document.getElementById('contentQuanLiMaTinh').style.display = "none";
     document.getElementById('tableDS').style.display = "none";
     document.getElementById('chart').style.display = "none";
+    document.getElementById('contentQuanLiDanSo').style.display = "none";
     document.getElementById('contentQuanLiA2').style.display = "inline";
 
+    document.getElementById('MT').style.background = "none";
     document.getElementById('TQ').style.background = "none";
+    document.getElementById('DS').style.background = "none";
     document.getElementById('A2').style.background = "rgba(0, 40, 66, 0.48)";
 }
+
+/*Menu chọn Quản lí mã tỉnh */
+function matinh() {
+    
+    document.getElementById('tableDS').style.display = "none";
+    document.getElementById('chart').style.display = "none";
+    document.getElementById('contentQuanLiA2').style.display = "none";
+    document.getElementById('contentQuanLiDanSo').style.display = "none";
+
+    document.getElementById('contentQuanLiMaTinh').style.display = "inline";
+
+    document.getElementById('A2').style.background = "none";
+    document.getElementById('TQ').style.background = "none";
+    document.getElementById('DS').style.background = "none";
+    document.getElementById('MT').style.background = "rgba(0, 40, 66, 0.48)";
+}
+
+
 
 /*Vẽ biểu đồ tròn liền - mẫu chưa sửa dữ liệu */
 var myCanvas = document.getElementById("myCanvas");
