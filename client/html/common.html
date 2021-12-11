@@ -34,7 +34,9 @@
                 </ul>
             </nav>
             <div id="control">
-                <h2>Holy shit</h2>
+                <button>
+                    <img src='../images/home.png'>
+                </button>
             </div>
         </div>
         <!--Phần bên nội dung chính-->
@@ -445,16 +447,37 @@
 
             <!--Content Quản lí dân số-->
             <div id="contentQuanLiDanSo">
-                <div id="chart">
-                    <canvas id="myCanvas"></canvas>
-                </div>
                 <div id='cuongDoCapNhat'>
                     <h4>Cường độ cập nhật</h4>
                 </div>
-                <div id="tableDanSo">
-                    
+                <div id="tableDSDanSo">
+                    <table class="danh-sach-tinh-thanh-pho">
+                        <tr class="title">
+                            <th>Danh sách tỉnh thành phố</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr class="head"> 
+                            <td>Mã tỉnh/thành phố</td>
+                            <td>Tên tỉnh/thành phố</td>
+                            <td>Họ tên cán bộ phụ trách</td>
+                            <td>Tổng số dân</td>
+                        </tr>
+                        <tr class="information">
+                            <td>01</td>
+                            <td>Phú Thọ</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>1.000.000
+                                <span>
+                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                </span>
+                            </td>
+                        </tr>
                 </div>
             </div>
+
+
         </div>
         <script type="text/javascript" src="../scripts/common.js"></script>
     </body>

@@ -85,6 +85,20 @@ body {
     height: 64px;
     width: 100%;
 }
+#control button {
+    background-color: none;
+    border: 0px;
+
+    text-align: center;
+}
+#control button img {
+    height: 35px;
+
+    position: absolute;
+    left:42%;
+}
+
+
 
 /*Bảng dữ liệu*/
 .danh-sach-tinh-thanh-pho {
@@ -285,4 +299,11 @@ body {
     color: white;
     font-size: 36px;
 
+}
+
+/*Quản lí Dân số*/
+#cuongDoCapNhat {
+    position: absolute;
+    left: 23%;
+    height: 80px;
 }

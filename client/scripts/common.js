@@ -44,6 +44,19 @@ function matinh() {
     document.getElementById('MT').style.background = "rgba(0, 40, 66, 0.48)";
 }
 
+function danso() {
+    document.getElementById('tableDS').style.display = "none";
+    document.getElementById('chart').style.display = "none";
+    document.getElementById('contentQuanLiA2').style.display = "none";
+    document.getElementById('contentQuanLiMaTinh').style.display = "none";
+    document.getElementById('contentQuanLiDanSo').style.display = "block";
+    document.getElementById('chart').style.display = "block";
+
+    document.getElementById('A2').style.background = "none";
+    document.getElementById('TQ').style.background = "none";
+    document.getElementById('MT').style.background = "none";
+    document.getElementById('DS').style.background = "rgba(0, 40, 66, 0.48)";
+}
 
 
 /*Vẽ biểu đồ tròn liền - mẫu chưa sửa dữ liệu */
