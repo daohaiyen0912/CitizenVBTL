@@ -216,3 +216,21 @@ document.getElementById('chart').style.display = "block";
 function detail() {
     
 }
+
+/*Đăng xuất */
+function logout() {
+    fetch("../../index.php/logout")
+	.then(resp => {
+		if (resp.status == 200) {
+			resp.json()
+			.then(ret => {
+				if (ret.status == "OK") {
+					if (ret.data == 1) {
+						document.location.href = "../../index.html";
+					} else {
+					}
+				}
+			});
+		}
+	});
+}

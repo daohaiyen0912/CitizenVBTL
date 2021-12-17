@@ -78,7 +78,7 @@ body{
     color: #4887B0;
     
 }
-#thongtindn form{
+#formLog{
     position: relative;
     top: 141.92px;
 }
@@ -104,7 +104,7 @@ body{
     padding-left: 0px;
     display: inline;
 }
-#thongtindn form a{   /*Quên mật khẩu*/
+#thongtindn .row a{   /*Quên mật khẩu*/
     display: block;
     margin-left: 75px;
     margin-top: 20px;
@@ -113,7 +113,7 @@ body{
 
     color: black;
 }
-#thongtindn form input[type="submit"] {   /*submit đăng nhập*/
+#thongtindn button {   /*submit đăng nhập*/
     margin-left: 35%;
     margin-top: 40px;
     padding: 7px 25px;
@@ -123,4 +123,10 @@ body{
     background-color: #4887B0;
     color: white;
 }
+#thongtindn button:hover {
+    cursor: pointer;
+}
+
+/*Không hiển thị*/
+.nodisplay {display:none;}
 

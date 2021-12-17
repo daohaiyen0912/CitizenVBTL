@@ -20,17 +20,40 @@
         <div id="login">
             <div id="thongtindn">
                 <p>Thông tin đăng nhập</p>
-                <form action="client/html/common.html">
-                    <!--Cần phần xử lý nếu nhập sai tài khoản hoặc mật khẩu -> xử lí backend-->
+<!--                 <form action="Router.php" method="post">
+                    Cần phần xử lý nếu nhập sai tài khoản hoặc mật khẩu -> xử lí backend
                     <input type="text" name="taikhoan" placeholder="Tên tài khoản" class="input1">
                     <input type="password" name="matkhau" placeholder="Mật khẩu" class="input1">
                     <input type="checkbox" id="ghinho">
                     <label for="ghinho">Ghi nhớ mật khẩu</label> <br>
                     <a href="#">Quên mật khẩu</a>
-                    <input type="submit" value="Đăng nhập" id="buttonlg">
-                </form>
+                    <input type="submit" class="submit" value="Đăng nhập" id="buttonlg">
+                </form> -->
+                <div id="formLog">
+                    <div class="row">
+                        <input type="text" placeholder="Tên tài khoản" class="tsd input1"/> 
+                    </div>
+                    <div class="row">
+                        <input type="password" placeholder="Mật khẩu" class="mk input1" />
+                    </div>
+                    <div class="row nodisplay err-submit">
+                        <label>&nbsp;</label>
+                        <span class="err err-submit">Tên đăng nhập hoặc mật khẩu không đúng.</span>
+                    </div>
+                    <div class="row">
+                        <input type="checkbox" id="ghinho">
+                        <label for="ghinho">Ghi nhớ mật khẩu</label> <br>
+                    </div>
+                    <div class="row">
+                        <a href="#">Quên mật khẩu</a>
+                    </div>
+                    <div class="row">
+                        <label>&nbsp;</label>
+                        <button class="submit">Đăng nhập</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <script type="text/javascript" src="client/scripts/index.js"></script>
+        <script type="text/javascript" src="index.js"></script>
     </body>
 </html>
