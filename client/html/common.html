@@ -8,6 +8,11 @@
     <body>
         <!--Thanh bar trên cùng-->
         <div id='barTop'>
+            <div id="control">
+                <button>
+                    <img src='../images/home.png'>
+                </button>
+            </div>
             <img src="../images/citizen-v-bar.png">
         </div>
         <!--Thanh Menu dọc-->
@@ -20,17 +25,53 @@
             <nav id="menuBar">
                 <ul>
                     <li id="TQ" onclick="tongquan()">
-                        Tổng quan
-                    </li>
-                    <li id="A2" onclick="quanliA2()">
-                        Quản lí tài khoản A2
-                    </li>
+                        <span>
+                            <img class="iconMenu" src="../images/tongquan.png"/>
+                        </span>
+                        Tổng quan dân số
+                    </li> <br>
                     <li id="MT" onclick="matinh()">
-                        Quản lí mã tỉnh
-                    </li>
+                        <span>
+                            <img class="iconMenu" src="../images/matinh.png"/>
+                        </span>
+                        Cấp và quản lí mã
+                    </li> <br>
+                    <li id="A2" onclick="quanliA2()">
+                        <span>
+                            <img class="iconMenu" src="../images/taikhoan.png"/>
+                        </span>
+                        Cấp quyền và quản lí tài khoản
+                    </li> <br>
                     <li id="DS" onclick="danso()">
-                        Quản lí dân số
-                    </li>
+                        <span>
+                            <img class="iconMenu" src="../images/danso.png"/>
+                        </span>
+                        Quản lí thông tin dân số
+                    </li> <br>
+                    <li id="NL" onclick="nhaplieu()">
+                        <span>
+                            <img class="iconMenu" src="../images/nhaplieu.png"/>
+                        </span>
+                        Nhập liệu
+                    </li> <br>
+                    <li id="TD" onclick="tiendo()">
+                        <span>
+                            <img class="iconMenu" src="../images/tiendo.png"/>
+                        </span>
+                        Tiến độ nhập liệu
+                    </li> <br>
+                    <li id="IN" onclick="inphieu()">
+                        <span>
+                            <img class="iconMenu" src="../images/in.png"/>
+                        </span>
+                        In phiếu điều tra
+                    </li> <br>
+                    <li id="BC" onclick="baocao()">
+                        <span>
+                            <img class="iconMenu" src="../images/baocao.png"/>
+                        </span>
+                        Báo cáo điều tra
+                    </li> <br>
                 </ul>
             </nav>
             <div id="control">
@@ -47,14 +88,11 @@
                 <div id="chart">
                     <canvas id="myCanvas"></canvas>
                 </div>
-                <div id="tableDS">
+                <div id="tableDS" class="below">
                     <table class="danh-sach-tinh-thanh-pho">
-                        <tr class="title">
-                            <th>Danh sách tỉnh thành phố</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
+                        <div class="title">
+                            <p>Danh sách tỉnh thành phố</p>
+                        </div>
                         <tr class="head"> 
                             <td>Mã tỉnh/thành phố</td>
                             <td>Tên tỉnh/thành phố</td>
@@ -285,15 +323,11 @@
                     </div>
                 </div>
                 <!--Phần dưới-->
-                <div id="below">
+                <div class="below">
                     <table class="danh-sach-tinh-thanh-pho danh-sach-A2">
-                        <tr class="title">
-                            <th>Danh sách tài khoản A2 
-                                <span>
-                                    <button>Cấp tài khoản mới</button>
-                                </span>
-                            </th>
-                        </tr>
+                        <div class="title">
+                            <p>Danh sách tỉnh thành phố</p>
+                        </div>
                         <tr class="head"> 
                             <td>Mã tỉnh/thành phố</td>
                             <td>Tên tỉnh/thành phố</td>
