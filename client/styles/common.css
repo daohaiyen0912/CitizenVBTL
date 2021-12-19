@@ -13,7 +13,7 @@ body {
     position:fixed;
     top:0;
 
-    background-color: #4887B0;
+    background-color: #424266;
 
     height: 64px;
     width: 100%;
@@ -31,7 +31,9 @@ body {
     position: fixed;
     top:50px;
 
-    background-color: #4581A8;
+    background-color: #424266;
+    background-position: 47%;
+
     width: 270px;
     height: 100%;
 
@@ -44,7 +46,8 @@ body {
     width: 400px;
     text-align: center;
     vertical-align: center;
-    background-color: #00284278;
+    background-color: #808E95;
+    background-position: 47%;
 }
 .logout {  /*Nút thoát*/
 
@@ -80,6 +83,7 @@ body {
     list-style-type: none;
 
     font-size: 16px;
+    background-color: #424266;
 }
 /* #menuBar ul li a{
     color: #ECDA9B;
@@ -90,7 +94,7 @@ body {
     background-color:rgba(0, 40, 66, 0.48);
 } */
 #menuBar ul li:hover{
-    background-color:rgba(0, 40, 66, 0.48);
+    background-color:rgba(104, 104, 172, 0.48);
     cursor:pointer;
 }
 
@@ -102,16 +106,19 @@ body {
 
 /*Thanh control*/
 #control {
-    position: relative;
-    top: 1%;
-    right: 83%;
+    position: absolute;
+    top: 20%;
+    left: -15%;
 /* 
     background-color: #8E8741; */
 
     height: 100%;
     width: 20%;
 }
-#control button {
+#control a img {
+    height: 50%;
+}
+/* #control button {
     background-color: none;
     border: 0px;
 
@@ -124,7 +131,7 @@ body {
     left:50%;
     margin-top:50%;
     z-index: 1;
-}
+} */
 
 
 
@@ -136,7 +143,7 @@ body {
 
 }
 div.title{
-    background-color: #4581A8;
+    background-color: #1C204D;
     width: 1091px;
     height: 50px;
     color: white;
@@ -158,10 +165,11 @@ tr.title th {
 }
 
 .danh-sach-tinh-thanh-pho tr.head{
-    background-color: #B58B57;
+    background-color: #FFDA59;
+    ;
     height: 48px;
     text-align: center;
-    color: white;
+    color: #030B56;
 }
 .danh-sach-tinh-thanh-pho tr.information {
     background-color: white;
@@ -169,18 +177,11 @@ tr.title th {
     text-align: center;    
 }
 .danh-sach-tinh-thanh-pho tr.information button.detail {
-    background-color: #8E8741;
-    color: white;
-
-    border-radius: 7px;
-    border: 0px;
-
-    width: 76px;
-    height: 29px;
-    
+    background-color: white;
+    color: black;
+    border: none;
 }
 .danh-sach-tinh-thanh-pho tr.information button.detail:hover {
-    background-color: yellow;
     cursor: pointer;
 }
 
@@ -261,6 +262,7 @@ tr.title th {
 
 }
 
+/*Các nút button detail hay cấp quyền...*/
 .btn {
    height: 30px;
    width: 100px;
@@ -269,6 +271,11 @@ tr.title th {
    border: none;
 
    color: white;
+}
+.btnIn {
+    position: absolute;
+    top: 27%;
+    right: 10px;
 }
 .btn:hover {
     cursor: pointer;
@@ -282,6 +289,7 @@ tr.title th {
     background-color: #8E8741;
 
 }
+
 /*Tiến độ nhập liệu content Quản lí A2*/
 #tiendo {
     background-color: #FFFF;
@@ -359,4 +367,8 @@ tr.title th {
     position: absolute;
     left: 23%;
     height: 80px;
+}
+#tableDSDanSo {
+    position: absolute;
+    left: 23%;
 }

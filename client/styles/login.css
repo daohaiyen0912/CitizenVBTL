@@ -4,7 +4,7 @@
     /*background-color:blue;*/
 }
 body{
-    background-color: #4887B0;
+    background-color: #6868AC;
 }
 /*thanh bar hỗ trợ*/
 #bar {
@@ -32,7 +32,7 @@ body{
 }
 #navbar li a{
     text-decoration: none;
-    color: #8E8741;
+    color: #030B56;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -47,7 +47,7 @@ body{
 /*Phần đăng nhập*/
 #login {
     position: relative;
-    background-image: url("../images/login1.png");
+    background-image: url("../images/login2.png");
 
     width: 1170px;
     height: 657px;
@@ -58,11 +58,15 @@ body{
 #thongtindn {
     background-image: url('../images/khunglogin.png');
     background-repeat: no-repeat;
+    
     height: 501px;
     width: 397px;
+    
     position: absolute;
     top: 63px;
     left: 743px;
+
+    justify-content: center;
 }
 #thongtindn p {
     font-family: Roboto;
@@ -75,7 +79,7 @@ body{
     top: 68.58px;
     left: 68px;
     
-    color: #4887B0;
+    color: #5A5A96;
     
 }
 #formLog{
@@ -114,13 +118,17 @@ body{
     color: black;
 }
 #thongtindn button {   /*submit đăng nhập*/
-    margin-left: 35%;
+    margin-left: 22%;
     margin-top: 40px;
     padding: 7px 25px;
     
-    border: none;
+    width: 200px;
+    height: 40px;
 
-    background-color: #4887B0;
+    border: none;
+    border-radius: 6px;
+
+    background-color: #030B56;
     color: white;
 }
 #thongtindn button:hover {
