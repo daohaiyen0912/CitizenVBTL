@@ -1,32 +1,42 @@
-#contentTongQuan {
+#contentQuanLiDanSo {
     display: grid;
     grid-gap: 50px;
 
     grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
 }
 
+
 /*Biểu đồ phân tích dữ liệu*/
 #chart {
-    grid-row: 1/5;
-    margin-left: 10%;
+    grid-row: 1/6;
 
     background-color: white;
     height:324px;
     width: 1088px;
 
+    margin-left: 10%;
+
     border:1.5px solid #035286;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
-/*Bảng dữ liệu*/
-#tableDS {
-    grid-row: 5/13;
+#contentDS {
+    grid-row: 6/13;
     margin-left: 10%;
 }
+
+/*Quản lí Dân số*/
+#cuongDoCapNhat {
+    position: absolute;
+    left: 23%;
+    height: 80px;
+}
+/*Bảng dữ liệu*/
 .danh-sach-tinh-thanh-pho {
     position: absolute;
     width: 1091px;
     font-size: 17px;
+
 }
 div.title{
     background-color: #1C204D;

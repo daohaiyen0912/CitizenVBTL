@@ -1,88 +1,3 @@
-/*Menu chọn Tổng quan */
-function tongquan() {
-    console.log('Hello world');
-
-    document.getElementById('contentQuanLiMaTinh').style.display = "none";
-    document.getElementById('contentQuanLiA2').style.display = "none";
-    document.getElementById('contentQuanLiDanSo').style.display = "none";
-    document.getElementById('contentNhapLieu').style.display = "none";
-
-    document.getElementById('tableDS').style.display = "block";
-    document.getElementById('chart').style.display = "block";
-
-    document.getElementById('A2').style.background = "none";
-    document.getElementById('MT').style.background = "none";
-    document.getElementById('DS').style.background = "none";
-    
-    document.getElementById('TQ').style.background = "rgba(104, 104, 172, 0.48)";
-}
-/*Menu chọn Quản lí A2 */
-function quanliA2() {
-    console.log('Hi there');
-    document.getElementById('contentQuanLiMaTinh').style.display = "none";
-    document.getElementById('tableDS').style.display = "none";
-    document.getElementById('chart').style.display = "none";
-    document.getElementById('contentQuanLiDanSo').style.display = "none";
-    document.getElementById('contentNhapLieu').style.display = "none";
-
-    document.getElementById('contentQuanLiA2').style.display = "inline";
-
-    document.getElementById('MT').style.background = "none";
-    document.getElementById('TQ').style.background = "none";
-    document.getElementById('DS').style.background = "none";
-    document.getElementById('A2').style.background = "rgba(104, 104, 172, 0.48)";
-}
-
-/*Menu chọn Quản lí mã tỉnh */
-function matinh() {
-    
-    document.getElementById('tableDS').style.display = "none";
-    document.getElementById('chart').style.display = "none";
-    document.getElementById('contentQuanLiA2').style.display = "none";
-    document.getElementById('contentQuanLiDanSo').style.display = "none";
-    document.getElementById('contentNhapLieu').style.display = "none";
-
-    document.getElementById('contentQuanLiMaTinh').style.display = "inline";
-
-    document.getElementById('A2').style.background = "none";
-    document.getElementById('TQ').style.background = "none";
-    document.getElementById('DS').style.background = "none";
-    document.getElementById('MT').style.background = "rgba(104, 104, 172, 0.48)";
-}
-
-// Menu chọn quản lí dân số
-function danso() {
-    document.getElementById('tableDS').style.display = "none";
-    document.getElementById('chart').style.display = "none";
-    document.getElementById('contentQuanLiA2').style.display = "none";
-    document.getElementById('contentQuanLiMaTinh').style.display = "none";
-    document.getElementById('contentNhapLieu').style.display = "none";
-    document.getElementById('contentQuanLiDanSo').style.display = "block";
-    document.getElementById('chart').style.display = "block";
-
-    document.getElementById('A2').style.background = "none";
-    document.getElementById('TQ').style.background = "none";
-    document.getElementById('MT').style.background = "none";
-    document.getElementById('DS').style.background = "rgba(104, 104, 172, 0.48)";
-}
-
-// Menu chọn nhập liệu
-function nhaplieu() {
-    document.getElementById('tableDS').style.display = "none";
-    document.getElementById('chart').style.display = "none";
-    document.getElementById('contentQuanLiA2').style.display = "none";
-    document.getElementById('contentQuanLiMaTinh').style.display = "none";
-    document.getElementById('contentQuanLiDanSo').style.display = "none";
-    document.getElementById('chart').style.display = "none";
-    document.getElementById('contentNhapLieu').style.display = "inline";
-
-    document.getElementById('A2').style.background = "none";
-    document.getElementById('TQ').style.background = "none";
-    document.getElementById('MT').style.background = "none";
-    document.getElementById('DS').style.background = "none";
-    document.getElementById('NL').style.background = "rgba(104, 104, 172, 0.48)";
-}
-
 
 /*Vẽ biểu đồ tròn liền - mẫu chưa sửa dữ liệu */
 var myCanvas = document.getElementById("myCanvas");
@@ -236,11 +151,6 @@ var myPiechart = new Piechart(
  
 myPiechart.draw();
 document.getElementById('chart').style.display = "block";
-
-/*Phần Detail */
-function detail() {
-    
-}
 
 /*Đăng xuất */
 function logout() {

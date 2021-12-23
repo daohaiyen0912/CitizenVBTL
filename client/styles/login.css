@@ -138,3 +138,13 @@ body{
 /*Không hiển thị*/
 .nodisplay {display:none;}
 
+/* Hiện lỗi khi nhập tài khoản và mật khẩu */
+
+.row #loi_acc,
+.row #loi_psw,
+.row #loi {
+    color: red;
+    display: flex;
+    justify-content: center;
+}
+

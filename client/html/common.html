@@ -3,22 +3,26 @@
     <head>
         <title>CitizenV</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="../styles/allcommon.css">
         <link rel="stylesheet" href="../styles/common.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-
     </head>
     <body>
         <!--Thanh bar trên cùng-->
         <div id='barTop'>
             <div id="control">
                 <a href="#" class="logout" onclick={logout()}>
-                    <img src='../images/home.png'>
+                    <i class="fas fa-arrow-circle-left"></i>
+                </a>
+                <a href="common.html">
+                    <i class="fas fa-home"></i>
                 </a>
             </div>
             <img src="../images/citizen-v-bar1.png">
         </div>
         <!--Thanh Menu dọc-->
-        <div id="menuVer">
+        <!-- <div id="menuVer">
             <div id="account">
                     <img>
                     <h2>Cán bộ A1</h2>
@@ -76,597 +80,355 @@
                     </li> <br>
                 </ul>
             </nav>
-        </div>
-        <!--Phần bên nội dung chính-->
-        <div id="content">
-
-            <!--Content Tổng quan-->
-            <div id="contentTongQuan">
-                <div id="chart">
-                    <canvas id="myCanvas"></canvas>
+        </div> -->
+        <div id="container">
+            <div id="menuVer">
+                <div id="account">
+                        <img>
+                        <h2>Cán bộ A1</h2>
+                        <h3>Tổng cục dân số</h3>
                 </div>
-                <div id="tableDS" class="below">
-                    <table class="danh-sach-tinh-thanh-pho">
-                        <div class="title">
-                            <p>Danh sách tỉnh thành phố</p>
-                        </div>
-                        <tr class="head"> 
-                            <td>Mã tỉnh/thành phố</td>
-                            <td>Tên tỉnh/thành phố</td>
-                            <td>Chi tiết số lượng dân</td>
-                            <td>Tiến độ nhập liệu</td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000
+                <nav id="menuBar">
+                    <ul>
+                        <li id="TQ">
+                            <a href="common.html">
                                 <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
+                                    <i class="fas fa-globe"></i>
                                 </span>
-                            </td>
-                            <td>Hoàn thành
+                                Tổng quan dân số
+                            </a>
+                        </li> <br>
+                        <li id="MT">
+                            <a href="quanlimatinh.html">
                                 <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
+                                Cấp và quản lí mã cấp dưới
+                            </a>
+                        </li> <br>
+                        <li id="A2">
+                            <a href="quanliA2.html">
                                 <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
+                                    <i class="far fa-user-circle"></i>
                                 </span>
-                            </td>
-                            <td>Hoàn thành
+                                Cấp quyền và quản lí tài khoản
+                            </a>
+                        </li> <br>
+                        <li id="DS">
+                            <a href="quanlidanso.html">
                                 <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
+                                    <i class="fas fa-chart-bar"></i>
                                 </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
+                                Quản lí thông tin dân số
+                            </a>
+                        </li> <br>
+                        <li id="NL" onclick="nhaplieu()">
+                            <a href="nhaplieu.html">
                                 <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
+                                    <i class="fas fa-file-import"></i>
                                 </span>
-                            </td>
-                            <td>Hoàn thành
+                                Nhập liệu
+                            </a>
+                        </li> <br>
+                        <li id="TD">
+                            <a href="tiendo.html">
                                 <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
+                                    <i class="far fa-clock"></i>
                                 </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
+                                Tiến độ nhập liệu
+                            </a>
+                        </li> <br>
+                        <li id="IN">
+                            <a href="in.html">
                                 <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
+                                    <i class="fas fa-print"></i>
                                 </span>
-                            </td>
-                            <td>Hoàn thành
+                                In phiếu điều tra
+                            </a>
+                        </li> <br>
+                        <li id="BC">
+                            <a href="baocao.html">
                                 <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
+                                    <i class="fas fa-envelope-open-text"></i>
                                 </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>200.000đ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                                Báo cáo điều tra
+                            </a>
+                        </li> <br>
+                    </ul>
+                </nav>
             </div>
-            
-            
-            <!--Content Quản Lí A2-->
-            <div id="contentQuanLiA2">
-                <!--Phần trên-->
-                <div id="header">
-                    <div id="capquyen">
-                        <h3>Cấp quyền nhập liệu</h3> <br>
-                        <form action="#">
-                            <label for="taikhoan">Tên tài khoản:</label>
-                            <input type="text" name="taikhoan"> <br>
-                            <label>Thời điểm khai báo:</label>
-                            <label for="start">Từ</label>
-                            <input type="date" name="start">
-                            <label for="finish">Đến</label>
-                            <input type="date" name="finish"> <br>
-                            <button id='btnDatLai' class='btn'>Đặt lại</button>
-                            <button id='btnCapQuyen' class='btn'>Cấp quyền</button>
-                        </form>
+            <!--Phần bên nội dung chính-->
+            <div id="content">
+
+                <!--Content Tổng quan-->
+                <div id="contentTongQuan">
+                    <div id="chart">
+                        <canvas id="myCanvas"></canvas>
                     </div>
-                    <div id="tiendo">
-                        <h3>Cấp tài khoản</h3>
-                    </div>
-                </div>
-                <!--Phần dưới-->
-                <div class="below">
-                    <table class="danh-sach-tinh-thanh-pho danh-sach-A2">
-                        <div class="title">
-                            <p>Danh sách tỉnh thành phố</p>
-                        </div>
-                        <tr class="head"> 
-                            <td>Mã tỉnh/thành phố</td>
-                            <td>Tên tỉnh/thành phố</td>
-                            <td>Họ tên cán bộ</td>
-                            <td>Nhiệm kỳ</td>
-                            <td>Tiến độ nhập liệu</td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>Nguyễn Văn A
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="fas fa-user-edit"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>
-                                2019-2021
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>Nguyễn Văn A
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="fas fa-user-edit"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>
-                                2019-2021
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>Nguyễn Văn A
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="fas fa-user-edit"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>
-                                2019-2021
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>Nguyễn Văn A
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="fas fa-user-edit"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>
-                                2019-2021
-                            </td>
-                            <td>Hoàn thành
-                                <span>
-                                    <button class="detailTienDo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            
-            
-            <!--Content Quản lí mã tỉnh-->
-            <div id="contentQuanLiMaTinh">
-                <div id="adver">
-                    <div>
-                        <p>"Quản lí dân số dễ dàng hơn cùng CitizenV"</p>
-                    </div>
-                </div>
-                <div id='tableDSTinh'>
-                    <table class="danh-sach-tinh-thanh-pho">
-                        <div class="title">
-                            <p>Danh sách tỉnh thành phố</p>
-                            <span>
-                                <button class="btn btnIn">
-                                    Cấp mã tỉnh mới
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <tr class="head"> 
-                            <td>Mã tỉnh/thành phố</td>
-                            <td>Tên tỉnh/thành phố</td>
-                            <td>Họ tên cán bộ phụ trách</td>
-                            <td>Thời gian cập nhật mới nhất</td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Nguyễn Văn A</td>
-                            <td>12:00 19/12/2021</td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Nguyễn Văn A</td>
-                            <td>12:00 19/12/2021</td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Nguyễn Văn A</td>
-                            <td>12:00 19/12/2021</td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </span>
-                            </td>
-                            <td>Nguyễn Văn A</td>
-                            <td>12:00 19/12/2021</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-
-            <!--Content Quản lí dân số-->
-            <div id="contentQuanLiDanSo">
-                <div id='cuongDoCapNhat'>
-                    <h4>Cường độ cập nhật</h4>
-                </div>
-                <div id="tableDSDanSo">
-                    <table class="danh-sach-tinh-thanh-pho">
-                        <div class="title">
-                            <p>Danh sách tỉnh thành phố</p>
-                        </div>
-                        <tr class="head"> 
-                            <td>Mã tỉnh/thành phố</td>
-                            <td>Tên tỉnh/thành phố</td>
-                            <td>Họ tên cán bộ phụ trách</td>
-                            <td>Tổng số dân</td>
-                        </tr>
-                        <tr class="information">
-                            <td>01</td>
-                            <td>Phú Thọ</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>1.000.000
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
-                                </span>
-                            </td>
-                        </tr>
-                </div>
-                <div id="tableDSDanSo">
-                    <table class="danh-sach-tinh-thanh-pho">
-                        <div class="title">
-                            <p>Danh sách huyện/xã</p>
-                        </div>
-                        <tr class="head"> 
-                            <td>Mã huyện/xã</td>
-                            <td>Tên huyện/xã</td>
-                            <td>Họ tên cán bộ phụ trách</td>
-                            <td>Tổng số dân</td>
-                        </tr>
-                        <tr class="information">
-                            <td>0101</td>
-                            <td>Phú Thọ</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>1.000.000
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
-                                </span>
-                            </td>
-                        </tr>
-                </div>
-                <div id="tableDSDanSo">
-                    <table class="danh-sach-tinh-thanh-pho">
-                        <div class="title">
-                            <p>Danh sách dân cư tại xã/phường</p>
-                        </div>
-                        <tr class="head"> 
-                            <td>Stt</td>
-                            <td>Số CCCD/CMND</td>
-                            <td>Họ và tên</td>
-                            <td>Ngày sinh</td>
-                            <td>Giới tính</td>
-                            <td>Quê quán</td>
-                            <td>Địa chỉ thường trú</td>
-                            <td>Địa chỉ tạm trú</td>
-                            <td>Tôn giáo</td>
-                            <td>Trình độ văn hóa</td>
-                            <td>Nghề nghiệp</td>
-                            <td>Thao tác</td>
-                        </tr>
-                        <tr class="information">
-                            <td>1</td>
-                            <td>123456789</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>19/12/2001</td>
-                            <td>Nam</td>
-                            <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
-                            <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
-                            <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
-                            <td>Không</td>
-                            <td>Đại học</td>
-                            <td>Sinh viên</td>
-                            <td>
-                                <span>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                    <button class="detailDanSo detail" onclick="detail()">
-                                        <i class="fas fa-user-edit"></i>
-                                    </button>
-                                </span>
-                            </td>
-                        </tr>
-                </div>
-            </div>
-
-            <!-- Content Nhập liệu -->
-            <div id="contentNhapLieu">
-                <!-- Phần tìm kiếm người dân -->
-                <div id="nhapLieuTimKiem">
-                    <div id="nltk1">
-                        Số CMND/CCCD <input type="text" placeholder="Nhập số CMND/CCCD" /> <br>
-                        Họ và tên <input type="text" placeholder="Nhập họ tên" />
+                    <div id="tableDS" class="below">
+                        <table class="danh-sach-tinh-thanh-pho">
+                            <div class="title">
+                                <p>Danh sách tỉnh thành phố</p>
+                            </div>
+                            <tr class="head"> 
+                                <td>Mã tỉnh/thành phố</td>
+                                <td>Tên tỉnh/thành phố</td>
+                                <td>Chi tiết số lượng dân</td>
+                                <td>Tiến độ nhập liệu</td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td>01</td>
+                                <td>Phú Thọ</td>
+                                <td>200.000đ
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                                <td>Hoàn thành
+                                    <span>
+                                        <button class="detailTienDo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>

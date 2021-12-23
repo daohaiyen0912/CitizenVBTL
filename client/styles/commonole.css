@@ -1,0 +1,326 @@
+/*Bảng dữ liệu*/
+.danh-sach-tinh-thanh-pho {
+    position: absolute;
+    width: 1091px;
+    font-size: 17px;
+
+}
+div.title{
+    background-color: #1C204D;
+    width: 1091px;
+    height: 50px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+
+}
+div.title p {
+    padding-left: 1%;
+    font-size: 19px;
+}
+
+tr.title th {
+    border: none;
+}
+
+.danh-sach-tinh-thanh-pho tr.head{
+    background-color: #FFDA59;
+    ;
+    height: 48px;
+    text-align: center;
+    color: #030B56;
+}
+.danh-sach-tinh-thanh-pho tr.information {
+    background-color: white;
+    height: 48px;
+    text-align: center;    
+}
+.danh-sach-tinh-thanh-pho tr.information button.detail {
+    background-color: white;
+    color: black;
+    border: none;
+}
+.danh-sach-tinh-thanh-pho tr.information button.detail:hover {
+    cursor: pointer;
+}
+
+/*Biểu đồ phân tích dữ liệu*/
+#chart {
+    background-color: white;
+    height:324px;
+    width: 1088px;
+
+    margin-left: 350px;
+    margin-bottom: 50px;
+
+    border:1.5px solid #035286;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+/*Cấp quyền quản lí của A2*/
+#header {
+    position: absolute;
+}
+
+#capquyen {
+    background-color: #FFFF;
+    width: 700px;
+    height: 300px;
+}
+#contentQuanLiA2 h3 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+
+    color: #035286;
+}
+#capquyen form {
+    position: absolute;
+    left: 5%;
+    top: 16%;
+}
+#capquyen form label, #capquyen form input, #capquyen form button {
+    margin-top: 8%;
+}
+#capquyen form input {
+    border-radius: 6px;
+    border: 0px;
+
+    background-color: #E4E6E8;
+}
+#capquyen form input[type='text'] {
+   margin-left: 44%;
+
+   height: 30px;
+   width: 160px;
+}
+#capquyen form input[type='date'] {
+    height: 30px;
+    width: 140px;
+
+
+}
+
+/*Các nút button detail hay cấp quyền...*/
+.btn {
+   height: 30px;
+   width: 100px;
+
+   border-radius: 5px;
+   border: none;
+
+   color: white;
+}
+.btnIn {
+    position: absolute;
+    top: 27%;
+    right: 10px;
+}
+.btn:hover {
+    cursor: pointer;
+}
+#btnDatLai {
+    background-color: #D74242;
+
+}
+#btnCapQuyen {
+    margin-left: 55%;
+    background-color: #8E8741;
+
+}
+
+/*Tiến độ nhập liệu content Quản lí A2*/
+#tiendo {
+    background-color: #FFFF;
+    width: 340px;
+    height: 300px;
+
+    position: absolute;
+    left: 106%;
+    top: 0.9%;
+    
+}
+/*Bảng dữ liệu phần quan lí tài khoản A2*/
+.below {
+    position: absolute;
+
+    left:23%;
+    top: 62%;
+}
+
+#header {
+    position: absolute;
+    left: 23%;
+}
+#capquyen, #tiendo {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+.title button {
+    height: 30px;
+    width: 130px;
+
+    border-radius: 5px;
+    border: none;
+
+    color: white;
+    background-color: #8E8741;
+}
+.title button:hover {
+    cursor: pointer;
+    background-color: yellow;
+}
+
+/*Quản lí Mã Tỉnh*/
+#tableDSTinh {
+    position: absolute;
+    top: 50%;
+    left: 23%
+}
+#adver {
+    position: absolute;
+    top: 15%;
+    left: 23%;
+
+    display: table;
+
+    vertical-align: middle;
+
+    height: 181px;
+    width: 1089px;
+
+    background-color: rgba(3,82,134);
+    opacity: 47%;
+}
+#adver div {
+    display: table-cell;
+    vertical-align: middle;
+}
+#adver p{
+    color: white;
+    font-size: 36px;
+
+}
+
+/*Quản lí Dân số*/
+#cuongDoCapNhat {
+    position: absolute;
+    left: 23%;
+    height: 80px;
+}
+#tableDSDanSo {
+    position: absolute;
+    left: 23%;
+}
+
+/*Nhập liệu*/
+#nhapLieuTimKiem {
+    width: 1089px;
+
+    background-color: white;
+
+    position: absolute;
+    left: 23%;
+
+    display: grid;
+    grid-template-rows: 5% auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+    align-items: center;
+    grid-gap: 2px;
+}
+.titleForm {
+    margin-bottom: 5%;
+    margin-top: 8%;
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+.nltk1{
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    grid-gap: 2px;
+}
+.nltk1 label {
+    margin-top: 15%;
+
+    grid-column: 1/2;
+}
+.nltk1 input {
+    text-indent: 30px;
+
+    margin-top: 5%;
+
+    grid-column: 2/4;    
+}
+.nltk2 {
+    grid-column: 1/5;
+    grid-row: 3/4;
+}
+.nltk3 {
+    grid-column: 1/5;
+    grid-row: 4/5;
+}
+.nltk4 {
+    grid-column: 1/5;
+    grid-row: 5/6;
+}
+.nltk5 {
+    grid-column: 1/2;
+    grid-row: 6/7;
+}
+.nltk6 {
+    grid-column: 4/5;
+    grid-row: 6/7;
+}
+.nltk2 label {
+    margin-left: 5%;
+}
+.nltk4 label {
+    margin-left: 2%;
+}
+
+#nhapLieuTimKiem input {
+    border-radius: 6px;
+    border: 0px;
+
+    background-color: #E4E6E8;
+
+    margin-left: 2px;
+    text-indent: 50px;
+}
+#nhapLieuTimKiem input[type=text],  #nhapLieuTimKiem input[type=date], .listI{
+    height: 30px;
+    width: 200px;
+}
+#nhapLieuTimKiem input[type=date] {
+    text-indent: 15px;
+    color: rgb(128, 128, 128);
+}
+/* Nút submit */
+.submit {
+    height: 30px;
+    width: 100px;
+ 
+    border-radius: 5px;
+    border: none;
+ 
+    color: white;
+}
+.submit:hover {
+    cursor: pointer;
+}
+.subDatLai {
+    background-color: #D74242;
+}
+.subCapQuyen {
+    background-color: #8E8741;
+}
+
+.tableDS {
+    margin-top: 30%;
+}

@@ -1,0 +1,129 @@
+*{
+    margin:0;
+    padding:0;
+
+    font-family: roboto;
+}
+
+body {
+    background-color: #F1E9DF;
+}
+a {
+    text-decoration: none;
+}
+
+/*Thanh bar quản lý*/
+#barTop{
+    display: flex;
+    flex-direction: row;
+
+    z-index: 2;
+    position:fixed;
+    top:0;
+
+    background-color: #ffffff;
+
+    height: 64px;
+    width: 100%;
+
+    box-shadow: 0px 11px 8px rgba(0, 0, 0, 0.25);
+}
+#barTop img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+#control {  /*Điều khiển điều hướng bao gồm logout và trang chủ*/
+    flex: auto;
+    margin-top: 25px;
+}
+#control a {
+    color: #1C204C;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: large;
+}
+/*Phần nội dung phía dưới thanh bar Top*/
+#container {
+    position: relative;
+    top:50px;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+/*Thanh Menu dọc*/
+#menuVer {
+    position: fixed;
+    grid-column: 1/4;
+
+    display: grid;
+
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+    
+    width: 17%;
+    height: 100%;
+    z-index: 1;
+
+    background-color: #1C204C;
+    background-position: 47%;
+}
+#account {  /*Phần hiện accout*/
+    grid-column: 1/2;
+    grid-row: 1/8;
+
+    display: table-cell;
+    text-align: center;
+    vertical-align: center;
+    
+    background-color: #808E95;
+    background-position: 47%;
+}
+#menuBar {  /*Thanh Menu dọc*/
+    grid-row: 8/13;
+
+}
+#menuBar ul{
+    margin-left: 1%;
+    margin-right: 1%;
+
+    line-height: 0.5%;
+}
+#menuBar ul li{
+    display: table-cell;
+
+    border-bottom: 1px solid rgba(106, 136, 156, 0.48);
+
+    height: 58px; 
+    width: 280px; 
+
+    vertical-align: middle;
+
+    padding-left: 1%;
+
+    text-decoration: none;
+    list-style-type: none;
+}
+#menuBar ul li:hover {
+    background-color:rgba(104, 104, 172, 0.48);
+    cursor:pointer;
+}
+#menuBar ul li a {
+    font-size: 0.9vw;
+
+    margin-left: 2%;
+    color: #ffedd7;
+}
+
+/*Content chính*/
+#content {
+    grid-column: 5/13;
+    grid-row: 3/13;
+
+    font-size: 0.9vw;
+}

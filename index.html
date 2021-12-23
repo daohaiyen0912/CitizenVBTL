@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>CitizenV</title>
-        <meta charset="UTF-8">
-        <link href="client/styles/login.css" rel="stylesheet">
-    </head>
-    <body>
-        <!--Thanh hỗ trợ-->
-        <div id="bar">
-            <img src="client/images/citizen-v-bar1.png">
-            <nav id="navbar">
-                <ul>
-                    <li><a href="#">Diễn đàn</a></li>
-                    <li><a href="#">Hỗ trợ</a></li>
-                </ul>
-            </nav>
-        </div>
-        <!--Phần đăng nhập trang chủ-->
-        <div id="login">
-            <div id="thongtindn">
-                <p>Thông tin đăng nhập</p>
-<!--                 <form action="Router.php" method="post">
+
+<head>
+    <title>CitizenV</title>
+    <meta charset="UTF-8">
+    <link href="client/styles/login.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--Thanh hỗ trợ-->
+    <div id="bar">
+        <img src="client/images/citizen-v-bar1.png">
+        <nav id="navbar">
+            <ul>
+                <li><a href="#">Diễn đàn</a></li>
+                <li><a href="#">Hỗ trợ</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!--Phần đăng nhập trang chủ-->
+    <div id="login">
+        <div id="thongtindn">
+            <p>Thông tin đăng nhập</p>
+            <!--                 <form action="Router.php" method="post">
                     Cần phần xử lý nếu nhập sai tài khoản hoặc mật khẩu -> xử lí backend
                     <input type="text" name="taikhoan" placeholder="Tên tài khoản" class="input1">
                     <input type="password" name="matkhau" placeholder="Mật khẩu" class="input1">
@@ -29,31 +31,34 @@
                     <a href="#">Quên mật khẩu</a>
                     <input type="submit" class="submit" value="Đăng nhập" id="buttonlg">
                 </form> -->
-                <div id="formLog">
-                    <div class="row">
-                        <input type="text" placeholder="Tên tài khoản" class="tsd input1"/> 
-                    </div>
-                    <div class="row">
-                        <input type="password" placeholder="Mật khẩu" class="mk input1" />
-                    </div>
-                    <div class="row nodisplay err-submit">
-                        <label>&nbsp;</label>
-                        <span class="err err-submit">Tên đăng nhập hoặc mật khẩu không đúng.</span>
-                    </div>
-                    <div class="row">
-                        <input type="checkbox" id="ghinho">
-                        <label for="ghinho">Ghi nhớ mật khẩu</label> <br>
-                    </div>
-                    <div class="row">
-                        <a href="#">Quên mật khẩu</a>
-                    </div>
-                    <div class="row">
-                        <label>&nbsp;</label>
-                        <button class="submit">Đăng nhập</button>
-                    </div>
+            <div id="formLog">
+                <div class="row">
+                    <input id="account" type="text" placeholder="Tên tài khoản" class="tsd input1" />
+                    <span id="loi_acc" class="Baoloi"></span>
+                </div>
+                <div class="row">
+                    <input id="password" type="password" placeholder="Mật khẩu" class="mk input1" />
+                    <span id="loi_psw" class="Baoloi"></span>
+                </div>
+                <div class="row">
+                    <label>&nbsp;</label>
+                    <span id="loi" class="Bao loi"></span>
+                </div>
+                <div class="row">
+                    <input type="checkbox" id="ghinho">
+                    <label for="ghinho">Ghi nhớ mật khẩu</label> <br>
+                </div>
+                <div class="row">
+                    <a href="#">Quên mật khẩu</a>
+                </div>
+                <div class="row">
+                    <label>&nbsp;</label>
+                    <button class="submit">Đăng nhập</button>
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="index.js"></script>
-    </body>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
 </html>

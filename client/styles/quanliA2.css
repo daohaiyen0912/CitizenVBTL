@@ -1,0 +1,165 @@
+#contentQuanLiA2 {
+    display: grid;
+    grid-gap: 50px;
+
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+/*Cấp quyền quản lí của A2*/
+#header {
+    grid-row: 1/6;
+    position: absolute;
+    left: 23%;
+}
+
+#capquyen {
+    background-color: #FFFF;
+    width: 700px;
+    height: 300px;
+}
+#contentQuanLiA2 h3 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+
+    color: #035286;
+}
+#capquyen form {
+    position: absolute;
+    left: 5%;
+    top: 16%;
+}
+#capquyen form label, #capquyen form input, #capquyen form button {
+    margin-top: 8%;
+}
+#capquyen form input {
+    border-radius: 6px;
+    border: 0px;
+
+    background-color: #E4E6E8;
+}
+#capquyen form input[type='text'] {
+   margin-left: 44%;
+
+   height: 30px;
+   width: 160px;
+}
+#capquyen form input[type='date'] {
+    height: 30px;
+    width: 140px;
+
+
+}
+
+/*Các nút button detail hay cấp quyền...*/
+.btn {
+   height: 30px;
+   width: 100px;
+
+   border-radius: 5px;
+   border: none;
+
+   color: white;
+}
+.btnIn {
+    position: absolute;
+    top: 27%;
+    right: 10px;
+}
+.btn:hover {
+    cursor: pointer;
+}
+#btnDatLai {
+    background-color: #D74242;
+
+}
+#btnCapQuyen {
+    margin-left: 55%;
+    background-color: #8E8741;
+
+}
+
+/*Tiến độ nhập liệu content Quản lí A2*/
+#tiendo {
+    background-color: #FFFF;
+    width: 340px;
+    height: 300px;
+
+    position: absolute;
+    left: 106%;
+    top: 0.9%;
+    
+}
+/*Bảng dữ liệu phần quan lí tài khoản A2*/
+.below {
+    grid-row: 8/13;
+
+    position: absolute;
+    left: 23%;
+}
+
+#capquyen, #tiendo {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+.title button {
+    height: 30px;
+    width: 130px;
+
+    border-radius: 5px;
+    border: none;
+
+    color: white;
+    background-color: #8E8741;
+}
+.title button:hover {
+    cursor: pointer;
+    background-color: yellow;
+}
+
+/*Bảng dữ liệu*/
+.danh-sach-tinh-thanh-pho {
+    position: absolute;
+    width: 1091px;
+}
+div.title{
+    background-color: #1C204D;
+    width: 1091px;
+    height: 50px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+
+}
+div.title p {
+    padding-left: 1%;
+    font-size: 19px;
+}
+
+tr.title th {
+    border: none;
+}
+
+.danh-sach-tinh-thanh-pho tr.head{
+    background-color: #FFDA59;
+    ;
+    height: 48px;
+    text-align: center;
+    color: #030B56;
+}
+.danh-sach-tinh-thanh-pho tr.information {
+    background-color: white;
+    height: 48px;
+    text-align: center;    
+}
+.danh-sach-tinh-thanh-pho tr.information button.detail {
+    background-color: white;
+    color: black;
+    border: none;
+}
+.danh-sach-tinh-thanh-pho tr.information button.detail:hover {
+    cursor: pointer;
+}

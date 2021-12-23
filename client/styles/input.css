@@ -1,0 +1,19 @@
+.h-input {
+    border: 1px solid #bbbbbb;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.h-input::placeholder {
+    font-size: 11px;
+    color: #bbbbbb;
+}
+
+.h-input:focus {
+    border-color: #7c730d;
+    outline: unset;
+}

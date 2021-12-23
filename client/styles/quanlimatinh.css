@@ -1,32 +1,49 @@
-#contentTongQuan {
+#contentQuanLiMaTinh {
     display: grid;
     grid-gap: 50px;
 
     grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
 }
 
-/*Biểu đồ phân tích dữ liệu*/
-#chart {
+/*Quản lí Mã Tỉnh*/
+#tableDSTinh {
+    position: absolute;
+    left: 23%;
+
+    grid-row: 5/13;
+}
+#adver {
     grid-row: 1/5;
-    margin-left: 10%;
+    position: absolute;
+    top: 15%;
+    left: 23%;
 
-    background-color: white;
-    height:324px;
-    width: 1088px;
+    display: table;
 
-    border:1.5px solid #035286;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+
+    height: 181px;
+    width: 1089px;
+
+    background-color: rgba(3,82,134);
+    opacity: 47%;
+}
+#adver div {
+    display: table-cell;
+    vertical-align: middle;
+}
+#adver p{
+    color: white;
+    font-size: 36px;
+
 }
 
 /*Bảng dữ liệu*/
-#tableDS {
-    grid-row: 5/13;
-    margin-left: 10%;
-}
 .danh-sach-tinh-thanh-pho {
     position: absolute;
     width: 1091px;
     font-size: 17px;
+
 }
 div.title{
     background-color: #1C204D;
@@ -69,4 +86,37 @@ tr.title th {
 }
 .danh-sach-tinh-thanh-pho tr.information button.detail:hover {
     cursor: pointer;
+}
+
+/*Các nút button detail hay cấp quyền...*/
+.btn {
+    height: 30px;
+    width: 100px;
+ 
+    border-radius: 5px;
+    border: none;
+ 
+    color: white;
+ }
+ .btnIn {
+     position: absolute;
+     top: 27%;
+     right: 10px;
+ }
+ .btn:hover {
+     cursor: pointer;
+ }
+ .title button {
+    height: 30px;
+    width: 130px;
+
+    border-radius: 5px;
+    border: none;
+
+    color: white;
+    background-color: #8E8741;
+}
+.title button:hover {
+    cursor: pointer;
+    background-color: yellow;
 }

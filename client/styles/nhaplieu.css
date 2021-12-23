@@ -1,0 +1,164 @@
+#contentNhapLieu {
+    margin-left: 10%;
+
+    display: grid;
+    grid-gap: 50px;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+
+/*Nhập liệu*/
+#nhapLieuTimKiem {
+    grid-row: 1/6;
+
+    width: 1089px;
+
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+
+    display: grid;
+    grid-template-rows: 5% auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+    align-items: center;
+    grid-gap: 2px;
+}
+.titleForm {
+    margin-bottom: 5%;
+    margin-top: 8%;
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+.nltk1{
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    grid-gap: 2px;
+}
+.nltk1 label {
+    margin-top: 15%;
+
+    grid-column: 1/2;
+}
+.nltk1 input {
+    text-indent: 30px;
+
+    margin-top: 5%;
+
+    grid-column: 2/4;    
+}
+.nltk2 {
+    grid-column: 1/5;
+    grid-row: 3/4;
+}
+.nltk3 {
+    grid-column: 1/5;
+    grid-row: 4/5;
+}
+.nltk4 {
+    grid-column: 1/5;
+    grid-row: 5/6;
+}
+.nltk5 {
+    grid-column: 1/2;
+    grid-row: 6/7;
+}
+.nltk6 {
+    grid-column: 4/5;
+    grid-row: 6/7;
+}
+.nltk2 label {
+    margin-left: 5%;
+}
+.nltk4 label {
+    margin-left: 2%;
+}
+
+#nhapLieuTimKiem input {
+    border-radius: 6px;
+    border: 0px;
+
+    background-color: #E4E6E8;
+
+    margin-left: 2px;
+    text-indent: 50px;
+}
+#nhapLieuTimKiem input[type=text],  #nhapLieuTimKiem input[type=date], .listI{
+    height: 30px;
+    width: 200px;
+}
+#nhapLieuTimKiem input[type=date] {
+    text-indent: 15px;
+    color: rgb(128, 128, 128);
+}
+
+/* Nút submit */
+.submit {
+    height: 30px;
+    width: 100px;
+ 
+    border-radius: 5px;
+    border: none;
+ 
+    color: white;
+}
+.submit:hover {
+    cursor: pointer;
+}
+.subDatLai {
+    background-color: #D74242;
+}
+.subCapQuyen {
+    background-color: #8E8741;
+}
+
+/*Bảng dữ liệu*/
+.tableDS {
+    grid-template-rows: 6/13;
+}
+.danh-sach-tinh-thanh-pho {
+    width: 1091px;
+}
+div.title{
+    background-color: #1C204D;
+    width: 1091px;
+    height: 50px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+
+}
+div.title p {
+    padding-left: 1%;
+    font-size: 19px;
+}
+
+tr.title th {
+    border: none;
+}
+
+.danh-sach-tinh-thanh-pho tr.head{
+    background-color: #FFDA59;
+    ;
+    height: 48px;
+    text-align: center;
+    color: #030B56;
+}
+.danh-sach-tinh-thanh-pho tr.information {
+    background-color: white;
+    height: 48px;
+    text-align: center;    
+}
+.danh-sach-tinh-thanh-pho tr.information button.detail {
+    background-color: white;
+    color: black;
+    border: none;
+}
+.danh-sach-tinh-thanh-pho tr.information button.detail:hover {
+    cursor: pointer;
+}
