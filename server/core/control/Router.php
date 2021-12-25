@@ -20,6 +20,33 @@
 			$commandArray = array_diff_assoc($requestURI, $scriptName);
 			$commandArray = array_values($commandArray);
 			
+			//get quyen nhap lieu
+			if ($_SERVER["REQUEST_METHOD"] == "GET" &&
+				count($commandArray) == 1	&&
+				strtolower($commandArray[0]) == "hiennhaplieu")
+			{
+				$moduleName = "qldata";
+				$controllerName = "ds";
+				$actionName = "quyenNL";
+			}
+			// GET /danhsach
+			if ($_SERVER["REQUEST_METHOD"] == "GET" &&
+				count($commandArray) == 1	&&
+				strtolower($commandArray[0]) == "danhsach")
+			{
+				$moduleName = "qldata";
+				$controllerName = "ds";
+				$actionName = "proc";
+			}
+			else if ($_SERVER["REQUEST_METHOD"] == "GET" && 
+					count($commandArray) == 1	&&
+					strtolower($commandArray[0]) == "danhsach") 
+			{
+				$moduleName = "qldt";
+				$controllerName = "std";
+				$actionName = "proc";
+			}
+			
 			// GET /students
 			if ($_SERVER["REQUEST_METHOD"] == "GET" &&
 				count($commandArray) == 1	&&
@@ -50,16 +77,77 @@
 				$actionName = "getById";
 				$parameters[0] = $commandArray[1];
 			}
-			// POST /students/{id}
+			// POST /captaikhoan/{id}
 			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
 				count($commandArray) == 2 &&	
-				strtolower($commandArray[0]) == "students") 
+				strtolower($commandArray[0]) == "capmatinh") 
 			{
-				$moduleName = "qldt";
-				$controllerName = "std";
-				$actionName = "addStd";
+				$moduleName = "qldata";
+				$controllerName = "ds";
+				$actionName = "addDs";
 				$parameters[0] = $commandArray[1];
 			}
+
+			// POST / capquyen
+			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
+			count($commandArray) == 2 &&	
+			strtolower($commandArray[0]) == "capquyen") 
+		{
+			$moduleName = "qldata";
+			$controllerName = "ds";
+			$actionName = "capquyen";
+			$parameters[0] = $commandArray[1];
+		}
+
+		
+			// POST / capmoima
+			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
+			count($commandArray) == 1 &&	
+			strtolower($commandArray[0]) == "capmatinh") 
+		{
+			$moduleName = "qldata";
+			$controllerName = "ds";
+			$actionName = "addMaTinh";
+		}
+			//POST / capmoimahuyen
+			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
+			count($commandArray) == 1 &&	
+			strtolower($commandArray[0]) == "capmahuyen") 
+		{
+			$moduleName = "qldata";
+			$controllerName = "ds";
+			$actionName = "addMaHuyen";
+		}
+
+			//POST / capmoimaxa
+			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
+			count($commandArray) == 1 &&	
+			strtolower($commandArray[0]) == "capmaxa") 
+		{
+			$moduleName = "qldata";
+			$controllerName = "ds";
+			$actionName = "addMaXa";
+		}
+
+			//POST / capmoimathon
+			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
+			count($commandArray) == 1 &&	
+			strtolower($commandArray[0]) == "capmathon") 
+		{
+			$moduleName = "qldata";
+			$controllerName = "ds";
+			$actionName = "addMaThon";
+		}
+			//POST / nhập liệu thông tin người dân
+			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
+			count($commandArray) == 1 &&	
+			strtolower($commandArray[0]) == "nhaplieu") 
+		{
+			$moduleName = "qldata";
+			$controllerName = "ds";
+			$actionName = "addNguoiDan";
+		}
+
 			// DELETE /students/{id}
 			else if ($_SERVER["REQUEST_METHOD"] == "DELETE" && 	
 					count($commandArray) == 2 &&

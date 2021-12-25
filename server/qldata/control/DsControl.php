@@ -1,0 +1,387 @@
+<?php
+    namespace qldata\control;
+    require_once("server/qldata/model/Ds.php");
+	require_once("server/core/model/Util.php");
+	require_once("server/account/model/User.php");
+	use \core\model\Util as Util;
+	use \account\model\User as User;
+    
+    
+    class DsControl{
+        public function proc($arr) {
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"]);
+			//nếu không là acc tổng cục , tỉnh
+			if (!in_array("tongcuc", $rights, true) && !in_array("tinh", $rights, true) && !in_array("huyen", $rights, true) && !in_array("xa", $rights, true))
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			
+			// Lấy danh sách sinh viên
+			if(in_array("tongcuc", $rights, true)) {
+				$std = new \qldata\model\Ds();
+				$data = $std->getAllTinh(); //getAll ở Ds
+				return array("status" => "OK", "data" => $data, "rights" => $rights);
+			} else if(in_array("tinh", $rights, true)) {
+				$std = new \qldata\model\Ds();
+				$data = $std->getAllHuyen(); //getAll ở Ds
+				return array("status" => "OK", "data" => $data, "rights" => $rights);
+			} else if(in_array("huyen", $rights, true)) {
+				$std = new \qldata\model\Ds();
+				$data = $std->getAllXa(); //getAll ở Ds
+				return array("status" => "OK", "data" => $data, "rights" => $rights);
+			} else if(in_array("xa", $rights, true)) {
+				$std = new \qldata\model\Ds();
+				$data = $std->getAllThon(); //getAll ở Ds
+				return array("status" => "OK", "data" => $data, "rights" => $rights);
+			}
+        }
+
+		/**Kiểm tra xem có hiện nhập liệu k */
+		public function quyenNL($arr) {
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"]);
+			//nếu không là acc tổng cục , tỉnh
+			if (!in_array("tongcuc", $rights, true) && !in_array("tinh", $rights, true) && !in_array("huyen", $rights, true) && !in_array("xa", $rights, true))
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			
+			// Check quyền nhập liệu
+			$std = new \qldata\model\Ds();
+			$data = $std->getQNL($_SESSION["tsd"]); //getAll ở Ds
+			return array("status" => "OK", "data" => $data, "rights" => $rights);
+        }
+
+		public function getById($arr) {
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"], "SV");
+			if (!in_array("READ", $rights, true))
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra hợp thức dữ liệu vào
+			if (Util::isStdCode($arr[0])) {
+				// Đầu vào hợp lệ
+				$std = new \qldt\model\Ds();
+		        $data = $std->getById($arr[0]);
+				return array("status" => "OK", "data" => $data, "rights" => $rights);
+			} else {
+				// Đầu vào không hợp lệ
+				return array("status" => "NOK", "data" => "INVALID-INPUT");
+			}
+        }
+		
+		/**Add account */
+		public function addDs($arr) {	
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"], "SV");
+			if (!in_array("tongcuc", $rights, true) && !in_array("tinh", $rights, true)
+			&& !in_array("huyen", $rights, true) && !in_array("xa", $rights, true)
+			)
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+
+			// Kiểm tra hợp thức dữ liệu vào
+			$input = json_decode(file_get_contents("php://input"), true);
+
+			// Đầu vào hợp lệ?
+			if (true
+			) {
+				$std = new \qldata\model\Ds();
+				// Kiểm tra mã sinh viên đã được sử dụng chưa
+				//$data = $std->getById($arr[0]);
+				// Chưa được sử dụng thì mới thêm
+				if (true) {
+					$c = $std->add($input["tsd"], $input["pass"], $input["quyen"], $input["name"]);
+					$std->addQuyen($input["tsd"], $input["pass"], $input["quyen"], $input["name"]);
+					return array("status" => "OK", "data" => $c);
+				} else {
+					// Mã sinh viên đã được sử dụng rồi
+					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
+				}
+			} else {
+				// Đầu vào không hợp lệ
+				return array("status" => "NOK", "data" => "INVALID-INPUT");
+			}
+        } 
+
+		public function addMaTinh($arr) {	
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"]);
+			if (!in_array("tongcuc", $rights, true))
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+
+			// Kiểm tra hợp thức dữ liệu vào
+			$input = json_decode(file_get_contents("php://input"), true);
+
+			// Đầu vào hợp lệ?
+			if (true
+			) {
+				$std = new \qldata\model\Ds();
+				// Kiểm tra mã sinh viên đã được sử dụng chưa
+				//$data = $std->getById($arr[0]);
+				// Chưa được sử dụng thì mới thêm
+				if (true) {
+					$c = $std->addMaTinh($input["matinh"], $input["tentinh"]);
+					return array("status" => "OK", "data" => $c);
+				} else {
+					// Mã sinh viên đã được sử dụng rồi
+					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
+				}
+			} else {
+				// Đầu vào không hợp lệ
+				return array("status" => "NOK", "data" => "INVALID-INPUT");
+			}
+        } 
+
+		public function addMaHuyen($arr) {	
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"]);
+			if (!in_array("tinh", $rights, true))
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+
+			// Kiểm tra hợp thức dữ liệu vào
+			$input = json_decode(file_get_contents("php://input"), true);
+
+			// Đầu vào hợp lệ?
+			if (true
+			) {
+				$std = new \qldata\model\Ds();
+				// Kiểm tra mã sinh viên đã được sử dụng chưa
+				//$data = $std->getById($arr[0]);
+				// Chưa được sử dụng thì mới thêm
+				if (true) {
+					$c = $std->addMaHuyen($input["mahuyen"], $input["tenhuyen"], $_SESSION["tsd"]);
+					return array("status" => "OK", "data" => $c);
+				} else {
+					// Mã sinh viên đã được sử dụng rồi
+					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
+				}
+			} else {
+				// Đầu vào không hợp lệ
+				return array("status" => "NOK", "data" => "INVALID-INPUT");
+			}
+        } 
+
+		public function addMaXa($arr) {	
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"]);
+			if (!in_array("huyen", $rights, true))
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+
+			// Kiểm tra hợp thức dữ liệu vào
+			$input = json_decode(file_get_contents("php://input"), true);
+
+			// Đầu vào hợp lệ?
+			if (true
+			) {
+				$std = new \qldata\model\Ds();
+				// Kiểm tra mã sinh viên đã được sử dụng chưa
+				//$data = $std->getById($arr[0]);
+				// Chưa được sử dụng thì mới thêm
+				if (true) {
+					$c = $std->addMaXa($input["maxa"], $input["tenxa"], $_SESSION["tsd"]);
+					return array("status" => "OK", "data" => $c);
+				} else {
+					// Mã sinh viên đã được sử dụng rồi
+					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
+				}
+			} else {
+				// Đầu vào không hợp lệ
+				return array("status" => "NOK", "data" => "INVALID-INPUT");
+			}
+        } 
+
+		public function addMaThon($arr) {	
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"]);
+			if (!in_array("xa", $rights, true))
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+
+			// Kiểm tra hợp thức dữ liệu vào
+			$input = json_decode(file_get_contents("php://input"), true);
+
+			// Đầu vào hợp lệ?
+			if (true
+			) {
+				$std = new \qldata\model\Ds();
+				// Kiểm tra mã sinh viên đã được sử dụng chưa
+				//$data = $std->getById($arr[0]);
+				// Chưa được sử dụng thì mới thêm
+				if (true) {
+					$c = $std->addMaThon($input["mathon"], $input["tenthon"], $_SESSION["tsd"]);
+					return array("status" => "OK", "data" => $c);
+				} else {
+					// Mã sinh viên đã được sử dụng rồi
+					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
+				}
+			} else {
+				// Đầu vào không hợp lệ
+				return array("status" => "NOK", "data" => "INVALID-INPUT");
+			}
+        } 
+
+		public function addNguoiDan($arr) {	
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"]);
+			if (!in_array("tongcuc", $rights, true) && !in_array("tinh", $rights, true)
+			&& !in_array("huyen", $rights, true) && !in_array("xa", $rights, true) && !in_array("thon", $rights, true)
+			)
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+
+			// Kiểm tra hợp thức dữ liệu vào
+			$input = json_decode(file_get_contents("php://input"), true);
+
+			// Đầu vào hợp lệ?
+			if (true
+			) {
+				$std = new \qldata\model\Ds();
+				// Kiểm tra mã sinh viên đã được sử dụng chưa
+				//$data = $std->getById($arr[0]);
+				// Chưa được sử dụng thì mới thêm
+				if (true) {
+					$c = $std->addNguoiDan("111", "Hải Yến", "12/01/2001", "Nữ", "Hà Đông", "Hà Nội", "Không", "Đại học", "Nghề nghiệp",
+											$_SESSION["tsd"]);
+					return array("status" => "OK", "data" => $c);
+				} else {
+					// Mã sinh viên đã được sử dụng rồi
+					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
+				}
+			} else {
+				// Đầu vào không hợp lệ
+				return array("status" => "NOK", "data" => "INVALID-INPUT");
+			}
+        } 
+
+
+		public function capquyen($arr) {	
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"]);
+			if (!in_array("tongcuc", $rights, true) && !in_array("tinh", $rights, true) && !in_array("huyen", $rights, true) && !in_array("xa", $rights, true))
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+
+			// Kiểm tra hợp thức dữ liệu vào
+			$input = json_decode(file_get_contents("php://input"), true);
+
+			// Đầu vào hợp lệ?
+			if (true
+			) {
+				$std = new \qldata\model\Ds();
+				// Kiểm tra mã sinh viên đã được sử dụng chưa
+				//$data = $std->getById($arr[0]);
+				// Chưa được sử dụng thì mới thêm
+				if (true) {
+					$c = $std->addquyenNL($input["tsd"], $input["start"], $input["finish"], $input["moquyen"]);
+					return array("status" => "OK", "data" => $c);
+				} else {
+					// Mã sinh viên đã được sử dụng rồi
+					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
+				}
+			} else {
+				// Đầu vào không hợp lệ
+				return array("status" => "NOK", "data" => "INVALID-INPUT");
+			}
+        } 
+
+		/**Cấp mã mới cho cấp dưới */
+		public function capmamoi($arr) {	
+			// Chưa đăng nhập thì từ chối
+			if (!isset($_SESSION["tsd"])) 
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+			// Kiểm tra quyền truy cập
+			$user = new User();
+			$rights = $user->accessRights($_SESSION["tsd"], "SV");
+			if (!in_array("tongcuc", $rights, true) && !in_array("tinh", $rights, true) && !in_array("huyen", $rights, true) && !in_array("xa", $rights, true))
+				return array("status" => "NOK", "data" => "ACCESS-DENIED");
+
+
+			// Kiểm tra hợp thức dữ liệu vào
+			$input = json_decode(file_get_contents("php://input"), true);
+
+			// Đầu vào hợp lệ?
+			if (true) {
+				$std = new \qldata\model\Ds();
+				// Kiểm tra mã sinh viên đã được sử dụng chưa
+				//$data = $std->getById($arr[0]);
+				// Chưa được sử dụng thì mới thêm
+				if (true) {
+					$c = $std->addMaMoi($input["tsd"], $input["ten"]);
+					return array("status" => "OK", "data" => $c);
+				} else {
+					// Mã sinh viên đã được sử dụng rồi
+					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
+				}
+			} else {
+				// Đầu vào không hợp lệ
+				return array("status" => "NOK", "data" => "INVALID-INPUT");
+			}
+        } 
+	
+		public function delStd($arr) {
+			$std = new \qldt\model\Std();
+            $c = $std->del($arr[0]);
+			return array("status" => "OK", "data" => $c);
+        }
+
+        public function updateStd($arr) {
+			$input = json_decode(file_get_contents("php://input"), true);
+			$std = new \qldt\model\Std();
+			$c = $std->update($input["masv"], $input["hoten"], $input["ngaysinh"], $input["quequan"]);
+			return array("status" => "OK", "data" => $c);
+        }  
+    }

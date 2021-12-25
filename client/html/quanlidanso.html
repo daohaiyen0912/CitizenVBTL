@@ -107,12 +107,44 @@
                     <div id="chart">
                         <canvas id="myCanvas"></canvas>
                     </div>
+                    <div id="phantichDL">
+                        <div class="ptdl ptdl-nho">
+                            <h2>30%</h2>
+                            <h4>Từ 0 đến 14 tuổi</h4>
+                            <p>30.000.000 người</p>
+                        </div>
+                        <div class="ptdl ptdl-trung">
+                            <h2>30%</h2>
+                            <h4>Từ 15 đến 59 tuổi</h4>
+                            <p>30.000.000 người</p>
+                        </div>
+                        <div class="ptdl ptdl-gia">
+                            <h2>30%</h2>
+                            <h4>Từ 60 tuổi</h4>
+                            <p>30.000.000 người</p>
+                        </div>
+                        <div class="ptdl ptdl-nu">
+                            <h2>30%</h2>
+                            <h4>Nữ giới</h4>
+                            <p>30.000.000 người</p>
+                        </div>
+                        <div class="ptdl ptdl-nam">
+                            <h2>30%</h2>
+                            <h4>Nam giới</h4>
+                            <p>30.000.000 người</p>
+                        </div>
+                        <div class="ptdl-ts">
+                            <h2>Tổng số dân</h2>
+                            <hr  width="30%" text-align="left" />
+                            <p>90.000.000 người</p>
+                        </div>
+                    </div>
                     <div id="contentDS">
                         <div id='cuongDoCapNhat'>
                             <h4>Cường độ cập nhật</h4>
                         </div>
-                        <div id="tableDSDanSo">
-                            <table class="danh-sach-tinh-thanh-pho">
+                        <div class="tableDSDanSoCaNuoc">
+                            <table class="danh-sach-tinh-thanh-pho" id="dscanuoc">
                                 <div class="title">
                                     <p>Danh sách tỉnh thành phố</p>
                                 </div>
@@ -134,8 +166,8 @@
                                 </tr>
                             </table>
                         </div>
-                        <div id="tableDSDanSo">
-                            <table class="danh-sach-tinh-thanh-pho">
+                        <div class="tableDSDanSoTinh">
+                            <table class="danh-sach-tinh-thanh-pho" id="dstinh">
                                 <div class="title">
                                     <p>Danh sách huyện/xã</p>
                                 </div>
@@ -155,9 +187,54 @@
                                         </span>
                                     </td>
                                 </tr>
+                            </table>
                         </div>
-                        <div id="tableDSDanSo">
-                            <table class="danh-sach-tinh-thanh-pho">
+                        <div class="tableDSDanSoHuyen">
+                            <table class="danh-sach-tinh-thanh-pho" id="dshuyen">
+                                <div class="title">
+                                    <p>Danh sách dân cư tại xã/phường</p>
+                                </div>
+                                <tr class="head"> 
+                                    <td>Stt</td>
+                                    <td>Số CCCD/CMND</td>
+                                    <td>Họ và tên</td>
+                                    <td>Ngày sinh</td>
+                                    <td>Giới tính</td>
+                                    <td>Quê quán</td>
+                                    <td>Địa chỉ thường trú</td>
+                                    <td>Địa chỉ tạm trú</td>
+                                    <td>Tôn giáo</td>
+                                    <td>Trình độ văn hóa</td>
+                                    <td>Nghề nghiệp</td>
+                                    <td>Thao tác</td>
+                                </tr>
+                                <tr class="information">
+                                    <td>1</td>
+                                    <td>123456789</td>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>19/12/2001</td>
+                                    <td>Nam</td>
+                                    <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                    <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                    <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                    <td>Không</td>
+                                    <td>Đại học</td>
+                                    <td>Sinh viên</td>
+                                    <td>
+                                        <span>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tableDSDanSoXa">
+                            <table class="danh-sach-tinh-thanh-pho" id="dsxa">
                                 <div class="title">
                                     <p>Danh sách dân cư tại xã/phường</p>
                                 </div>
@@ -204,6 +281,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="../scripts/common.js"></script>
+        <script type="text/javascript" src="../scripts/quanlidanso.js"></script>
     </body>
 </html>

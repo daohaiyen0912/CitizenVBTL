@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="../styles/allcommon.css">
         <link rel="stylesheet" href="../styles/quanliA2.css">
+        <link rel="stylesheet" href="../styles/button.css">
+        <link rel="stylesheet" href="../styles/matinh.css">
+        <link rel="stylesheet" href="../styles/input.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
     </head>
@@ -108,136 +111,309 @@
                     <div id="header">
                         <div id="capquyen">
                             <h3>Cấp quyền nhập liệu</h3> <br>
-                            <form action="#">
+                            <div id='form'>
                                 <label for="taikhoan">Tên tài khoản:</label>
-                                <input type="text" name="taikhoan"> <br>
+                                <input type="text" name="taikhoan" class="tsd"> <br>
                                 <label>Thời điểm khai báo:</label>
                                 <label for="start">Từ</label>
-                                <input type="date" name="start">
+                                <input type="date" name="start" class="start">
                                 <label for="finish">Đến</label>
-                                <input type="date" name="finish"> <br>
+                                <input type="date" name="finish" class="finish"> <br>
                                 <button id='btnDatLai' class='btn'>Đặt lại</button>
-                                <button id='btnCapQuyen' class='btn'>Cấp quyền</button>
-                            </form>
+                                <button id='btnCapQuyen' class='btn btnTU'>Cấp quyền</button>
+                                <button id='btnCapQuyen' class='btn btnT'>Cấp quyền</button>
+                                <button id='btnCapQuyen' class='btn btnH'>Cấp quyền</button>
+                                <button id='btnCapQuyen' class='btn btnX'>Cấp quyền</button>
+                            </div>
                         </div>
                         <div id="tiendo">
-                            <h3>Cấp tài khoản</h3>
+                            <div class="h-ma">
+                                <h2>Cấp mã tỉnh</h2>
+                                <div onclick="CapMaTinh()" id="capMaTinh" class="h-btn">Cấp mã tỉnh mới</div>
+                                <div onclick="CapMaHuyen()" id="capMaHuyen" class="h-btn">Cấp mã huyện mới</div>
+                                <div onclick="CapMaXa()" id="capMaXa" class="h-btn">Cấp mã xã mới</div>
+                                <div onclick="CapMaThon()" id="capMaThon" class="h-btn">Cấp mã thôn mới</div>
+                            </div>
+                            <div class="h-taikhoan">
+                                <h2>Cấp tài khoản</h2>
+                                <div onclick="CapTK()" class="h-btn">Cấp tài khoản mới</div>
+                            </div>
                         </div>
+                        
+                        <!-- Popup Cấp mã -->
+                        <div id="popupmatinh" class="h-matinh">
+                            <div class="h-popup">
+                                <div class="h-content">
+                                    <h2>Cấp mã tỉnh mới</h2>
+                                </div>
+                                <div class="h-popup-name">
+                                    <label for="">Tên tỉnh</label>
+                                    <input type="text" class="h-input h-input-ten">
+                                </div>
+                                <div class="h-popup-id">
+                                    <label for="">Mã tỉnh</label>
+                                    <input type="text" class="h-input h-input-ma">
+                                </div>
+                                <div class="h-popup-footer">
+                                    <button onclick="HuyCapMa()" class="h-btn h-btn-cancel">Hủy</button>
+                                    <button class="h-btn h-btn-ma">Cấp mã</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="popupmahuyen" class="h-matinh">
+                            <div class="h-popup">
+                                <div class="h-content">
+                                    <h2>Cấp mã huyện mới</h2>
+                                </div>
+                                <div class="h-popup-name">
+                                    <label for="">Tên huyện</label>
+                                    <input type="text" class="h-input h-input-tenh">
+                                </div>
+                                <div class="h-popup-id">
+                                    <label for="">Mã huyện</label>
+                                    <input type="text" class="h-input h-input-mah">
+                                </div>
+                                <div class="h-popup-footer">
+                                    <button onclick="HuyCapMa()" class="h-btn h-btn-cancel">Hủy</button>
+                                    <button class="h-btn h-btn-mah">Cấp mã</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="popupmaxa" class="h-matinh">
+                            <div class="h-popup">
+                                <div class="h-content">
+                                    <h2>Cấp mã xã mới</h2>
+                                </div>
+                                <div class="h-popup-name">
+                                    <label for="">Tên xã</label>
+                                    <input type="text" class="h-input h-input-tenx">
+                                </div>
+                                <div class="h-popup-id">
+                                    <label for="">Mã xã</label>
+                                    <input type="text" class="h-input h-input-max">
+                                </div>
+                                <div class="h-popup-footer">
+                                    <button onclick="HuyCapMa()" class="h-btn h-btn-cancel">Hủy</button>
+                                    <button class="h-btn h-btn-max">Cấp mã</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="popupmathon" class="h-matinh">
+                            <div class="h-popup">
+                                <div class="h-content">
+                                    <h2>Cấp mã thôn mới</h2>
+                                </div>
+                                <div class="h-popup-name">
+                                    <label for="">Tên thôn</label>
+                                    <input type="text" class="h-input h-input-tent">
+                                </div>
+                                <div class="h-popup-id">
+                                    <label for="">Mã thôn</label>
+                                    <input type="text" class="h-input h-input-mat">
+                                </div>
+                                <div class="h-popup-footer">
+                                    <button onclick="HuyCapMa()" class="h-btn h-btn-cancel">Hủy</button>
+                                    <button class="h-btn h-btn-mat">Cấp mã</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Popup Cấp tài khoản -->
+                        <div id="popuptaikhoan" class="h-matinh">
+                            <div class="h-popup">
+                                <div class="h-content">
+                                    <h2>Cấp tài khoản mới</h2>
+                                </div>
+                                <div class="h-popup-name">
+                                    <label for="">Tên đăng nhập</label>
+                                    <input type="text" class="h-input h-tsd">
+                                </div>
+                                <div class="h-popup-id">
+                                    <label for="">Mật khẩu</label>
+                                    <input type="text" class="h-input h-pass">
+                                </div>
+                                <div class="h-popup-id">
+                                    <label for="">Quyền</label>
+                                    <input type="text" class="h-input h-quyen" value="">
+                                </div>
+                                <div class="h-popup-footer">
+                                    <button onclick="HuyCapTK()" class="h-btn h-btn-cancel">Hủy</button>
+                                    <button class="h-btn h-btn-tk">Cấp mã</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <!--Phần dưới-->
                     <div class="below">
-                        <table class="danh-sach-tinh-thanh-pho danh-sach-A2">
-                            <div class="title">
-                                <p>Danh sách tỉnh thành phố</p>
-                            </div>
-                            <tr class="head"> 
-                                <td>Mã tỉnh/thành phố</td>
-                                <td>Tên tỉnh/thành phố</td>
-                                <td>Họ tên cán bộ</td>
-                                <td>Nhiệm kỳ</td>
-                                <td>Tiến độ nhập liệu</td>
-                            </tr>
-                            <tr class="information">
-                                <td>01</td>
-                                <td>Phú Thọ</td>
-                                <td>Nguyễn Văn A
-                                    <span>
-                                        <button class="detailDanSo detail" onclick="detail()">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                        <button class="detailDanSo detail" onclick="detail()">
-                                            <i class="fas fa-user-edit"></i>
-                                        </button>
-                                    </span>
-                                </td>
-                                <td>
-                                    2019-2021
-                                </td>
-                                <td>Hoàn thành
-                                    <span>
-                                        <button class="detailTienDo detail" onclick="detail()">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="information">
-                                <td>01</td>
-                                <td>Phú Thọ</td>
-                                <td>Nguyễn Văn A
-                                    <span>
-                                        <button class="detailDanSo detail" onclick="detail()">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                        <button class="detailDanSo detail" onclick="detail()">
-                                            <i class="fas fa-user-edit"></i>
-                                        </button>
-                                    </span>
-                                </td>
-                                <td>
-                                    2019-2021
-                                </td>
-                                <td>Hoàn thành
-                                    <span>
-                                        <button class="detailTienDo detail" onclick="detail()">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="information">
-                                <td>01</td>
-                                <td>Phú Thọ</td>
-                                <td>Nguyễn Văn A
-                                    <span>
-                                        <button class="detailDanSo detail" onclick="detail()">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                        <button class="detailDanSo detail" onclick="detail()">
-                                            <i class="fas fa-user-edit"></i>
-                                        </button>
-                                    </span>
-                                </td>
-                                <td>
-                                    2019-2021
-                                </td>
-                                <td>Hoàn thành
-                                    <span>
-                                        <button class="detailTienDo detail" onclick="detail()">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="information">
-                                <td>01</td>
-                                <td>Phú Thọ</td>
-                                <td>Nguyễn Văn A
-                                    <span>
-                                        <button class="detailDanSo detail" onclick="detail()">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                        <button class="detailDanSo detail" onclick="detail()">
-                                            <i class="fas fa-user-edit"></i>
-                                        </button>
-                                    </span>
-                                </td>
-                                <td>
-                                    2019-2021
-                                </td>
-                                <td>Hoàn thành
-                                    <span>
-                                        <button class="detailTienDo detail" onclick="detail()">
-                                            <i class="far fa-eye"></i>
-                                        </button>
-                                    </span>
-                                </td>
-                            </tr>
-                        </table>
+                        <div class="canbotrunguong">
+                            <table class="danh-sach-tinh-thanh-pho danh-sach-A2" id="dscanbotinh">
+                                <div class="title">
+                                    <p>Cán bộ phụ trách các tỉnh và tiến độ nhập liệu</p>
+                                </div>
+                                <tr class="head"> 
+                                    <td>Mã tỉnh/thành phố</td>
+                                    <td>Tên tỉnh/thành phố</td>
+                                    <td>Họ tên cán bộ</td>
+                                    <td>Thời gian bắt đầu</td>
+                                    <td>Thời gian kết thúc</td>
+                                    <td>Trạng thái</td>
+                                </tr>
+                                <tr class="information">
+                                    <td>01</td>
+                                    <td>Phú Thọ</td>
+                                    <td>Nguyễn Văn A
+                                        <span>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        2019-2021
+                                    </td>
+                                    <td>Hoàn thành
+                                        <span>
+                                            <button class="detailTienDo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="canbotinh">
+                            <table class="danh-sach-tinh-thanh-pho danh-sach-A2" id="dscanbohuyen">
+                                <div class="title">
+                                    <p>Danh sách huyện và cán bộ phụ trách</p>
+                                </div>
+                                <tr class="head"> 
+                                    <td>Mã huyện</td>
+                                    <td>Tên huyện</td>
+                                    <td>Họ tên cán bộ</td>
+                                    <td>Nhiệm kỳ</td>
+                                    <td>Tiến độ nhập liệu</td>
+                                </tr>
+                                <tr class="information">
+                                    <td>01</td>
+                                    <td>Phú Thọ</td>
+                                    <td>Nguyễn Văn A
+                                        <span>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        2019-2021
+                                    </td>
+                                    <td>Hoàn thành
+                                        <span>
+                                            <button class="detailTienDo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="canbohuyen">
+                            <table class="danh-sach-tinh-thanh-pho danh-sach-A2" id="dscanboxa">
+                                <div class="title">
+                                    <p>Danh sách xã và cán bộ phụ trách</p>
+                                </div>
+                                <tr class="head"> 
+                                    <td>Mã xã</td>
+                                    <td>Tên xã</td>
+                                    <td>Họ tên cán bộ</td>
+                                    <td>Nhiệm kỳ</td>
+                                    <td>Tiến độ nhập liệu</td>
+                                </tr>
+                                <tr class="information">
+                                    <td>01</td>
+                                    <td>Phú Thọ</td>
+                                    <td>Nguyễn Văn A
+                                        <span>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        2019-2021
+                                    </td>
+                                    <td>Hoàn thành
+                                        <span>
+                                            <button class="detailTienDo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="canboxa">
+                            <table class="danh-sach-tinh-thanh-pho danh-sach-A2" id="dscanbothon">
+                                <div class="title">
+                                    <p>Danh sách thôn và cán bộ phụ trách</p>
+                                </div>
+                                <tr class="head"> 
+                                    <td>Mã thôn</td>
+                                    <td>Tên thôn</td>
+                                    <td>Họ tên cán bộ</td>
+                                    <td>Nhiệm kỳ</td>
+                                    <td>Tiến độ nhập liệu</td>
+                                </tr>
+                                <tr class="information">
+                                    <td>01</td>
+                                    <td>Phú Thọ</td>
+                                    <td>Nguyễn Văn A
+                                        <span>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        2019-2021
+                                    </td>
+                                    <td>Hoàn thành
+                                        <span>
+                                            <button class="detailTienDo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div> 
-        <script type="text/javascript" src="../scripts/common.js"></script>
+        <script type="text/javascript" src="../scripts/quanliA2.js"></script>
+        <script type="text/javascript" src="../scripts/capmoi.js"></script>
+        <script type="text/javascript" src="../scripts/capmoihuyen.js"></script>
+        <script type="text/javascript" src="../scripts/capmoixa.js"></script>
+        <script type="text/javascript" src="../scripts/capmoithon.js"></script>
     </body>
 </html>

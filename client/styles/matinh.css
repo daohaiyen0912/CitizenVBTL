@@ -4,7 +4,8 @@
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(82, 81, 81, 0.103);
+    background-color: rgba(172, 168, 168, 0.589);
+    display: none;
 }
 
 .h-popup {

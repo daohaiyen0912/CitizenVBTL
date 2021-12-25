@@ -111,17 +111,17 @@
                         </div>
                         <div class="nltk1 nltk11">
                                 <label for="cccd">Số CMND/CCCD </label> 
-                                <input type="text" id="cccd" placeholder="Nhập số CMND/CCCD" />
+                                <input type="text" id="cccd" class="cccd" placeholder="Nhập số CMND/CCCD" />
                                 <label for="ngaysinh">Ngày sinh</label> 
-                                <input type="date" id="ngaysinh" placeholder="Nhập ngày sinh" />
+                                <input type="date" id="ngaysinh" class="ns" placeholder="Nhập ngày sinh" />
                                 <label for="nghenghiep">Nghề nghiệp </label>
-                                <input type="text" id="nghenghiep" placeholder="Nhập nghề nghiệp" />
+                                <input type="text" id="nghenghiep" class="nn" placeholder="Nhập nghề nghiệp" />
                         </div>
                         <div class="nltk1 nltk12">
                                 <label for="hoten">Họ và tên</label> 
-                                <input type="text" id="hoten" placeholder="Nhập họ tên" />
+                                <input type="text" id="hoten" class="ten" placeholder="Nhập họ tên" />
                                 <label for="tdvanhoa">Trình độ văn hóa </label>
-                                <input type="text" id="tdvanhoa" placeholder="Nhập trình độ văn hóa" />
+                                <input type="text" id="tdvanhoa" class="tdvh" placeholder="Nhập trình độ văn hóa" />
                             </div>
                         <div class="nltk1 nltk13">
                             <label>Giới tính </label>
@@ -132,11 +132,11 @@
                                 <label for="nu">Nữ</label>
                             </span>
                             <label for="tongiao">Tôn giáo </label>
-                            <input type="text" id="tongiao" placeholder="Nhập tôn giáo" />
+                            <input type="text" id="tongiao" class="tongiao" placeholder="Nhập tôn giáo" />
                         </div>
                         <div class="nltk2">
                                 <label>Quê quán</label>
-                                <input list="xas" placeholder="Nhập xã..." class="listI">
+                                <input list="xas" placeholder="Nhập xã..." class="listI xa">
                                 <datalist id="xas">
                                 <option value="Xã 1">
                                 <option value="Xã 2">
@@ -144,7 +144,7 @@
                                 <option value="Xã 4">
                                 <option value="Xã 5">
                                 </datalist>
-                                <input list="huyens" placeholder="Nhập huyện..." class="listI">
+                                <input list="huyens" placeholder="Nhập huyện..." class="listI huyen">
                                 <datalist id="huyens">
                                 <option value="Huyện 1">
                                 <option value="Huyện 2">
@@ -152,7 +152,7 @@
                                 <option value="Huyện 4">
                                 <option value="Huyện 5">
                                 </datalist>
-                                <input list="tinhs" placeholder="Nhập tỉnh..." class="listI">
+                                <input list="tinhs" placeholder="Nhập tỉnh..." class="listI tinh">
                                 <datalist id="tinhs">
                                 <option value="Tỉnh 1">
                                 <option value="Tỉnh 2">
@@ -163,7 +163,7 @@
                         </div>
                         <div class="nltk3">
                             <label>Địa chỉ thường trú</label>
-                                <input list="xas" placeholder="Nhập xã..." class="listI">
+                                <input list="xas" placeholder="Nhập xã..." class="listI xa2">
                                 <datalist id="xas">
                                 <option value="Xã 1">
                                 <option value="Xã 2">
@@ -171,7 +171,7 @@
                                 <option value="Xã 4">
                                 <option value="Xã 5">
                                 </datalist>
-                                <input list="huyens" placeholder="Nhập huyện..." class="listI">
+                                <input list="huyens" placeholder="Nhập huyện..." class="listI huyen2">
                                 <datalist id="huyens">
                                 <option value="Huyện 1">
                                 <option value="Huyện 2">
@@ -179,7 +179,7 @@
                                 <option value="Huyện 4">
                                 <option value="Huyện 5">
                                 </datalist>
-                                <input list="tinhs" placeholder="Nhập tỉnh..." class="listI">
+                                <input list="tinhs" placeholder="Nhập tỉnh..." class="listI tinh2">
                                 <datalist id="tinhs">
                                 <option value="Tỉnh 1">
                                 <option value="Tỉnh 2">
@@ -190,7 +190,7 @@
                         </div>
                         <div class="nltk4">
                             <label>Địa chỉ tạm trú</label>
-                                <input list="xas" placeholder="Nhập xã..." class="listI">
+                                <input list="xas" placeholder="Nhập xã..." class="listI xa1">
                                 <datalist id="xas">
                                 <option value="Xã 1">
                                 <option value="Xã 2">
@@ -198,7 +198,7 @@
                                 <option value="Xã 4">
                                 <option value="Xã 5">
                                 </datalist>
-                                <input list="huyens" placeholder="Nhập huyện..." class="listI">
+                                <input list="huyens" placeholder="Nhập huyện..." class="listI huyen1">
                                 <datalist id="huyens">
                                 <option value="Huyện 1">
                                 <option value="Huyện 2">
@@ -206,7 +206,7 @@
                                 <option value="Huyện 4">
                                 <option value="Huyện 5">
                                 </datalist>
-                                <input list="tinhs" placeholder="Nhập tỉnh..." class="listI">
+                                <input list="tinhs" placeholder="Nhập tỉnh..." class="listI tinh1">
                                 <datalist id="tinhs">
                                 <option value="Tỉnh 1">
                                 <option value="Tỉnh 2">
@@ -318,5 +318,6 @@
             </div>
         </div>
         <script type="text/javascript" src="../scripts/common.js"></script>
+        <script type="text/javascript" src="../scripts/nhaplieu.js"></script>
     </body>
 </html>

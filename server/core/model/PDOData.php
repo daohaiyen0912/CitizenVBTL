@@ -11,7 +11,7 @@
 		public function __construct() {
 			try {
 			    /* Ket noi CSDL */
-				$this->db = new PDO("mysql:host=localhost;dbname=truycap;", "root", "");
+				$this->db = new PDO("mysql:host=localhost;dbname=citizenv;", "root", "");
 			} catch(PDOException $ex) { echo $ex->getMessage();	}
 		}
 		

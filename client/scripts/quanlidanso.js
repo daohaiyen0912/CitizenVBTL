@@ -1,4 +1,3 @@
-
 /*Vẽ biểu đồ tròn liền - mẫu chưa sửa dữ liệu */
 var myCanvas = document.getElementById("myCanvas");
  
@@ -166,89 +165,6 @@ function logout() {
 	});
 }
 //
-//
-// Ẩn tất cả panel
-let hideAllPanel = function() {		
-	let panels = document.querySelectorAll("div.panel");
-	for (let i = 0; i < panels.length; i++) {
-		panels[i].classList.add("nodisplay");
-	}
-};
-//
-//
-// Hiển thị list-panel
-let showListPanel = function() {
-	hideAllPanel();
-	document.querySelector("div.panel-list").classList.remove("nodisplay");
-};
-//
-//
-// Hiển thị edit-panel
-let showEditPanel = function() {
-	hideAllPanel();
-	document.querySelector("div.panel-edit").classList.remove("nodisplay");
-};
-//
-//
-// Bắt sự kiện kích link Xóa 
-let delClick = function (a) {
-	a.onclick = function() {
-		if(confirm("Thầy/cô chắc chắn xóa sinh viên " + this.parentNode.parentNode.childNodes[2].innerHTML + ", mã số " + this.parentNode.parentNode.childNodes[1].innerHTML)) {
-			let msv = this.parentNode.parentNode.childNodes[1].innerHTML;
-			fetch("index.php/students/" + msv, {
-				method: "DELETE",
-				headers: {"Content-Type": "application/json"},
-				body: '{"masv":"' + msv + 
-				'"}'})
-			.then(resp => {
-				if (resp.status == 200) {
-					resp.json()
-					.then(ret => {
-						if (ret.status == "OK") { 
-							if (ret.data == 1) {
-								let tb = this.parentNode.parentNode.parentNode;
-								tb.removeChild(a.parentNode.parentNode);
-								// Đánh lại số thứ tự trong bảng
-								for (let i = 0; i < tb.rows.length; i++)
-									tb.rows[i].cells[0].innerHTML = (i+1).toString();
-							}
-						}
-					});
-				}
-			});
-		} else { return false;}
-	};
-};
-//
-//
-// Bắt sự kiện kích link Sửa 
-let ulink = null;
-let updateClick = function (a) {
-	a.onclick = function() {
-		// 
-		ulink = this; // lưu tham chiếu link để có thể dùng lại khi người dùng "Chấp nhận"
-		// Đưa dữ liệu lên form nhập
-		document.querySelector("div.panel-edit h1").innerHTML = "Cập nhật sinh viên";
-		document.querySelector("div.panel-edit div.err-submit").innerHTML = "";
-
-		document.querySelector("div.panel-edit span.err-masv").innerHTML = "";
-		document.querySelector("div.panel-edit span.err-hoten").innerHTML = "";
-		document.querySelector("div.panel-edit span.err-ngaysinh").innerHTML = "";
-		document.querySelector("div.panel-edit span.err-quequan").innerHTML = "";
-		document.querySelector("div.panel-edit input.masv").disabled = true;
-		document.querySelector("div.panel-edit button.edit-submit").disabled = false;
-
-
-		document.querySelector("div.panel-edit input.mode").value = "update";
-		document.querySelector("div.panel-edit input.masv").value = this.parentNode.parentNode.childNodes[1].innerHTML;
-		document.querySelector("div.panel-edit input.hoten").value = this.parentNode.parentNode.childNodes[2].innerHTML;
-		document.querySelector("div.panel-edit input.ngaysinh").value = this.parentNode.parentNode.childNodes[3].innerHTML;
-		document.querySelector("div.panel-edit input.quequan").value = this.parentNode.parentNode.childNodes[4].innerHTML;
-
-		// Hiển thị edit-panel
-		showEditPanel();	
-	};
-};
 
 let createNewRow = function(x1, x2, x3, x4, x5) {
 	// Tạo <tr> và các <td> mới
@@ -312,72 +228,39 @@ fetch("../../index.php/danhsach")
                 // }
 				
 				if(ret.rights.includes("tongcuc")) {
-					let tbl = document.getElementById('dstinh');
+					let tbl = document.getElementById('dscanuoc');
 					console.log(tbl);
-					document.querySelector("div.trung-uong").style.display="block";
+					document.querySelector("div.tableDSDanSoCaNuoc").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].matinh, ret.data[i].tentinh, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
 				} else if(ret.rights.includes("tinh")) {
-					let tbl = document.getElementById('dshuyen');
+					let tbl = document.getElementById('dstinh');
 					console.log(tbl);
-					document.querySelector("div.cap-tinh").style.display="block";
+					document.querySelector("div.tableDSDanSoTinh").style.display="block";
+					console.log(document.querySelector("div.tableDSDanSoTinh"));
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mahuyen, ret.data[i].tenhuyen, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
 				} else if(ret.rights.includes("huyen")) {
-					let tbl = document.getElementById('dsxa');
-					document.querySelector("div.cap-huyen").style.display="block";
+					let tbl = document.getElementById('dshuyen');
+					document.querySelector("div.tableDSDanSoHuyen").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].maxa, ret.data[i].tenxa, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
 				}
 				else if(ret.rights.includes("xa")) {
-					let tbl = document.getElementById('dsthon');
-					document.querySelector("div.cap-xa").style.display="block";
+					let tbl = document.getElementById('dsxa');
+					document.querySelector("div.tableDSDanSoXa").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mathon, ret.data[i].tenthon, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
 				} else {
 					
-				}
-				//--
-			} else if (ret.status == "NOK") {
-				if (ret.data == "ACCESS-DENIED") {
-					//document.querySelector("div.panel-noaccess").classList.remove("nodisplay");
-				}
-			} else {
-				// Có lỗi
-			}
-        })
-    } else {
-
-    }
-})
-
-/*Kiểm tra có được hiện nhập liệu không */
-fetch("../../index.php/hiennhaplieu")
-.then(resp => {
-    console.log("OK");
-    if(resp.status == 200) {
-        console.log("OK");
-        console.log(resp.data);
-        resp.json()
-        .then(ret => {
-            console.log("OK");
-            console.log(ret.data);
-            if (ret.status == "OK") {
-				// if (!ret.rights.includes("CREATE")){
-                //     tbl.style.display="none";
-                //     document.querySelector("table.danh-sach-tinh-thanh-pho").style.display="none";
-                // }
-				if(ret.data[0].moquyen=="dong") {
-					console.log("done");
-					document.querySelector("a.aNhapLieu").href = "../html/popupmatinh.html";
 				}
 				//--
 			} else if (ret.status == "NOK") {
