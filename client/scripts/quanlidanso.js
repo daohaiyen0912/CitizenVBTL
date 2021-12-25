@@ -230,6 +230,18 @@ fetch("../../index.php/danhsach")
 				if(ret.rights.includes("tongcuc")) {
 					let tbl = document.getElementById('dscanuoc');
 					console.log(tbl);
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản tổng cục";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+
 					document.querySelector("div.tableDSDanSoCaNuoc").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].matinh, ret.data[i].tentinh, ret.data[i].sodan, ret.data[i].tiendo);
@@ -238,27 +250,66 @@ fetch("../../index.php/danhsach")
 				} else if(ret.rights.includes("tinh")) {
 					let tbl = document.getElementById('dstinh');
 					console.log(tbl);
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản tỉnh";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+
 					document.querySelector("div.tableDSDanSoTinh").style.display="block";
 					console.log(document.querySelector("div.tableDSDanSoTinh"));
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mahuyen, ret.data[i].tenhuyen, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+					hiennhaplieu();
 				} else if(ret.rights.includes("huyen")) {
 					let tbl = document.getElementById('dshuyen');
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản huyện";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+				
 					document.querySelector("div.tableDSDanSoHuyen").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].maxa, ret.data[i].tenxa, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+					hiennhaplieu();
 				}
 				else if(ret.rights.includes("xa")) {
 					let tbl = document.getElementById('dsxa');
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản xã";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+				
 					document.querySelector("div.tableDSDanSoXa").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mathon, ret.data[i].tenthon, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+					hiennhaplieu();
 				} else {
 					
 				}
@@ -275,3 +326,39 @@ fetch("../../index.php/danhsach")
 
     }
 })
+
+/*Kiểm tra có được hiện nhập liệu không */
+function hiennhaplieu() {
+	fetch("../../index.php/hiennhaplieu")
+	.then(resp => {
+		console.log("OK");
+		if(resp.status == 200) {
+			console.log("OK");
+			console.log(resp.data);
+			resp.json()
+			.then(ret => {
+				console.log("OK");
+				console.log(ret.data);
+				if (ret.status == "OK") {
+					// if (!ret.rights.includes("CREATE")){
+					//     tbl.style.display="none";
+					//     document.querySelector("table.danh-sach-tinh-thanh-pho").style.display="none";
+					// }
+					if(ret.data[0].moquyen=="dong") {
+						console.log("done");
+						document.querySelector("a.aNhapLieu").href = "../html/nhaplieuloi.html";
+					}
+					//--
+				} else if (ret.status == "NOK") {
+					if (ret.data == "ACCESS-DENIED") {
+						//document.querySelector("div.panel-noaccess").classList.remove("nodisplay");
+					}
+				} else {
+					// Có lỗi
+				}
+			})
+		} else {
+	
+		}
+	})
+	}

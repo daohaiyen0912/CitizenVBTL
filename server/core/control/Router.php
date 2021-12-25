@@ -45,8 +45,15 @@
 				$moduleName = "qldt";
 				$controllerName = "std";
 				$actionName = "proc";
+			} else if ($_SERVER["REQUEST_METHOD"] == "GET" &&
+				count($commandArray) == 1	&&
+				strtolower($commandArray[0]) == "danhsachdan")
+			{
+				$moduleName = "qldata";
+				$controllerName = "ds";
+				$actionName = "proc1";
 			}
-			
+				
 			// GET /students
 			if ($_SERVER["REQUEST_METHOD"] == "GET" &&
 				count($commandArray) == 1	&&
@@ -138,6 +145,17 @@
 			$controllerName = "ds";
 			$actionName = "addMaThon";
 		}
+
+			// POST / xác nhận báo cáo
+			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
+			count($commandArray) == 1 &&	
+			strtolower($commandArray[0]) == "xacnhan") 
+		{
+			$moduleName = "qldata";
+			$controllerName = "ds";
+			$actionName = "xacnhanBC";
+		}
+		
 			//POST / nhập liệu thông tin người dân
 			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
 			count($commandArray) == 1 &&	

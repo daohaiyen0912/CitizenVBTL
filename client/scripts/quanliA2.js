@@ -189,7 +189,7 @@ document.querySelector("button.btnX").onclick = function() {
 
 
 
-let createNewRow = function(x1, x2, x3, x4, x5) {
+let createNewRow = function(x1, x2, x3, x4, x5, x6, x7) {
 	// Tạo <tr> và các <td> mới
 	let r = document.createElement("tr");
 	let c1 = document.createElement("td");
@@ -213,6 +213,8 @@ let createNewRow = function(x1, x2, x3, x4, x5) {
 	c3.innerHTML = x3;
 	c4.innerHTML = x4;
 	c5.innerHTML = x5;
+	c6.innerHTML = x6;
+	c7.innerHTML = x7;
 	// c6
 	// let aupd = document.createElement("a");
 	// aupd.href = "#";
@@ -253,42 +255,99 @@ fetch("../../index.php/danhsach")
 				if(ret.rights.includes("tongcuc")) {
 					let tbl = document.getElementById('dscanbotinh');
 					console.log(tbl);
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản tổng cục";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);					
+
 					document.querySelector("div.canbotrunguong").style.display="block";
 					document.querySelector("button.btnTU").style.display="inline";
+					document.getElementById("capMaTinh").style.display="block";
 					document.querySelector("input.h-quyen").value="tinh";
 					for (let i = 0; i < ret.data.length; i++) {
-						let r = createNewRow((i+1).toString(), ret.data[i].matinh, ret.data[i].tentinh, ret.data[i].sodan, ret.data[i].tiendo);
+						let r = createNewRow((i+1).toString(), ret.data[i].matinh, ret.data[i].tentinh, ret.data[i].hotencb, ret.data[i].start, ret.data[i].end, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+
 				} else if(ret.rights.includes("tinh")) {
 					let tbl = document.getElementById('dscanbohuyen');
 					console.log(tbl);
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản tỉnh";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+
 					document.querySelector("div.canbotinh").style.display="block";
 					document.querySelector("button.btnT").style.display="inline";
 					document.querySelector("input.h-quyen").value="huyen";
+					document.getElementById("capMaHuyen").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
-						let r = createNewRow((i+1).toString(), ret.data[i].mahuyen, ret.data[i].tenhuyen, ret.data[i].sodan, ret.data[i].tiendo);
+						let r = createNewRow((i+1).toString(), ret.data[i].mahuyen, ret.data[i].tenhuyen, ret.data[i].hotencb, ret.data[i].start, ret.data[i].end, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+					hiennhaplieu();
 				} else if(ret.rights.includes("huyen")) {
 					let tbl = document.getElementById('dscanboxa');
+
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản huyện";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+
 					document.querySelector("div.canbohuyen").style.display="block";
 					document.querySelector("button.btnH").style.display="inline";
+					document.getElementById("capMaXa").style.display="block";
 					document.querySelector("input.h-quyen").value="xa";
 					for (let i = 0; i < ret.data.length; i++) {
-						let r = createNewRow((i+1).toString(), ret.data[i].maxa, ret.data[i].tenxa, ret.data[i].sodan, ret.data[i].tiendo);
+						let r = createNewRow((i+1).toString(), ret.data[i].maxa, ret.data[i].tenxa, ret.data[i].hotencb, ret.data[i].start, ret.data[i].end, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+					hiennhaplieu();
 				}
 				else if(ret.rights.includes("xa")) {
 					let tbl = document.getElementById('dscanbothon');
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản xã";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);	
+
 					document.querySelector("div.canboxa").style.display="block";
 					document.querySelector("button.btnX").style.display="inline";
+					document.getElementById("capMaThon").style.display="block";
 					document.querySelector("input.h-quyen").value="thon";
 					for (let i = 0; i < ret.data.length; i++) {
-						let r = createNewRow((i+1).toString(), ret.data[i].mathon, ret.data[i].tenthon, ret.data[i].sodan, ret.data[i].tiendo);
+						let r = createNewRow((i+1).toString(), ret.data[i].mathon, ret.data[i].tenthon, ret.data[i].hotencb, ret.data[i].start, ret.data[i].end, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+					hiennhaplieu();
 				} else {
 					
 				}
@@ -305,3 +364,39 @@ fetch("../../index.php/danhsach")
 
     }
 })
+
+/*Kiểm tra có được hiện nhập liệu không */
+function hiennhaplieu() {
+fetch("../../index.php/hiennhaplieu")
+.then(resp => {
+    console.log("OK");
+    if(resp.status == 200) {
+        console.log("OK");
+        console.log(resp.data);
+        resp.json()
+        .then(ret => {
+            console.log("OK");
+            console.log(ret.data);
+            if (ret.status == "OK") {
+				// if (!ret.rights.includes("CREATE")){
+                //     tbl.style.display="none";
+                //     document.querySelector("table.danh-sach-tinh-thanh-pho").style.display="none";
+                // }
+				if(ret.data[0].moquyen=="dong") {
+					console.log("done");
+					document.querySelector("a.aNhapLieu").href = "../html/nhaplieuloi.html";
+				}
+				//--
+			} else if (ret.status == "NOK") {
+				if (ret.data == "ACCESS-DENIED") {
+					//document.querySelector("div.panel-noaccess").classList.remove("nodisplay");
+				}
+			} else {
+				// Có lỗi
+			}
+        })
+    } else {
+
+    }
+})
+}

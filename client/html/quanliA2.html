@@ -31,8 +31,6 @@
             <div id="menuVer">
                 <div id="account">
                         <img>
-                        <h2>Cán bộ A1</h2>
-                        <h3>Tổng cục dân số</h3>
                 </div>
                 <nav id="menuBar">
                     <ul>
@@ -68,8 +66,8 @@
                                 Quản lí thông tin dân số
                             </a>
                         </li> <br>
-                        <li id="NL" onclick="nhaplieu()">
-                            <a href="nhaplieu.html">
+                        <li id="NL">
+                            <a href="nhaplieu.html" class="aNhapLieu">
                                 <span>
                                     <i class="fas fa-file-import"></i>
                                 </span>
@@ -292,118 +290,46 @@
                         <div class="canbotinh">
                             <table class="danh-sach-tinh-thanh-pho danh-sach-A2" id="dscanbohuyen">
                                 <div class="title">
-                                    <p>Danh sách huyện và cán bộ phụ trách</p>
+                                    <p>Cán bộ phụ trách các huyện và tiến độ nhập liệu</p>
                                 </div>
                                 <tr class="head"> 
                                     <td>Mã huyện</td>
                                     <td>Tên huyện</td>
                                     <td>Họ tên cán bộ</td>
-                                    <td>Nhiệm kỳ</td>
-                                    <td>Tiến độ nhập liệu</td>
+                                    <td>Thời gian bắt đầu</td>
+                                    <td>Thời gian kết thúc</td>
+                                    <td>Trạng thái</td>
                                 </tr>
-                                <tr class="information">
-                                    <td>01</td>
-                                    <td>Phú Thọ</td>
-                                    <td>Nguyễn Văn A
-                                        <span>
-                                            <button class="detailDanSo detail" onclick="detail()">
-                                                <i class="far fa-eye"></i>
-                                            </button>
-                                            <button class="detailDanSo detail" onclick="detail()">
-                                                <i class="fas fa-user-edit"></i>
-                                            </button>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        2019-2021
-                                    </td>
-                                    <td>Hoàn thành
-                                        <span>
-                                            <button class="detailTienDo detail" onclick="detail()">
-                                                <i class="far fa-eye"></i>
-                                            </button>
-                                        </span>
-                                    </td>
-                                </tr>
-
                             </table>
                         </div>
                         <div class="canbohuyen">
                             <table class="danh-sach-tinh-thanh-pho danh-sach-A2" id="dscanboxa">
                                 <div class="title">
-                                    <p>Danh sách xã và cán bộ phụ trách</p>
+                                    <p>Cán bộ phụ trách các xã và tiến độ nhập liệu</p>
                                 </div>
                                 <tr class="head"> 
                                     <td>Mã xã</td>
                                     <td>Tên xã</td>
                                     <td>Họ tên cán bộ</td>
-                                    <td>Nhiệm kỳ</td>
-                                    <td>Tiến độ nhập liệu</td>
+                                    <td>Thời gian bắt đầu</td>
+                                    <td>Thời gian kết thúc</td>
+                                    <td>Trạng thái</td>
                                 </tr>
-                                <tr class="information">
-                                    <td>01</td>
-                                    <td>Phú Thọ</td>
-                                    <td>Nguyễn Văn A
-                                        <span>
-                                            <button class="detailDanSo detail" onclick="detail()">
-                                                <i class="far fa-eye"></i>
-                                            </button>
-                                            <button class="detailDanSo detail" onclick="detail()">
-                                                <i class="fas fa-user-edit"></i>
-                                            </button>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        2019-2021
-                                    </td>
-                                    <td>Hoàn thành
-                                        <span>
-                                            <button class="detailTienDo detail" onclick="detail()">
-                                                <i class="far fa-eye"></i>
-                                            </button>
-                                        </span>
-                                    </td>
-                                </tr>
-
                             </table>
                         </div>
                         <div class="canboxa">
                             <table class="danh-sach-tinh-thanh-pho danh-sach-A2" id="dscanbothon">
                                 <div class="title">
-                                    <p>Danh sách thôn và cán bộ phụ trách</p>
+                                    <p>Cán bộ phụ trách các thôn và tiến độ nhập liệu</p>
                                 </div>
                                 <tr class="head"> 
                                     <td>Mã thôn</td>
                                     <td>Tên thôn</td>
                                     <td>Họ tên cán bộ</td>
-                                    <td>Nhiệm kỳ</td>
-                                    <td>Tiến độ nhập liệu</td>
+                                    <td>Thời gian bắt đầu</td>
+                                    <td>Thời gian kết thúc</td>
+                                    <td>Trạng thái</td>
                                 </tr>
-                                <tr class="information">
-                                    <td>01</td>
-                                    <td>Phú Thọ</td>
-                                    <td>Nguyễn Văn A
-                                        <span>
-                                            <button class="detailDanSo detail" onclick="detail()">
-                                                <i class="far fa-eye"></i>
-                                            </button>
-                                            <button class="detailDanSo detail" onclick="detail()">
-                                                <i class="fas fa-user-edit"></i>
-                                            </button>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        2019-2021
-                                    </td>
-                                    <td>Hoàn thành
-                                        <span>
-                                            <button class="detailTienDo detail" onclick="detail()">
-                                                <i class="far fa-eye"></i>
-                                            </button>
-                                        </span>
-                                    </td>
-                                </tr>
-
                             </table>
                         </div>
                     </div>

@@ -1,0 +1,37 @@
+.h-matinh {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(172, 168, 168, 0.589);
+    display: none;
+}
+
+.h-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    width: 300px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 16px 16px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+div+div {
+    padding-top: 20px;
+}
+
+.h-popup-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+h2,
+h3 {
+    color: #035286;
+}

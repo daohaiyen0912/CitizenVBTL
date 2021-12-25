@@ -28,8 +28,6 @@
             <div id="menuVer">
                 <div id="account">
                         <img>
-                        <h2>Cán bộ A1</h2>
-                        <h3>Tổng cục dân số</h3>
                 </div>
                 <nav id="menuBar">
                     <ul>
@@ -65,8 +63,8 @@
                                 Quản lí thông tin dân số
                             </a>
                         </li> <br>
-                        <li id="NL" onclick="nhaplieu()">
-                            <a href="nhaplieu.html">
+                        <li id="NL">
+                            <a href="nhaplieu.html" class="aNhapLieu">
                                 <span>
                                     <i class="fas fa-file-import"></i>
                                 </span>
@@ -140,27 +138,45 @@
                         </div>
                     </div>
                     <div id="contentDS">
-                        <div id='cuongDoCapNhat'>
-                            <h4>Cường độ cập nhật</h4>
-                        </div>
                         <div class="tableDSDanSoCaNuoc">
                             <table class="danh-sach-tinh-thanh-pho" id="dscanuoc">
                                 <div class="title">
-                                    <p>Danh sách tỉnh thành phố</p>
+                                    <p>Danh sách dân cư cả nước</p>
                                 </div>
                                 <tr class="head"> 
-                                    <td>Mã tỉnh/thành phố</td>
-                                    <td>Tên tỉnh/thành phố</td>
-                                    <td>Họ tên cán bộ phụ trách</td>
-                                    <td>Tổng số dân</td>
+                                    <td>Stt</td>
+                                    <td>Số CCCD/CMND</td>
+                                    <td>Họ và tên</td>
+                                    <td>Ngày sinh</td>
+                                    <td>Giới tính</td>
+                                    <td>Quê quán</td>
+                                    <td>Địa chỉ thường trú</td>
+                                    <td>Địa chỉ tạm trú</td>
+                                    <td>Tôn giáo</td>
+                                    <td>Trình độ văn hóa</td>
+                                    <td>Nghề nghiệp</td>
+                                    <td>Thao tác</td>
                                 </tr>
                                 <tr class="information">
-                                    <td>01</td>
-                                    <td>Phú Thọ</td>
+                                    <td>1</td>
+                                    <td>123456789</td>
                                     <td>Nguyễn Văn A</td>
-                                    <td>1.000.000
+                                    <td>19/12/2001</td>
+                                    <td>Nam</td>
+                                    <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                    <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                    <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                    <td>Không</td>
+                                    <td>Đại học</td>
+                                    <td>Sinh viên</td>
+                                    <td>
                                         <span>
-                                            <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
                                         </span>
                                     </td>
                                 </tr>
@@ -169,21 +185,42 @@
                         <div class="tableDSDanSoTinh">
                             <table class="danh-sach-tinh-thanh-pho" id="dstinh">
                                 <div class="title">
-                                    <p>Danh sách huyện/xã</p>
+                                    <p>Danh sách dân cư tỉnh</p>
                                 </div>
                                 <tr class="head"> 
-                                    <td>Mã huyện/xã</td>
-                                    <td>Tên huyện/xã</td>
-                                    <td>Họ tên cán bộ phụ trách</td>
-                                    <td>Tổng số dân</td>
+                                    <td>Stt</td>
+                                    <td>Số CCCD/CMND</td>
+                                    <td>Họ và tên</td>
+                                    <td>Ngày sinh</td>
+                                    <td>Giới tính</td>
+                                    <td>Quê quán</td>
+                                    <td>Địa chỉ thường trú</td>
+                                    <td>Địa chỉ tạm trú</td>
+                                    <td>Tôn giáo</td>
+                                    <td>Trình độ văn hóa</td>
+                                    <td>Nghề nghiệp</td>
+                                    <td>Thao tác</td>
                                 </tr>
                                 <tr class="information">
-                                    <td>0101</td>
-                                    <td>Phú Thọ</td>
+                                    <td>1</td>
+                                    <td>123456789</td>
                                     <td>Nguyễn Văn A</td>
-                                    <td>1.000.000
+                                    <td>19/12/2001</td>
+                                    <td>Nam</td>
+                                    <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                    <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                    <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                    <td>Không</td>
+                                    <td>Đại học</td>
+                                    <td>Sinh viên</td>
+                                    <td>
                                         <span>
-                                            <button class="detailDanSo detail" onclick="detail()">Chi tiết</button>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                            <button class="detailDanSo detail" onclick="detail()">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
                                         </span>
                                     </td>
                                 </tr>
@@ -192,7 +229,7 @@
                         <div class="tableDSDanSoHuyen">
                             <table class="danh-sach-tinh-thanh-pho" id="dshuyen">
                                 <div class="title">
-                                    <p>Danh sách dân cư tại xã/phường</p>
+                                    <p>Danh sách dân cư huyện</p>
                                 </div>
                                 <tr class="head"> 
                                     <td>Stt</td>

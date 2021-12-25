@@ -168,7 +168,7 @@ tr.title th {
     text-align: center;
     color: #030B56;
 }
-.danh-sach-tinh-thanh-pho tr.information {
+.danh-sach-tinh-thanh-pho tr{
     background-color: white;
     height: 48px;
     text-align: center;    
@@ -180,4 +180,18 @@ tr.title th {
 }
 .danh-sach-tinh-thanh-pho tr.information button.detail:hover {
     cursor: pointer;
+}
+
+/*Các nút cấp mã cấp dưới*/
+#capMaTinh {
+    display: none;
+}
+#capMaHuyen {
+    display: none;
+}
+#capMaXa {
+    display: none;
+}
+#capMaThon {
+    display: none;
 }

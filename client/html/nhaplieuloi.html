@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CitizenV</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../styles/allcommon.css">
+    <link rel="stylesheet" href="../styles/nhaplieu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+</head>
+
+<body>
+    <!--Thanh bar trên cùng-->
+    <div id='barTop'>
+        <div id="control">
+            <a href="#" class="logout" onclick={logout()}>
+                <i class="fas fa-arrow-circle-left"></i>
+            </a>
+            <a href="common.html">
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
+        <img src="../images/citizen-v-bar1.png">
+    </div>
+
+    <div id="container">
+        <!--Thanh Menu dọc-->
+        <div id="menuVer">
+            <div id="account">
+                <img>
+            </div>
+            <nav id="menuBar">
+                <ul>
+                    <li id="TQ">
+                        <a href="common.html">
+                            <span>
+                                    <i class="fas fa-globe"></i>
+                                </span> Tổng quan dân số
+                        </a>
+                    </li> <br>
+                    <li id="MT">
+                        <a href="quanlimatinh.html">
+                            <span>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span> Cấp và quản lí mã cấp dưới
+                        </a>
+                    </li> <br>
+                    <li id="A2">
+                        <a href="quanliA2.html">
+                            <span>
+                                    <i class="far fa-user-circle"></i>
+                                </span> Cấp quyền và quản lí tài khoản
+                        </a>
+                    </li> <br>
+                    <li id="DS">
+                        <a href="quanlidanso.html">
+                            <span>
+                                    <i class="fas fa-chart-bar"></i>
+                                </span> Quản lí thông tin dân số
+                        </a>
+                    </li> <br>
+                    <li id="NL" onclick="nhaplieu()">
+                        <a href="nhaplieu.html">
+                            <span>
+                                    <i class="fas fa-file-import"></i>
+                                </span> Nhập liệu
+                        </a>
+                    </li> <br>
+                    <li id="TD">
+                        <a href="tiendo.html">
+                            <span>
+                                    <i class="far fa-clock"></i>
+                                </span> Tiến độ nhập liệu
+                        </a>
+                    </li> <br>
+                    <li id="IN">
+                        <a href="in.html">
+                            <span>
+                                    <i class="fas fa-print"></i>
+                                </span> In phiếu điều tra
+                        </a>
+                    </li> <br>
+                    <li id="BC">
+                        <a href="baocao.html">
+                            <span>
+                                    <i class="fas fa-envelope-open-text"></i>
+                                </span> Báo cáo điều tra
+                        </a>
+                    </li> <br>
+                </ul>
+            </nav>
+        </div>
+        <!--Phần bên nội dung chính-->
+        <div id="content">
+            <!-- Content Nhập liệu -->
+            <div id="contentNhapLieu">
+                <!-- Phần nhập liệu người dân -->
+                <div id="nhapLieuTimKiem">
+                    <div class="titleForm">
+                        <h3>Nhập liệu</h3>
+                    </div>
+                    <div class="nltk1 nltk11">
+                        <label for="cccd">Số CMND/CCCD </label>
+                        <input type="text" id="cccd" class="cccd" placeholder="Nhập số CMND/CCCD" />
+                        <label for="ngaysinh">Ngày sinh</label>
+                        <input type="date" id="ngaysinh" class="ns" placeholder="Nhập ngày sinh" />
+                        <label for="nghenghiep">Nghề nghiệp </label>
+                        <input type="text" id="nghenghiep" class="nn" placeholder="Nhập nghề nghiệp" />
+                    </div>
+                    <div class="nltk1 nltk12">
+                        <label for="hoten">Họ và tên</label>
+                        <input type="text" id="hoten" class="ten" placeholder="Nhập họ tên" />
+                        <label for="tdvanhoa">Trình độ văn hóa </label>
+                        <input type="text" id="tdvanhoa" class="tdvh" placeholder="Nhập trình độ văn hóa" />
+                    </div>
+                    <div class="nltk1 nltk13">
+                        <label>Giới tính </label>
+                        <span>
+                                <input type="checkbox" id="nam" name="nam" value="nam">
+                                <label for="nam">Nam</label>
+                                <input type="checkbox" id="nu" name="nu" value="nu">
+                                <label for="nu">Nữ</label>
+                            </span>
+                        <label for="tongiao">Tôn giáo </label>
+                        <input type="text" id="tongiao" class="tongiao" placeholder="Nhập tôn giáo" />
+                    </div>
+                    <div class="nltk2">
+                        <label>Quê quán</label>
+                        <input list="xas" placeholder="Nhập xã..." class="listI xa">
+                        <datalist id="xas">
+                                <option value="Xã 1">
+                                <option value="Xã 2">
+                                <option value="Xã 3">
+                                <option value="Xã 4">
+                                <option value="Xã 5">
+                                </datalist>
+                        <input list="huyens" placeholder="Nhập huyện..." class="listI huyen">
+                        <datalist id="huyens">
+                                <option value="Huyện 1">
+                                <option value="Huyện 2">
+                                <option value="Huyện 3">
+                                <option value="Huyện 4">
+                                <option value="Huyện 5">
+                                </datalist>
+                        <input list="tinhs" placeholder="Nhập tỉnh..." class="listI tinh">
+                        <datalist id="tinhs">
+                                <option value="Tỉnh 1">
+                                <option value="Tỉnh 2">
+                                <option value="Tỉnh 3">
+                                <option value="Tỉnh 4">
+                                <option value="Tỉnh 5">
+                                </datalist>
+                    </div>
+                    <div class="nltk3">
+                        <label>Địa chỉ thường trú</label>
+                        <input list="xas" placeholder="Nhập xã..." class="listI xa2">
+                        <datalist id="xas">
+                                <option value="Xã 1">
+                                <option value="Xã 2">
+                                <option value="Xã 3">
+                                <option value="Xã 4">
+                                <option value="Xã 5">
+                                </datalist>
+                        <input list="huyens" placeholder="Nhập huyện..." class="listI huyen2">
+                        <datalist id="huyens">
+                                <option value="Huyện 1">
+                                <option value="Huyện 2">
+                                <option value="Huyện 3">
+                                <option value="Huyện 4">
+                                <option value="Huyện 5">
+                                </datalist>
+                        <input list="tinhs" placeholder="Nhập tỉnh..." class="listI tinh2">
+                        <datalist id="tinhs">
+                                <option value="Tỉnh 1">
+                                <option value="Tỉnh 2">
+                                <option value="Tỉnh 3">
+                                <option value="Tỉnh 4">
+                                <option value="Tỉnh 5">
+                                </datalist>
+                    </div>
+                    <div class="nltk4">
+                        <label>Địa chỉ tạm trú</label>
+                        <input list="xas" placeholder="Nhập xã..." class="listI xa1">
+                        <datalist id="xas">
+                                <option value="Xã 1">
+                                <option value="Xã 2">
+                                <option value="Xã 3">
+                                <option value="Xã 4">
+                                <option value="Xã 5">
+                                </datalist>
+                        <input list="huyens" placeholder="Nhập huyện..." class="listI huyen1">
+                        <datalist id="huyens">
+                                <option value="Huyện 1">
+                                <option value="Huyện 2">
+                                <option value="Huyện 3">
+                                <option value="Huyện 4">
+                                <option value="Huyện 5">
+                                </datalist>
+                        <input list="tinhs" placeholder="Nhập tỉnh..." class="listI tinh1">
+                        <datalist id="tinhs">
+                                <option value="Tỉnh 1">
+                                <option value="Tỉnh 2">
+                                <option value="Tỉnh 3">
+                                <option value="Tỉnh 4">
+                                <option value="Tỉnh 5">
+                                </datalist>
+                    </div>
+                    <div class="nltk5">
+                        <button class="submit subDatLai">Đặt lại</button>
+                    </div>
+                    <div class="nltk6">
+                        <button class="submit subCapQuyen">Thêm</button>
+                    </div>
+                </div>
+                <!-- Phần dữ liệu người dân -->
+                <div class="tableDS">
+                    <div class="tableDSDanSoCaNuoc">
+                        <table class="danh-sach-tinh-thanh-pho" id="dstinh">
+                            <div class="title">
+                                <p>Danh sách dân cư cả nước</p>
+                            </div>
+                            <tr class="head"> 
+                                <td>Stt</td>
+                                <td>Số CCCD/CMND</td>
+                                <td>Họ và tên</td>
+                                <td>Ngày sinh</td>
+                                <td>Giới tính</td>
+                                <td>Quê quán</td>
+                                <td>Địa chỉ thường trú</td>
+                                <td>Địa chỉ tạm trú</td>
+                                <td>Tôn giáo</td>
+                                <td>Trình độ văn hóa</td>
+                                <td>Nghề nghiệp</td>
+                                <td>Thao tác</td>
+                            </tr>
+                            <tr class="information">
+                                <td>1</td>
+                                <td>123456789</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>19/12/2001</td>
+                                <td>Nam</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Không</td>
+                                <td>Đại học</td>
+                                <td>Sinh viên</td>
+                                <td>
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tableDSDanSoTinh">
+                        <table class="danh-sach-tinh-thanh-pho" id="dshuyen">
+                            <div class="title">
+                                <p>Danh sách dân cư tỉnh</p>
+                            </div>
+                            <tr class="head"> 
+                                <td>Stt</td>
+                                <td>Số CCCD/CMND</td>
+                                <td>Họ và tên</td>
+                                <td>Ngày sinh</td>
+                                <td>Giới tính</td>
+                                <td>Quê quán</td>
+                                <td>Địa chỉ thường trú</td>
+                                <td>Địa chỉ tạm trú</td>
+                                <td>Tôn giáo</td>
+                                <td>Trình độ văn hóa</td>
+                                <td>Nghề nghiệp</td>
+                                <td>Thao tác</td>
+                            </tr>
+                            <tr class="information">
+                                <td>1</td>
+                                <td>123456789</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>19/12/2001</td>
+                                <td>Nam</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Không</td>
+                                <td>Đại học</td>
+                                <td>Sinh viên</td>
+                                <td>
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tableDSDanSoHuyen">
+                        <table class="danh-sach-tinh-thanh-pho" id="dsxa">
+                            <div class="title">
+                                <p>Danh sách dân cư huyện</p>
+                            </div>
+                            <tr class="head"> 
+                                <td>Stt</td>
+                                <td>Số CCCD/CMND</td>
+                                <td>Họ và tên</td>
+                                <td>Ngày sinh</td>
+                                <td>Giới tính</td>
+                                <td>Quê quán</td>
+                                <td>Địa chỉ thường trú</td>
+                                <td>Địa chỉ tạm trú</td>
+                                <td>Tôn giáo</td>
+                                <td>Trình độ văn hóa</td>
+                                <td>Nghề nghiệp</td>
+                                <td>Thao tác</td>
+                            </tr>
+                            <tr class="information">
+                                <td>1</td>
+                                <td>123456789</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>19/12/2001</td>
+                                <td>Nam</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Không</td>
+                                <td>Đại học</td>
+                                <td>Sinh viên</td>
+                                <td>
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                
+                    </div>
+                    <div class="tableDSDanSoXa">
+                        <table class="danh-sach-tinh-thanh-pho" id="dsthon">
+                            <div class="title">
+                                <p>Danh sách dân cư xã</p>
+                            </div>
+                            <tr class="head"> 
+                                <td>Stt</td>
+                                <td>Số CCCD/CMND</td>
+                                <td>Họ và tên</td>
+                                <td>Ngày sinh</td>
+                                <td>Giới tính</td>
+                                <td>Quê quán</td>
+                                <td>Địa chỉ thường trú</td>
+                                <td>Địa chỉ tạm trú</td>
+                                <td>Tôn giáo</td>
+                                <td>Trình độ văn hóa</td>
+                                <td>Nghề nghiệp</td>
+                                <td>Thao tác</td>
+                            </tr>
+                            <tr class="information">
+                                <td>1</td>
+                                <td>123456789</td>
+                                <td>Nguyễn Văn A</td>
+                                <td>19/12/2001</td>
+                                <td>Nam</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Khu 9 - Thị trấn A - Huyện B - Tỉnh C</td>
+                                <td>Không</td>
+                                <td>Đại học</td>
+                                <td>Sinh viên</td>
+                                <td>
+                                    <span>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                        <button class="detailDanSo detail" onclick="detail()">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="h-load">
+        <div class="h-load-text">
+            <h2>Quyền truy cập của bạn hiện tại đang bị khóa</h2>
+        </div>
+    </div>
+    <script type="text/javascript" src="../scripts/common.js"></script>
+    <script type="text/javascript" src="../scripts/nhaplieu.js"></script>
+</body>
+
+</html>

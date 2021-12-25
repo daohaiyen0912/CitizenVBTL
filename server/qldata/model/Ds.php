@@ -8,22 +8,35 @@
         public function __destruct() { $this->db = null;}
 	
         public function getAllTinh() {
-            return $this->db->doPreparedQuery("select * from trunguong;", array());
+            // return $this->db->doPreparedQuery("select * from trunguong;", array());
+            return $this->db->doPreparedQuery("SELECT matinh, tentinh, sodan, (SELECT name from tongcucacc t WHERE t.tsd = tu.matinh) as hotencb, (SELECT start from capquyen cq WHERE cq.tsd = tu.matinh) as start,
+            (SELECT finish from capquyen cq WHERE cq.tsd = tu.matinh) as end, tiendo, (SELECT moquyen from capquyen cq WHERE cq.tsd = tu.matinh) as moquyen
+            FROM trunguong tu;", array());
         }
         public function getAllHuyen() {
-            return $this->db->doPreparedQuery("select * from captinh;", array());
+            return $this->db->doPreparedQuery("SELECT mahuyen, tenhuyen, sodan, (SELECT name from tongcucacc t WHERE t.tsd = ct.mahuyen) as hotencb, (SELECT start from capquyen cq WHERE cq.tsd = ct.mahuyen) as start,
+            (SELECT finish from capquyen cq WHERE cq.tsd = ct.mahuyen) as end, tiendo, (SELECT moquyen from capquyen cq WHERE cq.tsd = ct.mahuyen) as moquyen
+            FROM captinh ct;", array());
         }
         public function getAllXa() {
-            return $this->db->doPreparedQuery("select * from caphuyen;", array());
+            return $this->db->doPreparedQuery("SELECT maxa, tenxa, sodan, (SELECT name from tongcucacc t WHERE t.tsd = ch.maxa) as hotencb, (SELECT start from capquyen cq WHERE cq.tsd = ch.maxa) as start,
+            (SELECT finish from capquyen cq WHERE cq.tsd = ch.maxa) as end, tiendo, (SELECT moquyen from capquyen cq WHERE cq.tsd = ch.maxa) as moquyen
+            FROM caphuyen ch;", array());
         }
         public function getAllThon() {
-            return $this->db->doPreparedQuery("select * from capxa;", array());
+            return $this->db->doPreparedQuery("SELECT mathon, tenthon, sodan, (SELECT name from tongcucacc t WHERE t.tsd = cx.mathon) as hotencb, (SELECT start from capquyen cq WHERE cq.tsd = cx.mathon) as start,
+            (SELECT finish from capquyen cq WHERE cq.tsd = cx.mathon) as end, tiendo, (SELECT moquyen from capquyen cq WHERE cq.tsd = cx.mathon) as moquyen
+            FROM capxa cx;", array());
         }
         public function getQNL($tsd) {
             return $this->db->doPreparedQuery("select * from capquyen where tsd = ?;", array($tsd));
         }
 		public function getById($m) {
             return $this->db->doPreparedQuery("select * from sinhvien where masv = ?;", array($m));
+        }
+        /**Lấy tên TK đang đăng nhập */
+        public function getName($tsd) {
+            return $this->db->doPreparedQuery("select name from tongcucacc where tsd = ?;", array($tsd));
         }
         /**Add vô acc */
 		public function add($m, $ht, $ns, $qq) {
@@ -68,5 +81,21 @@
         }
 		public function update($m, $ht, $ns, $qq) {
             return $this->db->doPreparedSql("update sinhvien set hoten = ?, ngaysinh = ?, quequan = ? where masv = ?;", array($ht, $ns, $qq, $m));
+        }
+        //update quyền nhập liệu
+        public function updatequyenNL($tsd, $start, $finish, $moquyen) {
+            return $this->db->doPreparedSql("UPDATE capquyen SET finish = ?, start = ?, moquyen = ? WHERE tsd = ?;", array($finish, $start, $moquyen, $tsd));
+        }
+        //update quyền nhập liệu
+        public function xacnhanBC($tiendo, $matinh) {
+            return $this->db->doPreparedSql("UPDATE trunguong SET tiendo = ? WHERE matinh = ?;", array($tiendo, $matinh));
+        }
+
+        //lấy dữ liệu dân
+        public function getAllDanThon($mathon) {
+            return $this->db->doPreparedQuery("select * from dan where mathon = ?;", array($mathon));
+        }
+        public function getAllDanXa($maxa) {
+            return $this->db->doPreparedQuery("SELECT * FROM dan d JOIN capxa cx ON cx.mathon = d.mathon WHERE cx.maxa = ?;", array($maxa));
         }
     }         

@@ -313,8 +313,20 @@ fetch("../../index.php/danhsach")
 				
 				if(ret.rights.includes("tongcuc")) {
 					let tbl = document.getElementById('dstinh');
+					
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
 					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản tổng cục";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+					
 					document.querySelector("div.trung-uong").style.display="block";
+
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].matinh, ret.data[i].tentinh, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
@@ -322,26 +334,67 @@ fetch("../../index.php/danhsach")
 				} else if(ret.rights.includes("tinh")) {
 					let tbl = document.getElementById('dshuyen');
 					console.log(tbl);
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản tỉnh";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+					
+
 					document.querySelector("div.cap-tinh").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mahuyen, ret.data[i].tenhuyen, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+
+					hiennhaplieu();
 				} else if(ret.rights.includes("huyen")) {
 					let tbl = document.getElementById('dsxa');
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản huyện";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+
 					document.querySelector("div.cap-huyen").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].maxa, ret.data[i].tenxa, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+					hiennhaplieu();
 				}
 				else if(ret.rights.includes("xa")) {
 					let tbl = document.getElementById('dsthon');
+
+					/*Set phần hiện thông tin ACC */
+					console.log(ret.tenTK[0]);
+					console.log(tbl);
+					let hoten = document.createElement("p");
+					let loaiTK = document.createElement("p");
+					hoten.innerHTML = ret.tenTK[0].name;
+					loaiTK.innerHTML = "Tài khoản xã";
+					console.log(hoten);
+					document.getElementById("account").appendChild(hoten);
+					document.getElementById("account").appendChild(loaiTK);
+
 					document.querySelector("div.cap-xa").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mathon, ret.data[i].tenthon, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
+					hiennhaplieu();
 				} else {
 					
 				}
@@ -360,7 +413,8 @@ fetch("../../index.php/danhsach")
 })
 
 /*Kiểm tra có được hiện nhập liệu không */
-fetch("../../index.php/hiennhaplieu")
+function hiennhaplieu() {
+	fetch("../../index.php/hiennhaplieu")
 .then(resp => {
     console.log("OK");
     if(resp.status == 200) {
@@ -377,7 +431,7 @@ fetch("../../index.php/hiennhaplieu")
                 // }
 				if(ret.data[0].moquyen=="dong") {
 					console.log("done");
-					document.querySelector("a.aNhapLieu").href = "../html/popupmatinh.html";
+					document.querySelector("a.aNhapLieu").href = "../html/nhaplieuloi.html";
 				}
 				//--
 			} else if (ret.status == "NOK") {
@@ -392,3 +446,5 @@ fetch("../../index.php/hiennhaplieu")
 
     }
 })
+}
+

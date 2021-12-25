@@ -114,6 +114,9 @@
 }
 
 /*Bảng dữ liệu*/
+.tableDSDanSoCaNuoc, .tableDSDanSoTinh, .tableDSDanSoHuyen, .tableDSDanSoXa {
+    display: none;
+}
 .tableDS {
     grid-template-rows: 6/13;
 }
@@ -162,3 +165,22 @@ tr.title th {
 .danh-sach-tinh-thanh-pho tr.information button.detail:hover {
     cursor: pointer;
 }
+
+/* Nhập liệu bị lỗi */
+
+.h-load {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 10, 10, 0.74);
+}
+
+.h-load .h-load-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: yellow;
+}
+
