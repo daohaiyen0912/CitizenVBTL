@@ -155,13 +155,13 @@
 			$input = json_decode(file_get_contents("php://input"), true);
 
 			// Đầu vào hợp lệ?
-			if (true
-			) {
+			if (Util::isMaTinh($input["tsd"]) || Util::isMaHuyen($input["tsd"]) 
+			|| Util::isMaXa($input["tsd"]) || Util::isMaThon($input["tsd"])) {
 				$std = new \qldata\model\Ds();
 				// Kiểm tra mã sinh viên đã được sử dụng chưa
-				//$data = $std->getById($arr[0]);
+				$data = $std->getTsd($arr[0]);
 				// Chưa được sử dụng thì mới thêm
-				if (true) {
+				if (count($data) == 0) {
 					$c = $std->add($input["tsd"], $input["pass"], $input["quyen"], $input["name"]);
 					$std->addQuyen($input["tsd"], $input["pass"], $input["quyen"], $input["name"]);
 					$std->addQuyenNL($input["tsd"], "null", "null", "dong");
@@ -192,13 +192,13 @@
 			$input = json_decode(file_get_contents("php://input"), true);
 
 			// Đầu vào hợp lệ?
-			if (true
-			) {
+			if (Util::isMaTinh($input["matinh"]) && Util::isText($input["tentinh"]))
+			{
 				$std = new \qldata\model\Ds();
-				// Kiểm tra mã sinh viên đã được sử dụng chưa
-				//$data = $std->getById($arr[0]);
+				// Kiểm tra mã tỉnh đã được sử dụng chưa
+				$data = $std->getMaTinh($input["matinh"]);
 				// Chưa được sử dụng thì mới thêm
-				if (true) {
+				if (count($data) == 0) {
 					$c = $std->addMaTinh($input["matinh"], $input["tentinh"]);
 					return array("status" => "OK", "data" => $c);
 				} else {
@@ -227,13 +227,12 @@
 			$input = json_decode(file_get_contents("php://input"), true);
 
 			// Đầu vào hợp lệ?
-			if (true
-			) {
+			if (Util::isMaHuyen($input["mahuyen"]) && Util::isText($input["tenhuyen"])) {
 				$std = new \qldata\model\Ds();
-				// Kiểm tra mã sinh viên đã được sử dụng chưa
-				//$data = $std->getById($arr[0]);
+				// Kiểm tra mã huyện đã được sử dụng chưa
+				$data = $std->getMaHuyen($input["mahuyen"]);
 				// Chưa được sử dụng thì mới thêm
-				if (true) {
+				if (count($data) == 0) {
 					$c = $std->addMaHuyen($input["mahuyen"], $input["tenhuyen"], $_SESSION["tsd"]);
 					return array("status" => "OK", "data" => $c);
 				} else {
@@ -262,17 +261,17 @@
 			$input = json_decode(file_get_contents("php://input"), true);
 
 			// Đầu vào hợp lệ?
-			if (true
-			) {
+			if (Util::isMaXa($input["maxa"]) && Util::isText($input["tenxa"])) {
 				$std = new \qldata\model\Ds();
-				// Kiểm tra mã sinh viên đã được sử dụng chưa
-				//$data = $std->getById($arr[0]);
+				// Kiểm tra mã xax đã được sử dụng chưa
+				$data = $std->getMaXa($input["maxa"]);
 				// Chưa được sử dụng thì mới thêm
-				if (true) {
+				if (count($data) == 0) {
 					$c = $std->addMaXa($input["maxa"], $input["tenxa"], $_SESSION["tsd"]);
 					return array("status" => "OK", "data" => $c);
 				} else {
 					// Mã sinh viên đã được sử dụng rồi
+
 					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
 				}
 			} else {
@@ -297,13 +296,12 @@
 			$input = json_decode(file_get_contents("php://input"), true);
 
 			// Đầu vào hợp lệ?
-			if (true
-			) {
+			if (Util::isMaThon($input["mathon"]) && Util::isText($input["tenthon"])) {
 				$std = new \qldata\model\Ds();
 				// Kiểm tra mã sinh viên đã được sử dụng chưa
-				//$data = $std->getById($arr[0]);
+				$data = $std->getMaThon($input["mathon"]);
 				// Chưa được sử dụng thì mới thêm
-				if (true) {
+				if (count($data) == 0) {
 					$c = $std->addMaThon($input["mathon"], $input["tenthon"], $_SESSION["tsd"]);
 					return array("status" => "OK", "data" => $c);
 				} else {
@@ -334,13 +332,15 @@
 			$input = json_decode(file_get_contents("php://input"), true);
 
 			// Đầu vào hợp lệ?
-			if (true
-			) {
+			if (Util::isCCCD($input["cccd"]) && Util::isVietnameseName($input["ten"])
+			&& Util::isDate($input["ngaysinh"]) && Utit::isVietnameseName($input["gioitinh"])
+			&& Utit::isVietnameseName($input["quequan"]) && Utit::isVietnameseName($input["dctamtru"])
+			&& Utit::isVietnameseName($input["tongiao"]) && Utit::isVietnameseName($input["trinhdovh"]) && Utit::isVietnameseName($input["nghenghiep"])) {
 				$std = new \qldata\model\Ds();
-				// Kiểm tra mã sinh viên đã được sử dụng chưa
-				//$data = $std->getById($arr[0]);
+				// Kiểm tra cccd đã được sử dụng chưa
+				$data = $std->getCCCD($arr[0]);
 				// Chưa được sử dụng thì mới thêm
-				if (true) {
+				if (count($data) == 0) {
 					$c = $std->addNguoiDan($input["cccd"], $input["ten"], $input["ngaysinh"], $input["gioitinh"], $input["quequan"], $input["dctamtru"], $input["tongiao"], $input["trinhdovh"], $input["nghenghiep"],
 											$_SESSION["tsd"]);
 					return array("status" => "OK", "data" => $c);
@@ -371,11 +371,8 @@
 			$input = json_decode(file_get_contents("php://input"), true);
 
 			// Đầu vào hợp lệ?
-			if (true
-			) {
+			if (Util::isDate($input["start"]) && Util::isDate($input["finish"]) && Util::isText($input["moquyen"])) {
 				$std = new \qldata\model\Ds();
-				// Kiểm tra mã sinh viên đã được sử dụng chưa
-				//$data = $std->getById($arr[0]);
 				// Chưa được sử dụng thì mới thêm
 				if (true) {
 					$c = $std->updatequyenNL($input["tsd"], $input["start"], $input["finish"], $input["moquyen"]);
