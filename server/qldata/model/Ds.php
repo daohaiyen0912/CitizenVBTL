@@ -6,7 +6,32 @@
         private $db;
         public function __construct() { $this->db = new \core\model\PDOData();}
         public function __destruct() { $this->db = null;}
-	
+
+        // Lấy mã tinh
+        public function getMaTinh($m) { 
+            return $this->db->doPreparedQuery("select * from trunguong where matinh = ?;", array($m));
+        }
+        // Lấy mã huyện
+        public function getMaHuyen($m) { 
+            return $this->db->doPreparedQuery("select * from captinh where mahuyen = ?;", array($m));
+        }
+        // Lấy mã xã
+        public function getMaXa($m) { 
+            return $this->db->doPreparedQuery("select * from caphuyen where maxa = ?;", array($m));
+        }
+        // Lấy mã thôn
+        public function getMaThon($m) { 
+            return $this->db->doPreparedQuery("select * from capxa where mathon = ?;", array($m));
+        }
+        // Lấy mã cccd
+        public function getCCCD($m) { 
+            return $this->db->doPreparedQuery("select * from dan where cccd = ?;", array($m));
+        }
+        // Lấy tsd từ tongcucacc
+        public function getTsd($m) { 
+            return $this->db->doPreparedQuery("select * from tongcucacc where tsd = ?;", array($m));
+        }
+
         public function getAllTinh() {
             // return $this->db->doPreparedQuery("select * from trunguong;", array());
             return $this->db->doPreparedQuery("SELECT matinh, tentinh, sodan, (SELECT name from tongcucacc t WHERE t.tsd = tu.matinh) as hotencb, (SELECT start from capquyen cq WHERE cq.tsd = tu.matinh) as start,

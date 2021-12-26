@@ -6,28 +6,68 @@
 		public function __destruct() {}
 		//
 		//
-		// Kiểm tra một xâu ký tự có phải là mã sinh viên hay không 
-		// Input: $s
-		// Điều kiện: Mã sinh viên có 8 chữ số
-		//            Chữ số đầu tiên khác 0
-        public static function isStdCode($s) {
-			$c1 = preg_match("/^[1-9][0-9]{7}$/", $s);
-			if ($c1 == 1) return true;
-			else return false;
-		}	
-		//
-		//
-		// Kiểm tra một xâu ký tự có phải là họ tên hay không 
+		// Kiểm tra một xâu ký tự có phải là tên tỉnh, thành phố hay không 
 		// Input: $s
 		// Điều kiện: Chỉ bao gồm ký tự chữ cái Latin + Tiếng Việt có dấu và dấu trắng
 		//            Bắt đầu là một từ
-        public static function isVietnameseFullname($s) {
+        public static function isVietnameseName($s) {
 			if (strlen($s) == 0) return false;
 			if (strlen($s) > 200) return false;
 			$c1 = preg_match("/^[a-zA-Záàạảãăắằặẳẵâấầậẩẫéèẹẻẽêếềệểễíìịỉĩóòọỏõôốồộổỗơớờợởỡúùụủũưứừựửữ][a-zA-Záàạảãăắằặẳẵâấầậẩẫéèẹẻẽêếềệểễíìịỉĩóòọỏõôốồộổỗơớờợởỡúùụủũưứừựửữ\s]*$/", $s);
 			if ($c1 == 1) return true;
 			else return false;
 		}	
+		//
+		//
+		// Kiểm tra một xâu ký tự có phải là mã tỉnh hay không 
+		// Input: $s
+		// Điều kiện: Mã tỉnh có 2 chữ số
+        public static function isMaTinh($s) {
+			$c1 = preg_match("/^[0-9]{2}$/", $s);
+			if ($c1 == 1) return true;
+			else return false;
+		}	
+		//
+		//
+		// Kiểm tra một xâu ký tự có phải là mã huyện hay không 
+		// Input: $s
+		// Điều kiện: Mã huyện có 4 chữ số
+        public static function isMaHuyen($s) {
+			$c1 = preg_match("/^[0-9]{4}$/", $s);
+			if ($c1 == 1) return true;
+			else return false;
+		}	
+		//
+		//
+		// Kiểm tra một xâu ký tự có phải là mã xã hay không 
+		// Input: $s
+		// Điều kiện: Mã xã có 6 chữ số
+        public static function isMaXa($s) {
+			$c1 = preg_match("/^[0-9]{6}$/", $s);
+			if ($c1 == 1) return true;
+			else return false;
+		}
+		//
+		//
+		// Kiểm tra một xâu ký tự có phải là mã xã hay không 
+		// Input: $s
+		// Điều kiện: Mã thôn có 8 chữ số
+        public static function isMaThon($s) {
+			$c1 = preg_match("/^[0-9]{8}$/", $s);
+			if ($c1 == 1) return true;
+			else return false;
+		}
+		//
+		//
+		// Kiểm tra một xâu ký tự có phải là cccd hay không 
+		// Input: $s
+		// Điều kiện: CCCD tối thiểu có 9 số tối đa có 12 số
+        public static function isCCCD($s) {
+			$c1 = preg_match("/^[0-9]{9, 12}$/", $s);
+			if ($c1 == 1) return true;
+			else return false;
+		}
+		
 		//
 		//
 		// Kiểm tra một xâu ký tự có phải là ngày tháng hay không
