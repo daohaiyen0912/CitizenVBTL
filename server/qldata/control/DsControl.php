@@ -332,13 +332,10 @@
 			$input = json_decode(file_get_contents("php://input"), true);
 
 			// Đầu vào hợp lệ?
-			if (Util::isCCCD($input["cccd"]) && Util::isVietnameseName($input["ten"])
-			&& Util::isDate($input["ngaysinh"]) && Utit::isVietnameseName($input["gioitinh"])
-			&& Utit::isVietnameseName($input["quequan"]) && Utit::isVietnameseName($input["dctamtru"])
-			&& Utit::isVietnameseName($input["tongiao"]) && Utit::isVietnameseName($input["trinhdovh"]) && Utit::isVietnameseName($input["nghenghiep"])) {
+			if (true) {
 				$std = new \qldata\model\Ds();
 				// Kiểm tra cccd đã được sử dụng chưa
-				$data = $std->getCCCD($arr[0]);
+				$data = $std->getCCCD($input["cccd"]);
 				// Chưa được sử dụng thì mới thêm
 				if (count($data) == 0) {
 					$c = $std->addNguoiDan($input["cccd"], $input["ten"], $input["ngaysinh"], $input["gioitinh"], $input["quequan"], $input["dctamtru"], $input["tongiao"], $input["trinhdovh"], $input["nghenghiep"],

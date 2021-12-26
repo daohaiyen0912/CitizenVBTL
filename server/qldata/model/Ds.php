@@ -65,7 +65,8 @@
         }
         /**Add vô acc */
 		public function add($m, $ht, $ns, $qq) {
-            return $this->db->doPreparedSql("insert into tongcucacc(tsd, pass, quyen, name) values(?, ?, ?, ?);", array($m, $ht, $ns, $qq));
+            // return $this->db->doPreparedSql("insert into tongcucacc(tsd, pass, quyen, name) values(?, ?, ?, ?);", array($m, $ht, $ns, $qq));
+            return $this->db->doPreparedSql("insert into tongcucacc(tsd, pass, quyen, name) values(?, ?, ?, ?);", array($m, md5($ht), $ns, $qq));
         }
         /**Thêm quyền cho acc */
         public function addQuyen($tsd, $pass, $quyen, $name) {

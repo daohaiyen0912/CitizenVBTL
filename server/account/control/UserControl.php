@@ -39,7 +39,8 @@ class UserControl {
 				$user = new \account\model\User();
 				$ds = new Ds();
 
-				$auth = $user->checkAccount($input["tsd"], $input["mk"]);
+				// $auth = $user->checkAccount($input["tsd"], $input["mk"]);
+				$auth = $user->checkAccount($input["tsd"], md5($input["mk"]));
 				$right = $user->accessRights($input["tsd"]);
 				$qnl = $ds->getQNL($input["tsd"]);
 				if ($auth[0]) {
