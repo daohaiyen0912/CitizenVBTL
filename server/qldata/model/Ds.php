@@ -90,6 +90,15 @@
         public function xacnhanBC($tiendo, $matinh) {
             return $this->db->doPreparedSql("UPDATE trunguong SET tiendo = ? WHERE matinh = ?;", array($tiendo, $matinh));
         }
+        public function xacnhanBCHuyen($tiendo, $mahuyen) {
+            return $this->db->doPreparedSql("UPDATE captinh SET tiendo = ? WHERE mahuyen = ?;", array($tiendo, $mahuyen));
+        }
+        public function xacnhanBCXa($tiendo, $maxa) {
+            return $this->db->doPreparedSql("UPDATE caphuyen SET tiendo = ? WHERE maxa = ?;", array($tiendo, $maxa));
+        }
+        public function xacnhanBCThon($tiendo, $mathon) {
+            return $this->db->doPreparedSql("UPDATE capxa SET tiendo = ? WHERE mathon = ?;", array($tiendo, $mathon));
+        }
 
         //lấy dữ liệu dân
         public function getAllDanThon($mathon) {
@@ -97,5 +106,21 @@
         }
         public function getAllDanXa($maxa) {
             return $this->db->doPreparedQuery("SELECT * FROM dan d JOIN capxa cx ON cx.mathon = d.mathon WHERE cx.maxa = ?;", array($maxa));
+        }
+        public function getAllDanTinh($matinh) {
+            return $this->db->doPreparedQuery("SELECT * FROM dan d 
+            JOIN capxa cx ON cx.mathon = d.mathon 
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            WHERE ct.matinh = ?;", array($matinh));
+        }
+        public function getAllDanHuyen($mahuyen) {
+            return $this->db->doPreparedQuery("SELECT d.cccd, d.ten, d.ngaysinh, d.gioitinh, d.quequan, d.dctamtru, d.tongiao, d.trinhdovh, d.nghenghiep  FROM dan d 
+            JOIN capxa cx ON cx.mathon = d.mathon 
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            WHERE ch.mahuyen = ?;", array($mahuyen));
+        }
+        public function getAllDan() {
+            return $this->db->doPreparedQuery("SELECT * FROM dan;", array());
         }
     }         

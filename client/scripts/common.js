@@ -326,6 +326,8 @@ fetch("../../index.php/danhsach")
 					document.getElementById("account").appendChild(loaiTK);
 					
 					document.querySelector("div.trung-uong").style.display="block";
+					document.getElementById('BC').style.display = "none";
+					document.getElementById('NL').style.display = "none";
 
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].matinh, ret.data[i].tentinh, ret.data[i].sodan, ret.data[i].tiendo);
@@ -348,6 +350,7 @@ fetch("../../index.php/danhsach")
 					
 
 					document.querySelector("div.cap-tinh").style.display="block";
+					document.getElementById('NL').style.display = "none";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mahuyen, ret.data[i].tenhuyen, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
@@ -369,6 +372,7 @@ fetch("../../index.php/danhsach")
 					document.getElementById("account").appendChild(loaiTK);
 
 					document.querySelector("div.cap-huyen").style.display="block";
+					document.getElementById('NL').style.display = "none";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].maxa, ret.data[i].tenxa, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
@@ -390,12 +394,14 @@ fetch("../../index.php/danhsach")
 					document.getElementById("account").appendChild(loaiTK);
 
 					document.querySelector("div.cap-xa").style.display="block";
+					document.getElementById('NL').style.display = "none";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mathon, ret.data[i].tenthon, ret.data[i].sodan, ret.data[i].tiendo);
 						tbl.appendChild(r);
 					}
 					hiennhaplieu();
-				} else {
+				}
+				else {
 					
 				}
 				//--
@@ -415,7 +421,7 @@ fetch("../../index.php/danhsach")
 /*Kiểm tra có được hiện nhập liệu không */
 function hiennhaplieu() {
 	fetch("../../index.php/hiennhaplieu")
-.then(resp => {
+	.then(resp => {
     console.log("OK");
     if(resp.status == 200) {
         console.log("OK");

@@ -1,6 +1,8 @@
 <?php
 namespace account\control;
 require_once("server/account/model/User.php");
+require_once("server/qldata/model/Ds.php");
+use \qldata\model\Ds as Ds;
 
 class UserControl {
 	public function __contruct() {}
@@ -35,7 +37,11 @@ class UserControl {
 				$input["loginSubmitted"] == "1")
 			{
 				$user = new \account\model\User();
+				$ds = new Ds();
+
 				$auth = $user->checkAccount($input["tsd"], $input["mk"]);
+				$right = $user->accessRights($input["tsd"]);
+				$qnl = $ds->getQNL($input["tsd"]);
 				if ($auth[0]) {
 					// Thiết lập dữ liệu phiên
 				    $_SESSION["tsd"] = $input["tsd"];
@@ -44,7 +50,7 @@ class UserControl {
 				}
 			}
 		}
-		return array("status" => "OK", "data" => $ret);
+		return array("status" => "OK", "data" => $ret, "right" => $right, "qnl" => $qnl);
    }
 	//
 	//

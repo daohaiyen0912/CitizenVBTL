@@ -1,0 +1,68 @@
+<!DOCTYPE html><html><head>
+	<title>Quản lý sinh viên</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="frontend.css">
+</head><body>
+	<div class="container">
+		<div class="menu-bar">
+			Chào bạn <span class="uname"></span>
+			<a href="#" class="logout">Thoát</a>
+			<hr>
+		</div>
+		<div class="panel panel-noaccess nodisplay">
+			Bạn không có quyền truy cập chức năng này!
+		</div>
+		<div class="panel panel-list">
+			<h1>Danh sách sinh viên</h1>
+			<button class="addnew">Thêm mới</button><br>&nbsp;
+			<table class="list std-list"><thead>
+				<tr>
+					<th>TT</th>
+					<th>Mã SV</th>
+					<th>Họ và tên</th>
+					<th>Ngày sinh</th>
+					<th>Quê quán</th>
+					<th>Sửa</th>
+					<th>Xóa</th>
+				</tr>
+			</thead><tbody>
+			</tbody></table>
+		</div>
+		<div class="panel panel-edit nodisplay">
+			<input type="hidden" class="mode">
+			<div class="row">
+				<h1>Thêm mới/cập nhật sinh viên</h1>
+				<div class="err err-submit"></div>
+				<label>Mã sinh viên:</label>
+				<input type="text" class="masv" placeholder="8 chữ số"> 
+				<span class="err err-masv"></span> 
+				<br>
+			</div>
+			<div class="row">
+				<label>Họ và tên:</label> 
+				<input type="text" class="hoten"> 
+				<span class="err err-hoten"></span> 
+				<br>
+			</div>
+			<div class="row">
+				<label>Ngày sinh:</label> 
+				<input type="text" class="ngaysinh"
+				placeholder='dd/mm/yyyy'>
+				<span class="err err-ngaysinh"></span> 
+				<br>
+			</div>
+			<div class="row">
+				<label>Quê quán:</label>
+				<input type="text" class="quequan">
+				<span class="err err-quequan"></span> 
+				<br>
+			</div>
+			<div class="row">
+				<label>&nbsp;</label>
+				<button class="edit-submit">Cập nhật</button>
+				<button class="edit-cancel">Bỏ qua</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="frontend.js"></script>
+</body></html>

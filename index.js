@@ -52,7 +52,16 @@ document.querySelector("button.submit").onclick = function() {
                                 if (ret.data == 1) {
                                     // Đăng nhập thành công
                                     console.log("OK");
-                                    document.location.href = "client/html/common.html";
+                                    console.log(ret.qnl);
+                                    if(ret.right == "thon" && ret.qnl[0].moquyen == "mo") {
+                                        document.location.href = "client/html/nhaplieu.html";
+                                    } else if(ret.right == "thon" && ret.qnl[0].moquyen == "dong") {
+                                        document.location.href = "client/html/nhaplieuloi.html";
+                                    } 
+                                     else {
+                                        document.location.href = "client/html/common.html";
+                                    }
+                                
                                 } else {
                                     // Sai tên đăng nhập hoặc mật khẩu
                                     document.getElementById("loi").innerHTML = "Tên đăng nhập hoặc mật khẩu không đúng.";

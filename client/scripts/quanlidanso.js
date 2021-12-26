@@ -166,7 +166,7 @@ function logout() {
 }
 //
 
-let createNewRow = function(x1, x2, x3, x4, x5) {
+let createNewRow = function(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11) {
 	// Tạo <tr> và các <td> mới
 	let r = document.createElement("tr");
 	let c1 = document.createElement("td");
@@ -176,13 +176,40 @@ let createNewRow = function(x1, x2, x3, x4, x5) {
 	let c5 = document.createElement("td");
 	let c6 = document.createElement("td");
 	let c7 = document.createElement("td");
-	//r.appendChild(c1);
+	let c8 = document.createElement("td");
+	let c9 = document.createElement("td");
+	let c10 = document.createElement("td");
+	let c11 = document.createElement("td");
+	let c12 = document.createElement("td");
+	let span = document.createElement("span");
+	let button1 = document.createElement("button");
+	let button2 = document.createElement("button");
+	let i1 = document.createElement("i");
+	let i2 = document.createElement("i");
+	
+	i1.classList.add("fas");
+	i1.classList.add("fa-user-edit");
+
+	button1.appendChild(i1);
+	button1.classList.add("detailDanSo");
+	button1.classList.add("detail");
+
+	span.appendChild(button1);
+
+	r.classList.add("information");
+
+	r.appendChild(c1);
 	r.appendChild(c2);
 	r.appendChild(c3);
 	r.appendChild(c4);
 	r.appendChild(c5);
 	r.appendChild(c6);
 	r.appendChild(c7);
+	r.appendChild(c8);
+	r.appendChild(c9);
+	r.appendChild(c10);
+	r.appendChild(c11);
+	r.appendChild(c12);
 	// Đặt nội dung cho các <td>
 	//c1-c5
 	c1.innerHTML = x1;
@@ -190,6 +217,13 @@ let createNewRow = function(x1, x2, x3, x4, x5) {
 	c3.innerHTML = x3;
 	c4.innerHTML = x4;
 	c5.innerHTML = x5;
+	c6.innerHTML = x6;
+	c7.innerHTML = x7;
+	c8.innerHTML = x8;
+	c9.innerHTML = x9;
+	c10.innerHTML = x10;
+	c11.innerHTML = x11;
+	c12.appendChild(span);
 	// c6
 	// let aupd = document.createElement("a");
 	// aupd.href = "#";
@@ -211,7 +245,7 @@ let createNewRow = function(x1, x2, x3, x4, x5) {
 /*Ở user.php check quyền*/
 /*Checkacc ở User là phần login */
 /*Kiểm tra tài khoản và hiện bảng */
-fetch("../../index.php/danhsach")
+fetch("../../index.php/danhsachdan")
 .then(resp => {
     console.log("OK");
     if(resp.status == 200) {
@@ -243,9 +277,16 @@ fetch("../../index.php/danhsach")
 					document.getElementById("account").appendChild(loaiTK);
 
 					document.querySelector("div.tableDSDanSoCaNuoc").style.display="block";
+					document.getElementById('BC').style.display = "none";
+					document.getElementById('NL').style.display = "none";
+
 					for (let i = 0; i < ret.data.length; i++) {
-						let r = createNewRow((i+1).toString(), ret.data[i].matinh, ret.data[i].tentinh, ret.data[i].sodan, ret.data[i].tiendo);
+						let r = createNewRow((i+1).toString(), ret.data[i].cccd, ret.data[i].ten, 
+						ret.data[i].ngaysinh, ret.data[i].gioitinh, ret.data[i].quequan, ret.data[i].quequan,
+						ret.data[i].dctamtru, ret.data[i].tongiao, ret.data[i].trinhdovh,
+						ret.data[i].nghenghiep);
 						tbl.appendChild(r);
+						console.log(ret.data[i].nghenghiep);
 					}
 				} else if(ret.rights.includes("tinh")) {
 					let tbl = document.getElementById('dstinh');
@@ -263,9 +304,13 @@ fetch("../../index.php/danhsach")
 					document.getElementById("account").appendChild(loaiTK);
 
 					document.querySelector("div.tableDSDanSoTinh").style.display="block";
+					document.getElementById('NL').style.display = "none";
 					console.log(document.querySelector("div.tableDSDanSoTinh"));
 					for (let i = 0; i < ret.data.length; i++) {
-						let r = createNewRow((i+1).toString(), ret.data[i].mahuyen, ret.data[i].tenhuyen, ret.data[i].sodan, ret.data[i].tiendo);
+						let r = createNewRow((i+1).toString(), ret.data[i].cccd, ret.data[i].ten, 
+						ret.data[i].ngaysinh, ret.data[i].gioitinh, ret.data[i].quequan, ret.data[i].quequan,
+						ret.data[i].dctamtru, ret.data[i].tongiao, ret.data[i].trinhdovh,
+						ret.data[i].nghenghiep);
 						tbl.appendChild(r);
 					}
 					hiennhaplieu();
@@ -284,8 +329,12 @@ fetch("../../index.php/danhsach")
 					document.getElementById("account").appendChild(loaiTK);
 				
 					document.querySelector("div.tableDSDanSoHuyen").style.display="block";
+					document.getElementById('NL').style.display = "none";
 					for (let i = 0; i < ret.data.length; i++) {
-						let r = createNewRow((i+1).toString(), ret.data[i].maxa, ret.data[i].tenxa, ret.data[i].sodan, ret.data[i].tiendo);
+						let r = createNewRow((i+1).toString(), ret.data[i].cccd, ret.data[i].ten, 
+						ret.data[i].ngaysinh, ret.data[i].gioitinh, ret.data[i].quequan, ret.data[i].quequan,
+						ret.data[i].dctamtru, ret.data[i].tongiao, ret.data[i].trinhdovh,
+						ret.data[i].nghenghiep);
 						tbl.appendChild(r);
 					}
 					hiennhaplieu();
@@ -303,10 +352,14 @@ fetch("../../index.php/danhsach")
 					console.log(hoten);
 					document.getElementById("account").appendChild(hoten);
 					document.getElementById("account").appendChild(loaiTK);
+					document.getElementById('NL').style.display = "none";
 				
 					document.querySelector("div.tableDSDanSoXa").style.display="block";
 					for (let i = 0; i < ret.data.length; i++) {
-						let r = createNewRow((i+1).toString(), ret.data[i].mathon, ret.data[i].tenthon, ret.data[i].sodan, ret.data[i].tiendo);
+						let r = createNewRow((i+1).toString(), ret.data[i].cccd, ret.data[i].ten, 
+						ret.data[i].ngaysinh, ret.data[i].gioitinh, ret.data[i].quequan, ret.data[i].quequan,
+						ret.data[i].dctamtru, ret.data[i].tongiao, ret.data[i].trinhdovh,
+						ret.data[i].nghenghiep);
 						tbl.appendChild(r);
 					}
 					hiennhaplieu();

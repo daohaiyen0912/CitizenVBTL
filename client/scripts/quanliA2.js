@@ -271,6 +271,10 @@ fetch("../../index.php/danhsach")
 					document.querySelector("button.btnTU").style.display="inline";
 					document.getElementById("capMaTinh").style.display="block";
 					document.querySelector("input.h-quyen").value="tinh";
+
+					document.getElementById('BC').style.display = "none";
+					document.getElementById('NL').style.display = "none";
+
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].matinh, ret.data[i].tentinh, ret.data[i].hotencb, ret.data[i].start, ret.data[i].end, ret.data[i].tiendo);
 						tbl.appendChild(r);
@@ -295,6 +299,7 @@ fetch("../../index.php/danhsach")
 					document.querySelector("button.btnT").style.display="inline";
 					document.querySelector("input.h-quyen").value="huyen";
 					document.getElementById("capMaHuyen").style.display="block";
+					document.getElementById('NL').style.display = "none";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mahuyen, ret.data[i].tenhuyen, ret.data[i].hotencb, ret.data[i].start, ret.data[i].end, ret.data[i].tiendo);
 						tbl.appendChild(r);
@@ -318,6 +323,7 @@ fetch("../../index.php/danhsach")
 					document.querySelector("div.canbohuyen").style.display="block";
 					document.querySelector("button.btnH").style.display="inline";
 					document.getElementById("capMaXa").style.display="block";
+					document.getElementById('NL').style.display = "none";
 					document.querySelector("input.h-quyen").value="xa";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].maxa, ret.data[i].tenxa, ret.data[i].hotencb, ret.data[i].start, ret.data[i].end, ret.data[i].tiendo);
@@ -343,6 +349,7 @@ fetch("../../index.php/danhsach")
 					document.querySelector("button.btnX").style.display="inline";
 					document.getElementById("capMaThon").style.display="block";
 					document.querySelector("input.h-quyen").value="thon";
+					document.getElementById('NL').style.display = "none";
 					for (let i = 0; i < ret.data.length; i++) {
 						let r = createNewRow((i+1).toString(), ret.data[i].mathon, ret.data[i].tenthon, ret.data[i].hotencb, ret.data[i].start, ret.data[i].end, ret.data[i].tiendo);
 						tbl.appendChild(r);

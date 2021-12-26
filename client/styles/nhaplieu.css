@@ -114,7 +114,7 @@
 }
 
 /*Bảng dữ liệu*/
-.tableDSDanSoCaNuoc, .tableDSDanSoTinh, .tableDSDanSoHuyen, .tableDSDanSoXa {
+.tableDSDanSoCaNuoc, .tableDSDanSoTinh, .tableDSDanSoHuyen, .tableDSDanSoXa, .tableDSDanSoThon {
     display: none;
 }
 .tableDS {

@@ -17,7 +17,7 @@
 			$user = new User();
 			$rights = $user->accessRights($_SESSION["tsd"]);
 			//nếu không là acc tổng cục , tỉnh, huyen, xa
-			if (!in_array("tongcuc", $rights, true) && !in_array("tinh", $rights, true) && !in_array("huyen", $rights, true) && !in_array("xa", $rights, true))
+			if (!in_array("tongcuc", $rights, true) && !in_array("tinh", $rights, true) && !in_array("huyen", $rights, true) && !in_array("xa", $rights, true)  && !in_array("thon", $rights, true))
 				return array("status" => "NOK", "data" => "ACCESS-DENIED");
 
 			
@@ -42,6 +42,10 @@
 				$data = $std->getAllThon(); //getAll ở Ds
 				$tenTK = $std->getName($_SESSION["tsd"]); //getName
 				return array("status" => "OK", "data" => $data, "rights" => $rights, "tenTK" => $tenTK);
+			} else if(in_array("thon", $rights, true)) {
+				$std = new \qldata\model\Ds();
+				$tenTK = $std->getName($_SESSION["tsd"]); //getName
+				return array("status" => "NOK", "data" => "ACCESS-DENIED", "rights" => $rights, "tenTK" => $tenTK);
 			}
         }
 
@@ -68,12 +72,12 @@
 				return array("status" => "OK", "data" => $data, "rights" => $rights, "tenTK" => $tenTK);
 			} else if(in_array("tinh", $rights, true)) {
 				$std = new \qldata\model\Ds();
-				$data = $std->getAllDanTinh(); //getAll ở Ds
+				$data = $std->getAllDanTinh($_SESSION["tsd"]); //getAll ở Ds
 				$tenTK = $std->getName($_SESSION["tsd"]); //getName
 				return array("status" => "OK", "data" => $data, "rights" => $rights, "tenTK" => $tenTK);
 			} else if(in_array("huyen", $rights, true)) {
 				$std = new \qldata\model\Ds();
-				$data = $std->getAllDanHuyen(); //getAll ở Ds
+				$data = $std->getAllDanHuyen($_SESSION["tsd"]); //getAll ở Ds
 				$tenTK = $std->getName($_SESSION["tsd"]); //getName
 				return array("status" => "OK", "data" => $data, "rights" => $rights, "tenTK" => $tenTK);
 			} else if(in_array("xa", $rights, true)) {
@@ -430,7 +434,9 @@
 			// Kiểm tra quyền truy cập
 			$user = new User();
 			$rights = $user->accessRights($_SESSION["tsd"]);
-			if (!in_array("tinh", $rights, true))
+			if (!in_array("tinh", $rights, true) && !in_array("huyen", $rights, true)
+			&& !in_array("xa", $rights, true) && !in_array("thon", $rights, true)	
+			)
 				return array("status" => "NOK", "data" => "ACCESS-DENIED");
 
 
@@ -444,10 +450,20 @@
 				// Kiểm tra mã sinh viên đã được sử dụng chưa
 				//$data = $std->getById($arr[0]);
 				// Chưa được sử dụng thì mới thêm
-				if (true) {
+				if (in_array("tinh", $rights, true)) {
 					$c = $std->xacnhanBC($input["tiendo"], $_SESSION["tsd"]);
 					return array("status" => "OK", "data" => $c);
-				} else {
+				} else if (in_array("huyen", $rights, true)) {
+					$c = $std->xacnhanBCHuyen($input["tiendo"], $_SESSION["tsd"]);
+					return array("status" => "OK", "data" => $c);
+				} else if (in_array("xa", $rights, true)) {
+					$c = $std->xacnhanBCXa($input["tiendo"], $_SESSION["tsd"]);
+					return array("status" => "OK", "data" => $c);
+				} else if (in_array("thon", $rights, true)) {
+					$c = $std->xacnhanBCThon($input["tiendo"], $_SESSION["tsd"]);
+					return array("status" => "OK", "data" => $c);
+				} 
+				else {
 					// Mã sinh viên đã được sử dụng rồi
 					return array("status" => "NOK", "data" => "STDCODE-HAS-BEEN-USED");
 				}
