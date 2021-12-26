@@ -418,6 +418,85 @@ fetch("../../index.php/danhsach")
     }
 })
 
+fetch("../../index.php/solieu")
+.then(resp => {
+    console.log("OK");
+    if(resp.status == 200) {
+        resp.json()
+        .then(ret => {
+            console.log("OK");
+            //console.log(ret.data);
+            if (ret.status == "OK") {
+				// if (!ret.rights.includes("CREATE")){
+                //     tbl.style.display="none";
+                //     document.querySelector("table.danh-sach-tinh-thanh-pho").style.display="none";
+                // }
+				console.log(ret.rights);
+				if(ret.rights.includes("tongcuc")) {
+					console.log(ret.dataNam);
+					console.log(ret.dataNho);
+					console.log(ret.dataTrung);
+					console.log(ret.dataGia);
+
+					document.querySelector("p.sonu").innerText = ret.dataNu + " người";
+					document.querySelector("p.sonam").innerText = ret.dataNam + " người";
+					document.querySelector("p.sonho").innerText = ret.dataNho + " người";
+					document.querySelector("p.sotrung").innerText = ret.dataTrung + " người";
+					document.querySelector("p.sogia").innerText = ret.dataGia + " người";
+					document.querySelector("p.sotong").innerText = ret.dataTong + " người";
+
+				} else if(ret.rights.includes("tinh")) {
+					console.log(ret.dataNam);
+					console.log(ret.dataNho);
+					console.log(ret.dataTrung);
+					console.log(ret.dataGia);
+
+					document.querySelector("p.sonu").innerText = ret.dataNu + " người";
+					document.querySelector("p.sonam").innerText = ret.dataNam + " người";
+					document.querySelector("p.sonho").innerText = ret.dataNho + " người";
+					document.querySelector("p.sotrung").innerText = ret.dataTrung + " người";
+					document.querySelector("p.sogia").innerText = ret.dataGia + " người";
+				} else if(ret.rights.includes("huyen")) {
+					console.log(ret.dataNam);
+					console.log(ret.dataNho);
+					console.log(ret.dataTrung);
+					console.log(ret.dataGia);
+
+					document.querySelector("p.sonu").innerText = ret.dataNu + " người";
+					document.querySelector("p.sonam").innerText = ret.dataNam + " người";
+					document.querySelector("p.sonho").innerText = ret.dataNho + " người";
+					document.querySelector("p.sotrung").innerText = ret.dataTrung + " người";
+					document.querySelector("p.sogia").innerText = ret.dataGia + " người";
+				}
+				else if(ret.rights.includes("xa")) {
+					console.log(ret.dataNam);
+					console.log(ret.dataNho);
+					console.log(ret.dataTrung);
+					console.log(ret.dataGia);
+
+					document.querySelector("p.sonu").innerText = ret.dataNu + " người";
+					document.querySelector("p.sonam").innerText = ret.dataNam + " người";
+					document.querySelector("p.sonho").innerText = ret.dataNho + " người";
+					document.querySelector("p.sotrung").innerText = ret.dataTrung + " người";
+					document.querySelector("p.sogia").innerText = ret.dataGia + " người";
+				}
+				else {
+					
+				}
+				//--
+			} else if (ret.status == "NOK") {
+				if (ret.data == "ACCESS-DENIED") {
+					//document.querySelector("div.panel-noaccess").classList.remove("nodisplay");
+				}
+			} else {
+				// Có lỗi
+			}
+        })
+    } else {
+
+    }
+})
+
 /*Kiểm tra có được hiện nhập liệu không */
 function hiennhaplieu() {
 	fetch("../../index.php/hiennhaplieu")

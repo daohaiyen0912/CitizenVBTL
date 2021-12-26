@@ -103,7 +103,7 @@ document.querySelector("button.subCapQuyen").onclick = function() {
 		body: '{"cccd":"' + document.querySelector("input.cccd").value + 
 			'","ten":"' + document.querySelector("input.ten").value +
             '", "ngaysinh":"' + document.querySelector("input.ns").value +
-             '", "gioitinh":"' + "Nữ" +
+             '", "gioitinh":"' + "1" +
               '", "quequan":"' + document.querySelector("input.xa").value +  
               '", "dctamtru":"' + document.querySelector("input.xa1").value +  
               '", "tongiao":"' + document.querySelector("input.tongiao").value +  

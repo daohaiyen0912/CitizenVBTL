@@ -102,6 +102,13 @@
                                             values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", array($cccd, $ten, $ngaysinh, $gioitinh, $quequan, $dctamtru, $tongiao, $trinhdovh, $nghenghiep, $mathon));
         }
 
+        //Sửa dữ liệu người dân
+        public function updateNguoiDan($cccd, $ten, $ngaysinh, $gioitinh, $quequan, $dctamtru, $tongiao, $trinhdovh, $nghenghiep, $mathon) {
+            return $this->db->doPreparedSql("UPDATE dan SET cccd = ?, dctamtru = ?, gioitinh = ?, ngaysinh = ?, nghenghiep = ?, quequan = ?,
+            ten = ?, tongiao = ?, trinhdovh = ? 
+            WHERE cccd = ?;", array($cccd, $dctamtru, $gioitinh, $ngaysinh, $nghenghiep, $quequan, $ten, $tongiao, $trinhdovh, $cccd));
+        }
+
 		public function del($m) {
             return $this->db->doPreparedSql("delete from sinhvien where masv = ?;", array($m));
         }
@@ -148,5 +155,142 @@
         }
         public function getAllDan() {
             return $this->db->doPreparedQuery("SELECT * FROM dan;", array());
+        }
+
+        //Lấy số liệu dân
+        public function getSolieuDan() {
+            return $this->db->doPreparedSql("SELECT * FROM dan;", array());
+        }
+
+
+        //theo giới tính
+        public function getSolieuDanNu() {
+            return $this->db->doPreparedSql("SELECT gioitinh
+            FROM dan
+            WHERE gioitinh = 1;", array());
+        }
+        public function getSolieuDanNam() {
+            return $this->db->doPreparedSql("SELECT gioitinh
+            FROM dan
+            WHERE gioitinh = 0;", array());
+        }
+        public function getSolieuDanNuTinh($matinh) {
+            return $this->db->doPreparedSql("SELECT d.gioitinh
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            JOIN trunguong tu ON tu.matinh = ct.matinh
+            WHERE tu.matinh = ? AND d.gioitinh = 1;", array($matinh));
+        }
+        public function getSolieuDanNamTinh($matinh) {
+            return $this->db->doPreparedSql("SELECT d.gioitinh
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            JOIN trunguong tu ON tu.matinh = ct.matinh
+            WHERE tu.matinh = ? AND d.gioitinh = 0;", array($matinh));
+        }
+        public function getSolieuDanNuHuyen($mahuyen) {
+            return $this->db->doPreparedSql("SELECT COUNT(*) as soluong 
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            WHERE ct.mahuyen = ? AND d.gioitinh = 1
+            GROUP BY d.gioitinh;", array($mahuyen));
+        }
+        public function getSolieuDanNamHuyen($mahuyen) {
+            return $this->db->doPreparedSql("SELECT gioitinh
+            FROM dan
+            WHERE gioitinh = 0;", array($mahuyen));
+        }
+        public function getSolieuDanNuXa($maxa) {
+            return $this->db->doPreparedSql("SELECT d.gioitinh
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            WHERE ch.maxa = ? AND d.gioitinh = 1;", array($maxa));
+        }
+        public function getSolieuDanNamXa($maxa) {
+            return $this->db->doPreparedSql("SELECT gioitinh
+            FROM dan
+            WHERE gioitinh = 0;", array($maxa));
+        }
+        //
+
+        //Lấy số liệu dân theo tuôri
+        public function getSolieuDanTuoiNho() {
+            return $this->db->doPreparedSql("SELECT COUNT(*)
+            FROM dan d
+            WHERE ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0) BETWEEN 0 AND 14;", array());
+        }
+        public function getSolieuDanTuoiTrung() {
+            return $this->db->doPreparedSql("SELECT COUNT(*)
+            FROM dan d
+            WHERE ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0) BETWEEN 15 AND 59
+            GROUP BY ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0);", array());
+        }
+        public function getSolieuDanTuoiGia() {
+            return $this->db->doPreparedSql("SELECT COUNT(*)
+            FROM dan d
+            WHERE ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0) > 60
+            GROUP BY ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0);", array());
+        }
+
+        //tỉnh
+        public function getSolieuDanTuoiNhoTinh($matinh) {
+            return $this->db->doPreparedSql("SELECT COUNT(*)
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            JOIN trunguong tu ON tu.matinh = ct.matinh
+            WHERE tu.matinh = ? AND (ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0) BETWEEN 0 AND 14);", array($matinh));
+        }
+        public function getSolieuDanTuoiTrungTinh($matinh) {
+            return $this->db->doPreparedSql("SELECT COUNT(*)
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            JOIN trunguong tu ON tu.matinh = ct.matinh
+            WHERE tu.matinh = ? AND (ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0) BETWEEN 15 AND 59);", array($matinh));
+        }
+        public function getSolieuDanTuoiGiaTinh($matinh) {
+            return $this->db->doPreparedSql("SELECT COUNT(*)
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            JOIN trunguong tu ON tu.matinh = ct.matinh
+            WHERE tu.matinh = ? AND (ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0) > 60);", array($matinh));
+        }
+
+        //huyện
+        public function getSolieuDanTuoiNhoHuyen($mahuyen) {
+            return $this->db->doPreparedSql("SELECT COUNT(*)
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            WHERE ct.mahuyen = ? AND (ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0) BETWEEN 0 AND 14);", array($mahuyen));
+        }
+        public function getSolieuDanTuoiTrungHuyen($mahuyen) {
+            return $this->db->doPreparedSql("SELECT COUNT(*)
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            WHERE ct.mahuyen = ? AND (ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0) BETWEEN 15 AND 59);", array($mahuyen));
+        }
+        public function getSolieuDanTuoiGiaHuyen($mahuyen) {
+            return $this->db->doPreparedSql("SELECT COUNT(*)
+            FROM dan d
+            JOIN capxa cx ON cx.mathon = d.mathon
+            JOIN caphuyen ch ON ch.maxa = cx.maxa
+            JOIN captinh ct ON ct.mahuyen = ch.mahuyen
+            WHERE ct.mahuyen = ? AND (ROUND(DATEDIFF(CURDATE(), d.ngaysinh) / 365, 0) >60);", array($mahuyen));
         }
     }         

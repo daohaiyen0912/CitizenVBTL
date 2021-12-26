@@ -52,8 +52,15 @@
 				$moduleName = "qldata";
 				$controllerName = "ds";
 				$actionName = "proc1";
+			} else if ($_SERVER["REQUEST_METHOD"] == "GET" &&
+				count($commandArray) == 1	&&
+				strtolower($commandArray[0]) == "solieu")
+			{
+				$moduleName = "qldata";
+				$controllerName = "ds";
+				$actionName = "proc2";
 			}
-				
+					
 			// GET /students
 			if ($_SERVER["REQUEST_METHOD"] == "GET" &&
 				count($commandArray) == 1	&&
@@ -164,6 +171,14 @@
 			$moduleName = "qldata";
 			$controllerName = "ds";
 			$actionName = "addNguoiDan";
+		}
+			else if ($_SERVER["REQUEST_METHOD"] == "POST" &&
+			count($commandArray) == 1 &&	
+			strtolower($commandArray[0]) == "updatedulieu") 
+		{
+			$moduleName = "qldata";
+			$controllerName = "ds";
+			$actionName = "updateNguoiDan";
 		}
 
 			// DELETE /students/{id}
